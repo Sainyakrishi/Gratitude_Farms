@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" href="./site.css">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -15,7 +17,7 @@
   @keyframes pulseDot { 0%,100% { opacity:1; } 50% { opacity:0.35; } }
 </style>
 </helmet>
-<div style="position:fixed;top:70px;left:0;right:0;height:3px;background:transparent;z-index:90;">
+<div class="gf-sticky-under-nav" style="position:fixed;left:0;right:0;height:3px;background:transparent;z-index:90;">
   <div style="height:100%;background:linear-gradient(90deg,#C5A059,#e9c176);width:{{ scrollPct }}%;transition:width 0.1s linear;"></div>
 </div>
 
@@ -41,11 +43,11 @@
     </div>
   </section>
 
-  <div style="position:sticky;top:70px;z-index:30;background:rgba(252,249,244,0.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #e5e2dd;">
-    <div style="max-width:1200px;margin:0 auto;padding:16px clamp(24px,6vw,80px);display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#717976;text-transform:uppercase;letter-spacing:0.08em;margin-right:6px;">Built for →</span>
+  <div class="gf-sticky-under-nav" style="position:sticky;z-index:30;background:rgba(252,249,244,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #e5e2dd;">
+    <div class="gf-scroll-x" style="max-width:1200px;margin:0 auto;padding:14px clamp(24px,6vw,80px);display:flex;gap:10px;align-items:center;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#717976;text-transform:uppercase;letter-spacing:0.08em;margin-right:6px;white-space:nowrap;">Built for →</span>
       <sc-for list="{{ audienceTabs }}" as="tab" hint-placeholder-count="5">
-        <button onClick="{{ tab.onClick }}" style="background:{{ tab.bg }};color:{{ tab.color }};border:1px solid {{ tab.border }};border-radius:999px;padding:10px 18px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;transition:all 0.2s ease;">{{ tab.short }}</button>
+        <button onClick="{{ tab.onClick }}" aria-pressed="{{ tab.pressed }}" style="background:{{ tab.bg }};color:{{ tab.color }};border:1px solid {{ tab.border }};border-radius:999px;padding:10px 18px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;transition:all 0.2s ease;white-space:nowrap;flex-shrink:0;">{{ tab.short }}</button>
       </sc-for>
     </div>
   </div>
@@ -235,16 +237,48 @@
       <p style="color:#83a69c;font-size:15px;margin:0 auto 36px;max-width:520px;">Want detailed pricing, timelines and implementation guidance? Download the brochure or connect with our specialists.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
         <a href="{{ enquireHref }}" style="text-decoration:none;background:#C5A059;color:#1A3C34;font-weight:700;font-size:17px;padding:19px 40px;border-radius:14px;transition:transform 0.2s ease,box-shadow 0.2s ease;" style-hover="transform:translateY(-3px);box-shadow:0 16px 36px rgba(197,160,89,0.45);">Enquire Now</a>
-        <button onClick="{{ downloadBrochure }}" style="background:transparent;border:1px solid rgba(250,250,249,0.5);color:#FAFAF9;font-weight:700;font-size:17px;padding:19px 40px;border-radius:14px;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;">⬇ Download Brochure (PDF)</button>
+        <a href="{{ brochureHref }}" download="Gratitude-Farms-Service-Specifications.pdf" onClick="{{ onBrochure }}" style="text-decoration:none;background:transparent;border:1px solid rgba(250,250,249,0.5);color:#FAFAF9;font-weight:700;font-size:17px;padding:19px 40px;border-radius:14px;display:inline-block;" style-hover="background:rgba(250,250,249,0.1);color:#FAFAF9;">⬇ Download Full Specification (PDF)</a>
       </div>
-      <a href="tel:+919360903652" style="text-decoration:none;color:#e9c176;font-size:15px;font-weight:600;">Talk to an Expert →</a>
+      <a href="tel:{{ phoneDial }}" style="text-decoration:none;color:#e9c176;font-size:15px;font-weight:600;">Talk to an Expert →</a>
+    </div>
+  </section>
+
+  <section id="other-services" style="padding:0 clamp(24px,6vw,80px) clamp(64px,8vw,110px);">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px;">
+        <h2 style="font-family:'Source Serif 4',serif;font-size:clamp(22px,2.8vw,30px);color:#1A3C34;margin:0;">Explore Our Other Services</h2>
+        <a href="Our-Services.dc.html" style="text-decoration:none;color:#1A3C34;font-weight:700;font-size:14px;border-bottom:1px solid #1A3C34;padding-bottom:2px;">All Services →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;">
+        <sc-for list="{{ otherServices }}" as="o" hint-placeholder-count="3">
+          <a class="gf-card-lift" href="{{ o.href }}" style="text-decoration:none;background:#FAFAF9;border:1px solid #e5e2dd;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:10px;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#C5A059;text-transform:uppercase;">{{ o.code }}</span>
+            <span style="font-family:'Source Serif 4',serif;font-size:19px;color:#1A3C34;font-weight:700;line-height:1.3;">{{ o.name }}</span>
+            <sc-if value="{{ o.brand }}"><span style="font-family:'Source Serif 4',serif;font-size:14px;color:#C5A059;font-weight:700;">{{ o.brand }}</span></sc-if>
+            <span style="color:#414846;font-size:13.5px;line-height:1.6;margin-top:2px;">{{ o.short }}</span>
+          </a>
+        </sc-for>
+        <a class="gf-card-lift" href="Nakshatra-Vanam.dc.html" style="text-decoration:none;background:#e8f3ee;border:1px solid #c5eadf;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#2D5A27;text-transform:uppercase;">Add-on Program</span>
+          <span style="font-family:'Source Serif 4',serif;font-size:19px;color:#1A3C34;font-weight:700;line-height:1.3;">Personal Nakshatra Vanam</span>
+          <span style="color:#414846;font-size:13.5px;line-height:1.6;margin-top:2px;">A 1-acre micro-forest of 120 trees aligned to your birth star.</span>
+        </a>
+      </div>
     </div>
   </section>
 
 </sc-if>
 
+<sc-if value="{{ notFound }}">
+  <section style="max-width:800px;margin:0 auto;padding:clamp(80px,12vw,140px) clamp(24px,6vw,80px);text-align:center;">
+    <h1 style="font-family:'Source Serif 4',serif;font-size:clamp(26px,4vw,34px);color:#1A3C34;margin:0 0 16px;">We couldn't find that service</h1>
+    <p style="color:#414846;font-size:16px;line-height:1.7;margin:0 0 28px;">It may have been renamed or moved. Browse everything we offer instead.</p>
+    <a href="Our-Services.dc.html" style="text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;">View All Services</a>
+  </section>
+</sc-if>
+
 <sc-if value="{{ toastVisible }}">
-  <div style="position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:#1A3C34;color:#FAFAF9;padding:16px 28px;border-radius:12px;font-size:14.5px;box-shadow:0 12px 32px rgba(0,0,0,0.25);z-index:200;">Full Service Product Specification is on its way to your email.</div>
+  <div class="gf-toast" role="status">Your download has started — the full Service Product Specification (PDF).</div>
 </sc-if>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;serviceKey&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;managed-farmland&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
@@ -265,13 +299,25 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
+    clearTimeout(this.toastTimer);
+  }
+
+  // Keep ?audience= in step with the visible tab, so the segmented view stays
+  // shareable and the browser's back button works the way people expect.
+  setAudience(key) {
+    this.setState({ audience: key });
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set('audience', key);
+      window.history.replaceState({}, '', url);
+    } catch (e) {}
   }
 
   renderVals() {
     if (!this.data) {
-      return { svc: null, aud: null, audienceTabs: [], toastVisible: false, scrollPct: 0 };
+      return { svc: null, aud: null, audienceTabs: [], otherServices: [], notFound: false, toastVisible: false, scrollPct: 0 };
     }
-    const { SERVICES, AUDIENCES } = this.data;
+    const { SERVICES, AUDIENCES, SERVICE_PAGES } = this.data;
     const base = SERVICES.find(s => s.key === this.props.serviceKey);
     const audDef = AUDIENCES.find(a => a.key === this.state.audience) || AUDIENCES[0];
     const pad = n => String(n).padStart(2, '0');
@@ -293,23 +339,38 @@ class Component extends DCLogic {
 
     const audienceTabs = AUDIENCES.map(a => ({
       short: a.short,
+      pressed: String(a.key === this.state.audience),
       bg: a.key === this.state.audience ? '#1A3C34' : '#FAFAF9',
       color: a.key === this.state.audience ? '#FAFAF9' : '#414846',
       border: a.key === this.state.audience ? '#1A3C34' : '#e5e2dd',
-      onClick: () => this.setState({ audience: a.key })
+      onClick: () => this.setAudience(a.key)
+    }));
+
+    // Every other flagship service, so no service page is a dead end.
+    const otherServices = SERVICES.filter(s => s.key !== this.props.serviceKey).map(s => ({
+      code: s.code,
+      name: s.name,
+      brand: s.brand,
+      short: s.highlights && s.highlights[0] ? s.highlights[0] : s.badge,
+      href: SERVICE_PAGES[s.key]
     }));
 
     return {
       svc,
       aud,
       audienceTabs,
+      otherServices,
+      notFound: !base,
       enquireHref: base ? `Contact.dc.html?service=${encodeURIComponent(base.name)}&audience=${encodeURIComponent(audDef.label)}` : 'Contact.dc.html',
       ctaText: base ? `For ${audDef.label}, our team can help you identify the right solution for your land through ${base.name}${base.brand ? ' (' + base.brand + ')' : ''}.` : '',
+      brochureHref: 'assets/docs/gratitude-farms-service-specifications.pdf',
+      phoneDial: '+919360903652',
       toastVisible: this.state.toastVisible,
       scrollPct: this.state.scrollPct,
-      downloadBrochure: () => {
+      onBrochure: () => {
         this.setState({ toastVisible: true });
-        setTimeout(() => this.setState({ toastVisible: false }), 3000);
+        clearTimeout(this.toastTimer);
+        this.toastTimer = setTimeout(() => this.setState({ toastVisible: false }), 4000);
       }
     };
   }

@@ -3,12 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gratitude Farms Journal — Natural Farming Insights</title>
+<meta name="description" content="Gratitude Farms Blog — field-tested insights on natural farming, soil regeneration, biochar, carbon farming, food forests and rural entrepreneurship.">
+<link rel="icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" href="./site.css">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<meta name="description" content="Gratitude Farms Blog — field-tested insights on natural farming, soil regeneration, biochar, carbon farming, food forests and rural entrepreneurship."></meta>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"></link>
 <style>
   body{margin:0;background:#FCF9F4;} a{color:#1A3C34;} a:hover{color:#C5A059;}
@@ -16,21 +19,21 @@
 </style>
 </helmet>
 <dc-import name="SiteNav" active="blog" hint-size="100%,70px"></dc-import>
-<main style="font-family:'Hanken Grotesk',sans-serif;background:#FCF9F4;overflow-x:hidden;">
-  <section style="max-width:1440px;margin:0 auto;padding:100px 80px 20px;">
+<main style="font-family:'Hanken Grotesk',sans-serif;background:#FCF9F4;overflow-x:clip;">
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(45px,8.3vw,100px) clamp(20px,5.5vw,80px) 20px;">
     <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#C5A059;text-transform:uppercase;">Insights &amp; Field Notes</span>
     <h1 style="font-family:'Source Serif 4',serif;font-size:clamp(32px,5vw,50px);color:#1A3C34;margin:18px 0 16px;">The Gratitude Farms Journal</h1>
     <p style="color:#414846;font-size:16.5px;line-height:1.7;max-width:640px;margin:0 0 22px;">Field-tested writing on natural farming, soil regeneration, biochar and the circular bio-economy, food forests, and building rural livelihoods with ex-servicemen.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+    <div role="group" aria-label="Filter articles by topic" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
       <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="5">
-        <span style="background:#F5F2ED;border:1px solid #e5e2dd;color:#3C4A3E;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;">{{ cat }}</span>
+        <button class="gf-chip" aria-pressed="{{ cat.pressed }}" onClick="{{ cat.onClick }}">{{ cat.label }}<sc-if value="{{ cat.count }}"><span style="opacity:0.6;margin-left:6px;font-weight:500;">{{ cat.count }}</span></sc-if></button>
       </sc-for>
     </div>
   </section>
 
   <sc-if value="{{ featured }}">
-    <section style="max-width:1440px;margin:0 auto;padding:48px 80px 40px;">
-      <a href="{{ featured.href }}" style="text-decoration:none;display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:#FAFAF9;border:1px solid #e5e2dd;border-radius:24px;overflow:hidden;align-items:stretch;transition:transform 0.25s ease, box-shadow 0.25s ease;" style-hover="transform:translateY(-5px);box-shadow:0 24px 56px rgba(26,60,52,0.14);">
+    <section style="max-width:1440px;margin:0 auto;padding:48px clamp(20px,5.5vw,80px) 40px;">
+      <a href="{{ featured.href }}" class="gf-2col" style="text-decoration:none;display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:#FAFAF9;border:1px solid #e5e2dd;border-radius:24px;overflow:hidden;align-items:stretch;transition:transform 0.25s ease, box-shadow 0.25s ease;" style-hover="transform:translateY(-5px);box-shadow:0 24px 56px rgba(26,60,52,0.14);">
         <div role="img" aria-label="{{ featured.title }}" style="min-height:340px;background-image:url('{{ featured.hero }}');background-size:cover;background-position:center;"></div>
         <div style="padding:48px;display:flex;flex-direction:column;justify-content:center;">
           <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#C5A059;text-transform:uppercase;margin-bottom:14px;">Featured · {{ featured.category }}</span>
@@ -42,8 +45,16 @@
     </section>
   </sc-if>
 
-  <section style="max-width:1440px;margin:0 auto;padding:20px 80px 140px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
+  <section style="max-width:1440px;margin:0 auto;padding:20px clamp(20px,5.5vw,80px) clamp(63px,11.7vw,140px);">
+    <sc-if value="{{ resultLabel }}">
+      <p role="status" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#717976;text-transform:uppercase;margin:0 0 24px;">{{ resultLabel }}</p>
+    </sc-if>
+    <sc-if value="{{ !hasPosts }}">
+      <div style="background:#FAFAF9;border:1px solid #e5e2dd;border-radius:18px;padding:48px 32px;text-align:center;">
+        <p style="color:#414846;font-size:16px;line-height:1.7;margin:0;">No articles in this topic yet — more field notes are on the way.</p>
+      </div>
+    </sc-if>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;">
       <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
         <a href="{{ post.href }}" style="text-decoration:none;background:#FAFAF9;border:1px solid #e5e2dd;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;animation:fadeUp 0.5s ease both;animation-delay:{{ post.delay }};transition:transform 0.25s ease, box-shadow 0.25s ease;" style-hover="transform:translateY(-6px);box-shadow:0 20px 44px rgba(26,60,52,0.12);">
           <div role="img" aria-label="{{ post.title }}" style="aspect-ratio:16/10;overflow:hidden;background-image:url('{{ post.hero }}');background-size:cover;background-position:center;"></div>
@@ -62,20 +73,61 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { posts: [], featured: null };
+  state = { all: [], filter: 'All' };
+
   componentDidMount() {
     import('./blog-data.js').then(mod => {
       const all = mod.POSTS.map(p => ({ ...p, href: `Blog-Post.dc.html?slug=${p.slug}` }));
-      const featured = all.find(p => p.featured) || all[0];
-      const rest = all.filter(p => p !== featured).map((p, i) => ({ ...p, delay: `${i * 70}ms` }));
-      this.setState({ posts: rest, featured });
+      this.setState({ all });
     });
+    // Deep links like Blog.dc.html?category=Natural%20Farming land pre-filtered.
+    const cat = new URLSearchParams(window.location.search).get('category');
+    if (cat) this.setState({ filter: cat });
   }
+
+  setFilter(label) {
+    this.setState({ filter: label });
+    try {
+      const url = new URL(window.location.href);
+      if (label === 'All') url.searchParams.delete('category');
+      else url.searchParams.set('category', label);
+      window.history.replaceState({}, '', url);
+    } catch (e) {}
+  }
+
   renderVals() {
+    const all = this.state.all;
+    const filter = this.state.filter;
+
+    // Categories come from the posts themselves, so the filter row can never
+    // offer a topic with nothing behind it.
+    const counts = new Map();
+    all.forEach(p => counts.set(p.category, (counts.get(p.category) || 0) + 1));
+
+    const categories = [{ label: 'All', count: all.length }]
+      .concat([...counts.entries()].map(([label, count]) => ({ label, count })))
+      .map(c => ({
+        label: c.label,
+        count: c.count ? String(c.count) : '',
+        pressed: String(filter === c.label),
+        onClick: () => this.setFilter(c.label)
+      }));
+
+    const matching = filter === 'All' ? all : all.filter(p => p.category === filter);
+    // The featured slot only makes sense on the unfiltered view.
+    const featured = filter === 'All' ? (matching.find(p => p.featured) || matching[0] || null) : null;
+    const posts = matching
+      .filter(p => p !== featured)
+      .map((p, i) => ({ ...p, delay: `${i * 70}ms` }));
+
     return {
-      categories: ['Natural Farming', 'Soil & Biochar', 'Case Studies', 'Food Forests', 'Ex-Servicemen', 'Land Restoration'],
-      featured: this.state.featured,
-      posts: this.state.posts
+      categories,
+      featured,
+      posts,
+      hasPosts: posts.length > 0 || !!featured,
+      resultLabel: filter === 'All'
+        ? ''
+        : `${matching.length} article${matching.length === 1 ? '' : 's'} in ${filter}`
     };
   }
 }

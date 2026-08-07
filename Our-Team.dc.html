@@ -3,12 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Team — Board, Advisors & Leadership | Gratitude Farms</title>
+<meta name="description" content="Meet the Gratitude Farms team - Board of Directors, Board of Advisors and Leadership.">
+<link rel="icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" href="./site.css">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<meta name="description" content="Meet the Gratitude Farms team - Board of Directors, Board of Advisors and Leadership."></meta>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"></link>
 <style>
   body { margin:0; background:#FCF9F4; }
@@ -18,14 +21,14 @@
 </helmet>
 <dc-import name="SiteNav" active="about" hint-size="100%,70px"></dc-import>
 
-<main style="font-family:'Hanken Grotesk',sans-serif;background:#FCF9F4;overflow-x:hidden;">
-  <section style="max-width:1440px;margin:0 auto;padding:100px 80px 20px;text-align:center;">
+<main style="font-family:'Hanken Grotesk',sans-serif;background:#FCF9F4;overflow-x:clip;">
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(45px,8.3vw,100px) clamp(20px,5.5vw,80px) 20px;text-align:center;">
     <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#C5A059;text-transform:uppercase;">About Team</span>
     <h1 style="font-family:'Source Serif 4',serif;font-size:clamp(32px,5vw,54px);color:#1A3C34;margin:20px auto 22px;max-width:800px;">The Discipline Behind the Soil</h1>
     <p style="color:#414846;font-size:17px;line-height:1.7;max-width:640px;margin:0 auto;">Ex-servicemen, technologists and agricultural scientists working together to build India's most trusted natural farming enterprise.</p>
   </section>
 
-  <section style="max-width:1440px;margin:0 auto;padding:80px 80px 20px;">
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(36px,6.7vw,80px) clamp(20px,5.5vw,80px) 20px;">
     <h2 style="font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,32px);color:#1A3C34;margin:0 0 40px;text-align:center;">Board of Directors</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:700px;margin:0 auto;">
       <sc-for list="{{ directors }}" as="person" hint-placeholder-count="2">
@@ -34,7 +37,7 @@
     </div>
   </section>
 
-  <section style="max-width:1440px;margin:0 auto;padding:60px 80px 20px;">
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(27px,5.0vw,60px) clamp(20px,5.5vw,80px) 20px;">
     <h2 style="font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,32px);color:#1A3C34;margin:0 0 40px;text-align:center;">Leadership Team</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
       <sc-for list="{{ leadership }}" as="person" hint-placeholder-count="3">
@@ -43,7 +46,7 @@
     </div>
   </section>
 
-  <section style="max-width:1440px;margin:0 auto;padding:60px 80px 140px;">
+  <section style="max-width:1440px;margin:0 auto;padding:clamp(27px,5.0vw,60px) clamp(20px,5.5vw,80px) clamp(63px,11.7vw,140px);">
     <h2 style="font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,32px);color:#1A3C34;margin:0 0 40px;text-align:center;">Board of Advisors</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
       <sc-for list="{{ advisors }}" as="person" hint-placeholder-count="4">
@@ -57,22 +60,21 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   renderVals() {
-    const base = 'https://gratitudefarms.co.in/wp-content/uploads/2024/08/';
     return {
       directors: [
-        { name: 'Major VP Sharma (Retd)', role: 'Co-Founder & CEO', photo: base + 'Major-VP-Sharma.png', bio: 'Veteran Army officer bringing strategic discipline to natural precision farming.' },
-        { name: 'Ayushi Sharma', role: 'Co-Founder & Director', photo: base + 'Ayushi-Sharma.png', bio: 'Leads brand, partnerships and the Nakshatra Vanam heritage program.' }
+        { name: 'Major VP Sharma (Retd)', role: 'Co-Founder & CEO', photo: 'assets/team/major-vp-sharma.png', bio: 'Veteran Army officer bringing strategic discipline to natural precision farming.' },
+        { name: 'Ayushi Sharma', role: 'Co-Founder & Director', photo: 'assets/team/ayushi-sharma.png', bio: 'Leads brand, partnerships and the Nakshatra Vanam heritage program.' }
       ],
       leadership: [
-        { name: 'Abhilash', role: 'Co-Founder & CEO, Operations', photo: base + 'testimonial-2.jpg', bio: 'Oversees farm operations and technology deployment across sites.' },
-        { name: 'Shoba Srinivas', role: 'Manager, HR & Projects', photo: base + 'Shobha_Srinivas.png', bio: 'Coordinates ex-servicemen onboarding and project delivery.' },
-        { name: 'Raja Ganesh', role: 'Manager, HR & Projects', photo: base + '649-07238897en_Masterfile.jpg', bio: 'Manages field teams and community entrepreneurship programs.' }
+        { name: 'Abhilash', role: 'Co-Founder & CEO, Operations', photo: 'assets/team/placeholder-avatar.svg', bio: 'Oversees farm operations and technology deployment across sites.' },
+        { name: 'Shoba Srinivas', role: 'Manager, HR & Projects', photo: 'assets/team/shoba-srinivas.png', bio: 'Coordinates ex-servicemen onboarding and project delivery.' },
+        { name: 'Raja Ganesh', role: 'Manager, HR & Projects', photo: 'assets/team/raja-ganesh.jpg', bio: 'Manages field teams and community entrepreneurship programs.' }
       ],
       advisors: [
-        { name: 'Dr. Ramesh Mittal', role: 'Director, NIAM Jaipur', photo: base + 'Dr-Ramesh-pic.png', bio: 'Guides agricultural marketing strategy and policy alignment.' },
-        { name: 'Kannan Narayanaswamy', role: 'Mentor | Coach', photo: base + 'Kannan-Narayanaswamy-pic.png', bio: 'Advises on organizational growth and leadership development.' },
-        { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: base + 'Kannan-Narayanaswamy-pic-1.png', bio: 'Brings decades of agribusiness and supply-chain expertise.' },
-        { name: 'Shyam Kaluve', role: 'IT Industry Veteran', photo: base + 'Kannan-Narayanaswamy-pic-2.png', bio: 'Advises on precision agriculture technology and data systems.' }
+        { name: 'Dr. Ramesh Mittal', role: 'Director, NIAM Jaipur', photo: 'assets/team/dr-ramesh-mittal.png', bio: 'Guides agricultural marketing strategy and policy alignment.' },
+        { name: 'Kannan Narayanaswamy', role: 'Mentor | Coach', photo: 'assets/team/kannan-narayanaswamy.png', bio: 'Advises on organizational growth and leadership development.' },
+        { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: 'assets/team/mv-ashok.png', bio: 'Brings decades of agribusiness and supply-chain expertise.' },
+        { name: 'Shyam Kaluve', role: 'IT Industry Veteran', photo: 'assets/team/shyam-kaluve.png', bio: 'Advises on precision agriculture technology and data systems.' }
       ]
     };
   }

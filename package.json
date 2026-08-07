@@ -1,0 +1,17 @@
+{
+  "name": "gratitude-farms-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gratitude Farms — natural precision farming website",
+  "scripts": {
+    "start": "http-server -p 8899 -c-1 .",
+    "check": "node tools/check-static.js",
+    "check:render": "node tools/check-render.js",
+    "check:interactions": "node tools/check-interactions.js",
+    "check:all": "npm run check && npm run check:render && npm run check:interactions"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "puppeteer": "^24.0.0"
+  }
+}
