@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Contact Gratitude Farms - enquire about farmland development, ESG partnerships and Nakshatra Vanam."></meta>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"></link>
+<style>body{margin:0;background:#FCF9F4;} a{color:#1A3C34;} a:hover{color:#C5A059;}</style>
+</helmet>
+<dc-import name="SiteNav" active="contact" hint-size="100%,70px"></dc-import>
+<main style="font-family:'Hanken Grotesk',sans-serif;background:#FCF9F4;overflow-x:hidden;">
+  <section style="max-width:1440px;margin:0 auto;padding:100px 80px 20px;text-align:center;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#C5A059;text-transform:uppercase;">Get in Touch</span>
+    <h1 style="font-family:'Source Serif 4',serif;font-size:clamp(32px,5vw,52px);color:#1A3C34;margin:18px auto 0;max-width:700px;">Let's Grow Something Together</h1>
+    <sc-if value="{{ prefillService }}">
+      <div style="display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:22px;">
+        <span style="background:#F5F2ED;border:1px solid #e5e2dd;color:#1A3C34;font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;">Service: {{ prefillService }}</span>
+        <sc-if value="{{ prefillAudience }}"><span style="background:#F5F2ED;border:1px solid #e5e2dd;color:#1A3C34;font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;">Audience: {{ prefillAudience }}</span></sc-if>
+      </div>
+    </sc-if>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:80px 80px 140px;display:grid;grid-template-columns:1fr 1.2fr;gap:48px;">
+    <div style="display:flex;flex-direction:column;gap:28px;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#2D5A27;text-transform:uppercase;margin-bottom:8px;">Address</div>
+        <div style="color:#1A3C34;font-size:15.5px;line-height:1.6;max-width:340px;">Gratitude Farms Private Limited, No.70, Auroville Main Road, Periyamudaliyar Chavadi, Kottakuppam, Town Panchayath, Pondicherry – 605104, India.</div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#2D5A27;text-transform:uppercase;margin-bottom:8px;">Phone</div>
+        <a href="tel:+919360903652" style="text-decoration:none;color:#1A3C34;font-size:19px;font-weight:700;">+91 93609 03652</a>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#2D5A27;text-transform:uppercase;margin-bottom:8px;">Email</div>
+        <a href="mailto:info@gratitudefarms.co.in" style="text-decoration:none;color:#1A3C34;font-size:19px;font-weight:700;">info@gratitudefarms.co.in</a>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#2D5A27;text-transform:uppercase;margin-bottom:8px;">Follow Us</div>
+        <div style="display:flex;gap:10px;">
+          <a href="https://www.facebook.com/gratitudefarmsindia/" style="width:40px;height:40px;border-radius:999px;background:#F5F2ED;display:flex;align-items:center;justify-content:center;color:#1A3C34;text-decoration:none;font-size:13px;" style-hover="background:#1A3C34;color:#fff;">FB</a>
+          <a href="https://www.instagram.com/gratitude_farms/" style="width:40px;height:40px;border-radius:999px;background:#F5F2ED;display:flex;align-items:center;justify-content:center;color:#1A3C34;text-decoration:none;font-size:13px;" style-hover="background:#1A3C34;color:#fff;">IG</a>
+          <a href="https://www.linkedin.com/company/gratitudefarmsindia" style="width:40px;height:40px;border-radius:999px;background:#F5F2ED;display:flex;align-items:center;justify-content:center;color:#1A3C34;text-decoration:none;font-size:13px;" style-hover="background:#1A3C34;color:#fff;">IN</a>
+          <a href="https://www.youtube.com/channel/UC61AuTlj_15ZXKLPCQF-F2w" style="width:40px;height:40px;border-radius:999px;background:#F5F2ED;display:flex;align-items:center;justify-content:center;color:#1A3C34;text-decoration:none;font-size:13px;" style-hover="background:#1A3C34;color:#fff;">YT</a>
+        </div>
+      </div>
+      <div style="border-radius:16px;overflow:hidden;margin-top:8px;"><img src="assets/greenhouse-walkway.png" alt="Gratitude Farms cultivation site" style="width:100%;display:block;object-fit:cover;"/></div>
+    </div>
+    <form style="background:#FAFAF9;border:1px solid #e5e2dd;border-radius:20px;padding:44px;display:flex;flex-direction:column;gap:20px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A3C34;display:block;margin-bottom:8px;">First Name</label><input type="text" placeholder="John" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid #c1c8c4;padding:10px 0;font-size:15px;font-family:'Hanken Grotesk',sans-serif;"/></div>
+        <div><label style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A3C34;display:block;margin-bottom:8px;">Last Name</label><input type="text" placeholder="Doe" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid #c1c8c4;padding:10px 0;font-size:15px;font-family:'Hanken Grotesk',sans-serif;"/></div>
+      </div>
+      <div><label style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A3C34;display:block;margin-bottom:8px;">Email Address</label><input type="email" placeholder="john@example.com" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid #c1c8c4;padding:10px 0;font-size:15px;font-family:'Hanken Grotesk',sans-serif;"/></div>
+      <div>
+        <label style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A3C34;display:block;margin-bottom:8px;">I'm Interested In</label>
+        <select value="{{ interestValue }}" onChange="{{ onInterestChange }}" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid #c1c8c4;padding:10px 0;font-size:15px;font-family:'Hanken Grotesk',sans-serif;color:#1c1c19;">
+          <sc-for list="{{ interestOptions }}" as="opt" hint-placeholder-count="6">
+            <option value="{{ opt }}">{{ opt }}</option>
+          </sc-for>
+        </select>
+      </div>
+      <div><label style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#1A3C34;display:block;margin-bottom:8px;">Message</label><textarea rows="4" placeholder="Tell us about your land, goals, or partnership idea..." value="{{ messageValue }}" onChange="{{ onMessageChange }}" style="width:100%;box-sizing:border-box;background:transparent;border:1px solid #c1c8c4;border-radius:8px;padding:12px;font-size:14.5px;font-family:'Hanken Grotesk',sans-serif;resize:vertical;"></textarea></div>
+      <button type="submit" style="background:#1A3C34;color:#fff;border:none;border-radius:12px;padding:16px;font-size:14px;font-weight:700;cursor:pointer;" style-hover="background:#C5A059;color:#1A3C34;">Send Enquiry</button>
+    </form>
+  </section>
+
+  <section style="max-width:1000px;margin:0 auto;padding:0 80px 140px;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#C5A059;text-transform:uppercase;">Answers</span>
+      <h2 style="font-family:'Source Serif 4',serif;font-size:clamp(28px,3.5vw,40px);color:#1A3C34;margin:14px 0 0;">Frequently Asked Questions</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+        <div style="background:#FAFAF9;border:1px solid #e5e2dd;border-radius:16px;overflow:hidden;">
+          <button onClick="{{ f.onToggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;background:none;border:none;cursor:pointer;padding:24px 28px;font-family:'Hanken Grotesk',sans-serif;">
+            <span style="font-family:'Source Serif 4',serif;font-size:18px;color:#1A3C34;font-weight:700;">{{ f.question }}</span>
+            <span style="flex-shrink:0;width:28px;height:28px;border-radius:999px;background:#F5F2ED;color:#1A3C34;display:flex;align-items:center;justify-content:center;font-size:18px;">{{ f.icon }}</span>
+          </button>
+          <sc-if value="{{ f.open }}">
+            <div style="padding:0 28px 26px;color:#414846;font-size:15.5px;line-height:1.75;">{{ f.answer }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1440px;margin:0 auto;padding:0 80px 140px;">
+    <div style="border-radius:20px;overflow:hidden;border:1px solid #e5e2dd;height:440px;">
+      <iframe src="https://maps.google.com/maps?q=Gratitude%20Farms%20Private%20Limited%2C%20Auroville%20Main%20Road%2C%20Kottakuppam%2C%20Pondicherry%20605104&t=m&z=15&output=embed&iwloc=near" title="Gratitude Farms location map" style="width:100%;height:100%;border:0;" loading="lazy"></iframe>
+    </div>
+  </section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,400px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { prefillService: '', prefillAudience: '', interestValue: 'Farmland Development', messageValue: '', openFaq: 0 };
+  baseOptions = ['Farmland Development', 'Personal Nakshatra Vanam', 'Corporate ESG Partnership', "Sainya Krishi (I'm an Ex-Serviceman)", 'Medicinal Plants & Produce'];
+  faqItems = [
+    { question: 'What is natural farming and how is it different from organic farming?', answer: 'Natural farming is a chemical-free, self-regenerating system that rebuilds soil biology using on-farm inputs like Jeevamrutham and biochar. Unlike organic farming, which often still depends on external inputs, it minimises outside dependence and restores the soil’s own fertility.' },
+    { question: 'Do you manage the entire farm, or only part of it?', answer: 'Our Managed Farmland service is fully end-to-end — soil restoration, design, cultivation, operations and market linkage under one accountable contract. You can also engage any single service (soil, design or operations) on its own.' },
+    { question: 'How long does it take to restore a barren or degraded farm?', answer: 'Most farmland development projects take 6 to 12 months, during which soil organic carbon is raised from below 0.5% to over 3% using biochar, Amrit Mitti beds and natural bio-inputs.' },
+    { question: 'How can ex-servicemen join Sainya Krishi?', answer: 'Ex-servicemen can apply through this Contact page. Selected candidates receive NSDC-aligned residential training, help establishing a Food Forest farm, and market access under the Sainya Krishi “We are your Family Farmers” brand.' },
+    { question: 'Do you work with corporates for ESG and carbon credits?', answer: 'Yes. We deliver verifiable carbon offsetting, community agriculture and sustainable supply-chain programs with audit-ready reporting for corporate ESG and CSR mandates.' },
+    { question: 'Where are you located and which regions do you serve?', answer: 'Gratitude Farms is based in Pondicherry (Kottakuppam) and works with landowners, FPOs and corporates across India. Direct-to-consumer produce is feasible for farms within 100–150 km of a city.' }
+  ];
+
+  componentDidMount() {
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get('service') || '';
+    const audience = params.get('audience') || '';
+    if (service) {
+      const msg = audience ? `Enquiring about: ${service} (Audience: ${audience})` : `Enquiring about: ${service}`;
+      this.setState({ prefillService: service, prefillAudience: audience, interestValue: service, messageValue: msg });
+    }
+    try {
+      let ld = document.getElementById('faq-ld');
+      if (!ld) { ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'faq-ld'; document.head.appendChild(ld); }
+      ld.textContent = JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'FAQPage',
+        mainEntity: this.faqItems.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } }))
+      });
+    } catch (e) {}
+  }
+
+  renderVals() {
+    const options = this.state.prefillService && !this.baseOptions.includes(this.state.prefillService)
+      ? [this.state.prefillService, ...this.baseOptions]
+      : this.baseOptions;
+    return {
+      prefillService: this.state.prefillService,
+      prefillAudience: this.state.prefillAudience,
+      interestOptions: options,
+      interestValue: this.state.interestValue,
+      messageValue: this.state.messageValue,
+      onInterestChange: (e) => this.setState({ interestValue: e.target.value }),
+      onMessageChange: (e) => this.setState({ messageValue: e.target.value }),
+      faqs: this.faqItems.map((f, i) => ({
+        question: f.question, answer: f.answer,
+        open: this.state.openFaq === i, icon: this.state.openFaq === i ? '−' : '+',
+        onToggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

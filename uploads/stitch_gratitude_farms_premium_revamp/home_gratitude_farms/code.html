@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gratitude Farms | Modern Traditionalism</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e5e2dd",
+                      "on-background": "#1c1c19",
+                      "surface-container": "#f0ede8",
+                      "surface": "#fcf9f4",
+                      "background": "#fcf9f4",
+                      "secondary-container": "#fed488",
+                      "primary-fixed": "#c5eadf",
+                      "secondary": "#775a19",
+                      "outline": "#717976",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#111e14",
+                      "outline-variant": "#c1c8c4",
+                      "soft-emerald": "#2D5A27",
+                      "surface-container-highest": "#e5e2dd",
+                      "on-secondary-container": "#785a1a",
+                      "tertiary-container": "#2c392e",
+                      "on-primary-fixed-variant": "#2b4d44",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#414846",
+                      "primary-fixed-dim": "#aacec3",
+                      "inverse-on-surface": "#f3f0eb",
+                      "primary": "#01261f",
+                      "on-secondary-fixed": "#261900",
+                      "surface-container-high": "#ebe8e3",
+                      "on-primary-fixed": "#00201a",
+                      "stone-white": "#FAFAF9",
+                      "surface-dim": "#dcdad5",
+                      "tertiary-fixed-dim": "#bbcbbb",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#1a3c34",
+                      "inverse-primary": "#aacec3",
+                      "on-primary-container": "#83a69c",
+                      "forest-green": "#1A3C34",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "tertiary-fixed": "#d7e7d6",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#162419",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#ffdea5",
+                      "surface-container-low": "#f6f3ee",
+                      "surface-tint": "#43655c",
+                      "on-tertiary-container": "#93a394",
+                      "on-tertiary-fixed-variant": "#3c4a3e",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed-dim": "#e9c176",
+                      "golden-highlight": "#C5A059",
+                      "on-surface": "#1c1c19",
+                      "surface-bright": "#fcf9f4",
+                      "inverse-surface": "#31302d",
+                      "warm-beige": "#F5F2ED",
+                      "on-error": "#ffffff",
+                      "error": "#ba1a1a",
+                      "deep-olive": "#3C4A3E"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "32px",
+                      "margin-desktop": "80px",
+                      "section-gap": "160px",
+                      "margin-tablet": "40px",
+                      "container-max": "1440px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "button": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "\"Source Serif 4\""
+                      ],
+                      "display-hero": [
+                              "\"Source Serif 4\""
+                      ],
+                      "headline-lg-mobile": [
+                              "\"Source Serif 4\""
+                      ],
+                      "headline-lg": [
+                              "\"Source Serif 4\""
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "button": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-hero": [
+                              "72px",
+                              {
+                                      "lineHeight": "84px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .magnetic-hover {
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .magnetic-hover:hover {
+            transform: scale(1.05);
+        }
+
+        .glass-panel {
+            background: rgba(252, 249, 244, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background font-body-md overflow-x-hidden antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary/80 backdrop-blur-xl bg-surface/10 dark:bg-primary/10 backdrop-blur-2xl shadow-[0_8px_32px_rgba(26,60,52,0.05)] transition-all duration-300" id="main-nav">
+<div class="flex justify-between items-center w-full px-margin-desktop py-6 max-w-container-max mx-auto max-md:px-margin-mobile max-md:py-4">
+<a class="font-headline-md text-headline-md font-bold text-forest-green dark:text-primary-fixed flex items-center gap-2" href="#">
+                Gratitude Farms
+            </a>
+<!-- Desktop Nav -->
+<ul class="hidden md:flex items-center gap-8">
+<li><a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-all duration-300" href="#">Our Story</a></li>
+<li><a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-all duration-300" href="#">Projects</a></li>
+<li><a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-all duration-300" href="#">Produce</a></li>
+<li><a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-all duration-300" href="#">Carbon Credits</a></li>
+<li><a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-all duration-300" href="#">Insights</a></li>
+</ul>
+<!-- Actions -->
+<div class="hidden md:flex items-center gap-4">
+<a class="font-button text-button text-forest-green hover:text-golden-highlight transition-colors" href="#">Admin</a>
+<a class="font-button text-button bg-forest-green text-on-primary px-8 py-4 rounded-xl hover:bg-golden-highlight transition-colors shadow-sm magnetic-hover" href="#">Inquire Now</a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-forest-green p-2">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-32 pb-section-gap overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-forest-green/40 mix-blend-multiply z-10"></div>
+<img alt="Gratitude Farms Hero" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvvo5zQUYBVZbqxtljFcv1eAe7VoKe43hvNByvHE0y7ibPyr4NrEVO9tFfDlVBGGYURhEKHd9IaLIYbFa2TN8jvk2O-2U7N_VgjspO2QATv9bpMay6eyau8AbTv0cTGcO7IEw4iE2cn2dHmWPWQM40JO-1IBGAFG561jOzVdx9pl07YEfmptDv4EGrKrlCGw1ThuXKuWIvL_XoiBviO3TbYhENkxxPb-cnnT2P52hA4CxWGWEpyp7AmRO0"/>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop max-md:px-margin-mobile flex flex-col items-center text-center">
+<span class="font-label-caps text-label-caps text-golden-highlight mb-6 tracking-widest uppercase fade-in-up">Cultivating Discipline, Harvesting Hope</span>
+<h1 class="font-display-hero text-display-hero text-stone-white mb-8 max-w-4xl fade-in-up" style="transition-delay: 100ms;">
+                    Connecting You with Nature's Wisdom
+                </h1>
+<p class="font-body-lg text-body-lg text-surface-variant mb-12 max-w-2xl fade-in-up" style="transition-delay: 200ms;">
+                    A premium agricultural enterprise led by ex-servicemen, integrating modern agri-tech with traditional farming practices for sustainable impact and growth.
+                </p>
+<div class="flex gap-4 fade-in-up" style="transition-delay: 300ms;">
+<a class="font-button text-button bg-golden-highlight text-forest-green px-8 py-4 rounded-xl hover:bg-surface transition-colors shadow-lg magnetic-hover" href="#projects">
+                        Explore Our Farmlands
+                    </a>
+</div>
+</div>
+</section>
+<!-- Trust & Impact Stats Section -->
+<section class="py-24 bg-stone-white">
+<div class="max-w-container-max mx-auto px-margin-desktop max-md:px-margin-mobile">
+<div class="flex flex-wrap justify-center gap-12 md:gap-24 items-center mb-24 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="text-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Recognized By</span>
+<div class="font-headline-md text-headline-md text-forest-green font-bold">World Economic Forum</div>
+</div>
+<div class="text-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Foundation</span>
+<div class="font-headline-md text-headline-md text-forest-green font-bold">Ex-Servicemen Enterprise</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-10 rounded-2xl bg-warm-beige/50 border border-surface-variant shadow-[0_8px_32px_rgba(26,60,52,0.03)] fade-in-up text-center">
+<span class="material-symbols-outlined text-5xl text-soft-emerald mb-6 block" style="font-variation-settings: 'FILL' 1;">landscape</span>
+<div class="font-display-hero text-headline-lg text-forest-green mb-2 counter" data-target="500">0</div>
+<div class="font-button text-button text-on-surface-variant">Acres Under Management</div>
+</div>
+<div class="p-10 rounded-2xl bg-warm-beige/50 border border-surface-variant shadow-[0_8px_32px_rgba(26,60,52,0.03)] fade-in-up text-center" style="transition-delay: 100ms;">
+<span class="material-symbols-outlined text-5xl text-soft-emerald mb-6 block" style="font-variation-settings: 'FILL' 1;">forest</span>
+<div class="font-display-hero text-headline-lg text-forest-green mb-2 counter" data-target="25000">0</div>
+<div class="font-button text-button text-on-surface-variant">Medicinal Trees Planted</div>
+</div>
+<div class="p-10 rounded-2xl bg-warm-beige/50 border border-surface-variant shadow-[0_8px_32px_rgba(26,60,52,0.03)] fade-in-up text-center" style="transition-delay: 200ms;">
+<span class="material-symbols-outlined text-5xl text-soft-emerald mb-6 block" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<div class="font-display-hero text-headline-lg text-forest-green mb-2 counter" data-target="150">0</div>
+<div class="font-button text-button text-on-surface-variant">Ex-Servicemen Employed</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Story Section -->
+<section class="py-section-gap bg-surface relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop max-md:px-margin-mobile relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 fade-in-up">
+<span class="font-label-caps text-label-caps text-soft-emerald mb-6 block">Our Legacy</span>
+<h2 class="font-headline-lg text-headline-lg max-md:text-headline-lg-mobile text-forest-green mb-8">Discipline Meets the Earth</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Founded by military veterans, Gratitude Farms applies the rigorous discipline, strategic planning, and unyielding dedication learned in the armed forces to organic farming and ecological restoration.
+                        </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10">
+                            We don't just grow crops; we cultivate resilient ecosystems. Our approach merges ancestral agrarian wisdom with precision agricultural technology, creating high-yield, sustainable models that empower rural communities and heal the land.
+                        </p>
+<a class="inline-flex items-center gap-2 font-button text-button text-forest-green border-b border-forest-green pb-1 hover:text-golden-highlight hover:border-golden-highlight transition-colors" href="#">
+                            Read the Full Story <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="lg:col-span-6 lg:col-start-7 relative fade-in-up" style="transition-delay: 200ms;">
+<div class="aspect-square rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(26,60,52,0.1)] relative">
+<img alt="Gratitude Farms Logo and Impact" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLsQdhCbLsTF1kmuxk6UaC8sC1YnG6k0eMX4cMdQJ0GQB3Ng1yRh-gtiFj_Vy3IKzwdMo7eKPPsKeYCjGD83Kws5iymXBJcpnPW9nhy9ufCBMAomIZHxXoRjWVGXRhzHhdRN1nXRekzZes-ZiY9XIja5906a7hrl4Z42EN79-DhvG7YJjIVn90P5mcJY8xexEAGWRowSb8KpYzY1UaOeuAXDEoLtlsiZ4s8VTB4rRtpKHiDVAmKC4M6w4yU"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects (Bento Grid) -->
+<section class="py-section-gap bg-stone-white" id="projects">
+<div class="max-w-container-max mx-auto px-margin-desktop max-md:px-margin-mobile">
+<div class="flex justify-between items-end mb-16 fade-in-up">
+<div>
+<span class="font-label-caps text-label-caps text-soft-emerald mb-4 block">Initiatives</span>
+<h2 class="font-headline-lg text-headline-lg max-md:text-headline-lg-mobile text-forest-green">Featured Projects</h2>
+</div>
+<a class="hidden md:inline-flex items-center gap-2 font-button text-button text-forest-green hover:text-golden-highlight transition-colors" href="#">
+                        View All Projects <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[400px]">
+<!-- Project 1 -->
+<div class="md:col-span-8 rounded-3xl overflow-hidden relative group fade-in-up cursor-pointer">
+<img alt="Farmland Development" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLtiRfIDINTFXhNElQO_ErCmbk-7_g08rRGBAc_2H4ixcs2v1dR7pP2-BFQ21ZCKKzSpNA-mdtSwrwU-KrK270aqgvd7ex7H5N0O6ro7Y9c8sv6oATb9lDxZgLk--ZsARlH5mZPPRpe8rbZWWTnUoBkRtNypwdDrQq6OM4koMBr0Ygu2v1TYGYb854QGJQa5NFt3tPcLR5Uj92rWhWdnpMcSlxPkWqYNjW1FslX1TT0Dr8KkLP51bmRyMv0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-forest-green/90 via-forest-green/20 to-transparent"></div>
+<div class="absolute inset-0 p-10 flex flex-col justify-end">
+<span class="font-label-caps text-label-caps bg-stone-white/20 text-stone-white backdrop-blur-md px-4 py-2 rounded-full w-max mb-4 border border-stone-white/10">Agricultural Tech</span>
+<h3 class="font-headline-md text-headline-md text-stone-white mb-2">Farmland Development</h3>
+<p class="font-body-md text-body-md text-surface-variant max-w-md opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                                Transforming arid lands into lush, productive ecosystems through advanced irrigation and soil restoration techniques.
+                            </p>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="md:col-span-4 rounded-3xl overflow-hidden relative group fade-in-up cursor-pointer" style="transition-delay: 100ms;">
+<img alt="Nakshatra Vanam" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLsXVbTr9bPLRBMMO75MVFVgWS8YHO2VtDUT1JAVTfFnZBJwL4MAvrkFZX6Na7tdbYixzCarFZJ-dFjk5paWQsR1Tv5bxBM8sUvdiUUvcS9Enh1xTM7dog9CEa71i1NMMpFOfUQHQLz501OjAyI1InKglaZbdKc_0FEtnpVU6dCgrKXPDqs3y8_uDzQHqV92Nzmw-ImWhf67zlB6YYoFTGvR_nHJjoZNxQJYPcXuy9DAuOAPW4_ZYgLXrcY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-forest-green/90 via-forest-green/20 to-transparent"></div>
+<div class="absolute inset-0 p-10 flex flex-col justify-end">
+<span class="font-label-caps text-label-caps bg-stone-white/20 text-stone-white backdrop-blur-md px-4 py-2 rounded-full w-max mb-4 border border-stone-white/10">Heritage</span>
+<h3 class="font-headline-md text-headline-md text-stone-white mb-2">Nakshatra Vanam</h3>
+<p class="font-body-md text-body-md text-surface-variant max-w-md opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                                A celestial garden featuring 27 specific tree species corresponding to the lunar mansions.
+                            </p>
+</div>
+</div>
+</div>
+<div class="mt-8 md:hidden text-center">
+<a class="inline-flex items-center gap-2 font-button text-button text-forest-green hover:text-golden-highlight transition-colors" href="#">
+                        View All Projects <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-primary-container text-on-surface dark:text-on-primary-container w-full rounded-t-xl bg-surface-container-high dark:bg-primary-container mt-auto relative z-20 pt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto max-md:px-margin-mobile max-md:py-16">
+<div class="md:col-span-1 flex flex-col gap-6">
+<a class="font-headline-lg text-headline-lg max-md:text-headline-lg-mobile text-forest-green dark:text-primary-fixed-dim block mb-4" href="#">
+                    Gratitude Farms
+                </a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Cultivating Discipline, Harvesting Hope. Built by Ex-Servicemen.
+                </p>
+<div class="flex gap-4 mt-4">
+<!-- Social placeholders -->
+<a class="w-10 h-10 rounded-full bg-forest-green/10 flex items-center justify-center text-forest-green hover:bg-forest-green hover:text-stone-white transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-forest-green/10 flex items-center justify-center text-forest-green hover:bg-forest-green hover:text-stone-white transition-colors" href="#">
+<span class="material-symbols-outlined">link</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-caps text-label-caps text-forest-green mb-6 uppercase tracking-wider">Initiatives</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container">
+<li><a class="hover:text-golden-highlight hover:translate-x-1 transition-all duration-300 inline-block" href="#">Farmland Development</a></li>
+<li><a class="hover:text-golden-highlight hover:translate-x-1 transition-all duration-300 inline-block" href="#">Nakshatra Vanam</a></li>
+<li><a class="hover:text-golden-highlight hover:translate-x-1 transition-all duration-300 inline-block" href="#">Organic Produce</a></li>
+<li><a class="hover:text-golden-highlight hover:translate-x-1 transition-all duration-300 inline-block" href="#">ESG Solutions</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-caps text-label-caps text-forest-green mb-6 uppercase tracking-wider">Legal</h4>
+<ul class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container">
+<li><a class="hover:text-golden-highlight hover:translate-x-1 transition-all duration-300 inline-block" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-golden-highlight hover:translate-x-1 transition-all duration-300 inline-block" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-caps text-label-caps text-forest-green mb-6 uppercase tracking-wider">Stay Updated</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Subscribe to our newsletter for insights on sustainable agriculture.</p>
+<form class="flex flex-col gap-3">
+<input class="bg-surface border border-outline-variant rounded-lg px-4 py-3 font-body-md focus:outline-none focus:border-golden-highlight focus:ring-1 focus:ring-golden-highlight transition-all" placeholder="Email address" type="email"/>
+<button class="bg-forest-green text-stone-white font-button text-button py-3 rounded-lg hover:bg-golden-highlight transition-colors" type="button">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-8 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">
+                © 2024 Gratitude Farms. Cultivating Discipline, Harvesting Hope. Built by Ex-Servicemen.
+             </p>
+</div>
+</footer>
+<script>
+        // Scroll Reveal Logic
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    
+                    // Trigger number counters if present
+                    if(entry.target.querySelector('.counter')) {
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000; // 2 seconds
+                            const increment = target / (duration / 16); // 60fps
+                            
+                            let current = 0;
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < target) {
+                                    counter.innerText = Math.ceil(current).toLocaleString();
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target.toLocaleString();
+                                }
+                            };
+                            updateCounter();
+                            counter.classList.remove('counter'); // prevent re-triggering
+                        });
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Simple Nav Background on Scroll
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

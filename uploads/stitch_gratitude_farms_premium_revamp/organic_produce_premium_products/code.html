@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Organic Produce &amp; Medicinal Plants - Gratitude Farms</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Source+Serif+4:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e5e2dd",
+                        "on-background": "#1c1c19",
+                        "surface-container": "#f0ede8",
+                        "surface": "#fcf9f4",
+                        "background": "#fcf9f4",
+                        "secondary-container": "#fed488",
+                        "primary-fixed": "#c5eadf",
+                        "secondary": "#775a19",
+                        "outline": "#717976",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#111e14",
+                        "outline-variant": "#c1c8c4",
+                        "soft-emerald": "#2D5A27",
+                        "surface-container-highest": "#e5e2dd",
+                        "on-secondary-container": "#785a1a",
+                        "tertiary-container": "#2c392e",
+                        "on-primary-fixed-variant": "#2b4d44",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#414846",
+                        "primary-fixed-dim": "#aacec3",
+                        "inverse-on-surface": "#f3f0eb",
+                        "primary": "#01261f",
+                        "on-secondary-fixed": "#261900",
+                        "surface-container-high": "#ebe8e3",
+                        "on-primary-fixed": "#00201a",
+                        "stone-white": "#FAFAF9",
+                        "surface-dim": "#dcdad5",
+                        "tertiary-fixed-dim": "#bbcbbb",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1a3c34",
+                        "inverse-primary": "#aacec3",
+                        "on-primary-container": "#83a69c",
+                        "forest-green": "#1A3C34",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "tertiary-fixed": "#d7e7d6",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#162419",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-container-low": "#f6f3ee",
+                        "surface-tint": "#43655c",
+                        "on-tertiary-container": "#93a394",
+                        "on-tertiary-fixed-variant": "#3c4a3e",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#e9c176",
+                        "golden-highlight": "#C5A059",
+                        "on-surface": "#1c1c19",
+                        "surface-bright": "#fcf9f4",
+                        "inverse-surface": "#31302d",
+                        "warm-beige": "#F5F2ED",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "deep-olive": "#3C4A3E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "margin-desktop": "80px",
+                        "section-gap": "160px",
+                        "margin-tablet": "40px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "button": ["Hanken Grotesk"],
+                        "headline-md": ["\"Source Serif 4\""],
+                        "display-hero": ["\"Source Serif 4\""],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "headline-lg": ["\"Source Serif 4\""],
+                        "body-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "button": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-hero": ["72px", { "lineHeight": "84px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "32px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .magnetic-hover:hover {
+            transform: scale(0.95);
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-golden-highlight/20 selection:text-forest-green">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary/80 backdrop-blur-xl bg-surface/10 dark:bg-primary/10 backdrop-blur-2xl shadow-[0_8px_32px_rgba(26,60,52,0.05)]">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-forest-green dark:text-primary-fixed">
+                Gratitude Farms
+            </div>
+<nav class="hidden md:flex space-x-8 items-center">
+<a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-colors hover:text-golden-highlight transition-all duration-300" href="#">Our Story</a>
+<a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-colors hover:text-golden-highlight transition-all duration-300" href="#">Projects</a>
+<a class="font-button text-button text-golden-highlight font-bold border-b-2 border-golden-highlight pb-1 hover:text-golden-highlight transition-all duration-300 magnetic-hover" href="#">Produce</a>
+<a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-colors hover:text-golden-highlight transition-all duration-300" href="#">Carbon Credits</a>
+<a class="font-button text-button text-forest-green dark:text-surface-variant hover:text-golden-highlight transition-colors hover:text-golden-highlight transition-all duration-300" href="#">Insights</a>
+</nav>
+<div class="hidden md:flex items-center space-x-4">
+<button class="font-button text-button text-forest-green dark:text-primary-fixed hover:text-golden-highlight transition-all duration-300 px-4 py-2">Admin</button>
+<button class="font-button text-button bg-forest-green text-on-primary rounded-xl px-8 py-4 hover:bg-forest-green/90 transition-all duration-300 magnetic-hover">Inquire Now</button>
+</div>
+<button class="md:hidden text-forest-green">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center mb-section-gap">
+<div class="lg:col-span-5 space-y-8">
+<span class="font-label-caps text-label-caps bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full uppercase tracking-widest inline-block">Premium Harvest</span>
+<h1 class="font-display-hero text-headline-lg-mobile md:text-display-hero text-forest-green">Organic Produce &amp; Medicinal Plants</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Cultivated using Vriksh Ayurveda principles by Ex-Servicemen. Discover our meticulously grown medicinal plants, offering unparalleled purity and potency for wellness and longevity.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="font-button text-button bg-forest-green text-on-primary rounded-xl px-8 py-4 hover:bg-forest-green/90 transition-all duration-300 magnetic-hover inline-flex items-center justify-center gap-2">
+                        Reserve Allocation
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="font-button text-button border border-deep-olive text-forest-green rounded-xl px-8 py-4 hover:-translate-y-1 transition-transform duration-300 inline-flex items-center justify-center gap-2">
+                        View Cultivation Report
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-7 mt-12 lg:mt-0 relative">
+<div class="rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(26,60,52,0.1)] relative group">
+<img alt="Organic Produce &amp; Medicinal Plants" class="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLvvo5zQUYBVZbqxtljFcv1eAe7VoKe43hvNByvHE0y7ibPyr4NrEVO9tFfDlVBGGYURhEKHd9IaLIYbFa2TN8jvk2O-2U7N_VgjspO2QATv9bpMay6eyau8AbTv0cTGcO7IEw4iE2cn2dHmWPWQM40JO-1IBGAFG561jOzVdx9pl07YEfmptDv4EGrKrlCGw1ThuXKuWIvL_XoiBviO3TbYhENkxxPb-cnnT2P52hA4CxWGWEpyp7AmRO0"/>
+<div class="absolute bottom-6 right-6 bg-surface/80 backdrop-blur-xl px-6 py-4 rounded-xl border border-surface-variant shadow-lg flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border-2 border-golden-highlight flex items-center justify-center bg-stone-white">
+<span class="material-symbols-outlined text-golden-highlight">verified</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Certification</p>
+<p class="font-body-md text-body-md font-semibold text-forest-green">100% Vriksh Ayurveda</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Specifications & Benefits Bento Grid -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+<div class="mb-16 text-center max-w-3xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-forest-green mb-6">Ancestral Wisdom, Modern Precision</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Our medicinal plants are cultivated with exacting standards, ensuring maximum efficacy while restoring the earth's natural balance.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[250px]">
+<!-- Benefit 1 -->
+<div class="md:col-span-8 bg-stone-white rounded-xl p-10 border border-surface-variant flex flex-col justify-between hover:shadow-[0_8px_32px_rgba(26,60,52,0.05)] transition-shadow duration-300 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed-dim/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-golden-highlight/10 transition-colors duration-500"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-forest-green mb-6 block">spa</span>
+<h3 class="font-headline-md text-headline-md text-forest-green mb-4">Vriksh Ayurveda Cultivation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">Grown according to ancient Indian horticultural science, utilizing natural bio-enhancers to maximize the medicinal properties of every plant.</p>
+</div>
+</div>
+<!-- Stat 1 -->
+<div class="md:col-span-4 bg-warm-beige rounded-xl p-10 border border-surface-variant flex flex-col justify-center items-center text-center hover:shadow-[0_8px_32px_rgba(26,60,52,0.05)] transition-shadow duration-300">
+<span class="font-display-hero text-display-hero text-golden-highlight block mb-2">98%</span>
+<p class="font-label-caps text-label-caps text-forest-green uppercase">Active Compound Retention</p>
+</div>
+<!-- Benefit 2 -->
+<div class="md:col-span-4 bg-stone-white rounded-xl p-10 border border-surface-variant flex flex-col justify-between hover:shadow-[0_8px_32px_rgba(26,60,52,0.05)] transition-shadow duration-300">
+<span class="material-symbols-outlined text-4xl text-forest-green mb-6 block">compost</span>
+<h3 class="font-headline-md text-[24px] font-semibold text-forest-green mb-4">Soil Regeneration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Cultivation methods actively restore soil biodiversity and carbon levels.</p>
+</div>
+<!-- Benefit 3 -->
+<div class="md:col-span-8 bg-surface-container rounded-xl p-10 border border-surface-variant flex flex-col justify-between hover:shadow-[0_8px_32px_rgba(26,60,52,0.05)] transition-shadow duration-300 relative overflow-hidden">
+<div class="z-10 relative">
+<span class="material-symbols-outlined text-4xl text-forest-green mb-6 block">science</span>
+<h3 class="font-headline-md text-headline-md text-forest-green mb-4">Clinical Grade Purity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Every harvest is rigorously tested for heavy metals and pesticides, guaranteeing absolute safety for therapeutic use.</p>
+</div>
+<!-- Abstract representation in corner -->
+<div class="absolute bottom-0 right-0 opacity-10">
+<span class="material-symbols-outlined text-[200px] leading-none">biotech</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Inquiry Form Section -->
+<section class="bg-forest-green py-section-gap relative overflow-hidden">
+<!-- Background Texture -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="space-y-8 pr-0 lg:pr-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-primary">Procure Premium Harvests</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim">Join an exclusive network of buyers securing high-yield, purely organic medicinal plants. Fill out the form to request our current availability and pricing manifesto.</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-golden-highlight">check_circle</span>
+<span class="font-body-md text-body-md text-on-primary">Directly sourced from Ex-Servicemen managed farms</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-golden-highlight">check_circle</span>
+<span class="font-body-md text-body-md text-on-primary">Custom cultivation contracts available</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-golden-highlight">check_circle</span>
+<span class="font-body-md text-body-md text-on-primary">Full traceability from seed to delivery</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface rounded-xl p-8 md:p-12 shadow-[0_8px_32px_rgba(26,60,52,0.15)]">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-caps text-label-caps text-forest-green mb-2" for="firstName">First Name</label>
+<input class="w-full bg-transparent border-b border-surface-variant focus:border-golden-highlight focus:ring-0 px-0 py-3 font-body-md text-on-surface transition-colors" id="firstName" placeholder="John" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-forest-green mb-2" for="lastName">Last Name</label>
+<input class="w-full bg-transparent border-b border-surface-variant focus:border-golden-highlight focus:ring-0 px-0 py-3 font-body-md text-on-surface transition-colors" id="lastName" placeholder="Doe" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-forest-green mb-2" for="email">Email Address</label>
+<input class="w-full bg-transparent border-b border-surface-variant focus:border-golden-highlight focus:ring-0 px-0 py-3 font-body-md text-on-surface transition-colors" id="email" placeholder="john@example.com" type="email"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-forest-green mb-2" for="interest">Primary Interest</label>
+<select class="w-full bg-transparent border-b border-surface-variant focus:border-golden-highlight focus:ring-0 px-0 py-3 font-body-md text-on-surface transition-colors" id="interest">
+<option>Bulk Medicinal Plants</option>
+<option>Retail Organic Produce</option>
+<option>Custom Cultivation Contract</option>
+</select>
+</div>
+<div class="pt-4">
+<button class="w-full font-button text-button bg-forest-green text-on-primary rounded-xl px-8 py-4 hover:bg-forest-green/90 transition-all duration-300 flex justify-center items-center gap-2" type="submit">
+                                Request Information <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-primary-container w-full rounded-t-xl bg-surface-container-high dark:bg-primary-container">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="md:col-span-1 space-y-6">
+<div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-forest-green dark:text-primary-fixed-dim">
+                    Gratitude Farms
+                </div>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-primary-container max-w-xs">
+                    Cultivating Discipline, Harvesting Hope. Built by Ex-Servicemen.
+                </p>
+<div class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container mt-8">
+                    © 2024 Gratitude Farms. Cultivating Discipline, Harvesting Hope. Built by Ex-Servicemen.
+                </div>
+</div>
+<div class="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col space-y-4">
+<span class="font-label-caps text-label-caps text-forest-green dark:text-primary-fixed mb-2">Initiatives</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-golden-highlight transition-transform duration-300 hover:translate-x-1" href="#">Farmland Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-golden-highlight transition-transform duration-300 hover:translate-x-1" href="#">Nakshatra Vanam</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-golden-highlight transition-transform duration-300 hover:translate-x-1" href="#">Organic Produce</a>
+</div>
+<div class="flex flex-col space-y-4">
+<span class="font-label-caps text-label-caps text-forest-green dark:text-primary-fixed mb-2">Corporate</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-golden-highlight transition-transform duration-300 hover:translate-x-1" href="#">ESG Solutions</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-golden-highlight transition-transform duration-300 hover:translate-x-1" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-golden-highlight transition-transform duration-300 hover:translate-x-1" href="#">Contact</a>
+</div>
+<div class="flex flex-col space-y-4">
+<span class="font-label-caps text-label-caps text-forest-green dark:text-primary-fixed mb-2">Legal</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-golden-highlight transition-transform duration-300 hover:translate-x-1" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-golden-highlight transition-transform duration-300 hover:translate-x-1" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
