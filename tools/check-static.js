@@ -1,107 +1,156 @@
-// Verifies the .dc.html set: JS syntax in every logic block, that every
-// {{ binding }} used in a template is actually returned by renderVals, and
-// that every internal href resolves to a file on disk.
-const fs = require('fs');
-const path = require('path');
-const vm = require('vm');
+// Checks the source tree without a browser: that every module parses, every
+// internal link points at a declared route, every route has a page, every page
+// sets a title, and every referenced asset is on disk.
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const dir = process.argv[2] || path.resolve(__dirname, '..');
-const files = fs.readdirSync(dir).filter(f => f.endsWith('.dc.html'));
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const SRC = path.join(ROOT, 'src');
+const PUBLIC = path.join(ROOT, 'public');
+
 let errors = 0;
-const err = m => { console.log('  ✗ ' + m); errors++; };
+const err = (m) => { console.log('  ✗ ' + m); errors++; };
 
-// ---- 1. JS syntax in <script data-dc-script> --------------------------------
-console.log('\n[1] Logic block syntax');
-for (const f of files) {
-  const src = fs.readFileSync(path.join(dir, f), 'utf8');
-  const m = src.match(/<script type="text\/x-dc" data-dc-script[^>]*>([\s\S]*?)<\/script>/);
-  if (!m) continue;
-  try {
-    // DCLogic is supplied by the runtime; stub it just to parse the class.
-    new vm.Script('class DCLogic{};' + m[1], { filename: f });
-  } catch (e) {
-    err(`${f}: ${e.message}`);
+/** Every file under a directory, recursively. */
+function walk(dir, filter = () => true) {
+  const out = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...walk(full, filter));
+    else if (filter(full)) out.push(full);
   }
+  return out;
 }
-if (!errors) console.log('  ✓ all logic blocks parse');
 
-// ---- 2. ES module syntax ----------------------------------------------------
-console.log('\n[2] Data modules');
-const before2 = errors;
+const sources = walk(SRC, (f) => f.endsWith('.js') || f.endsWith('.jsx'));
+const read = (f) => fs.readFileSync(f, 'utf8');
+const rel = (f) => path.relative(ROOT, f).replace(/\\/g, '/');
+
+// ---- 1. Module syntax -------------------------------------------------------
+console.log('\n[1] Module syntax');
 {
-  const { execFileSync } = require('child_process');
-  const os = require('os');
-  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'gf-check-'));
-  for (const f of fs.readdirSync(dir).filter(x => x.endsWith('.js') && x !== 'support.js')) {
-    // `node --check` only treats a file as a module if it ends in .mjs.
-    const copy = path.join(tmp, f.replace(/\.js$/, '.mjs'));
-    fs.copyFileSync(path.join(dir, f), copy);
+  const before = errors;
+  for (const f of sources.filter((x) => x.endsWith('.js'))) {
+    // `node --check` only treats a file as a module when it ends in .mjs.
+    const tmp = f.replace(/\.js$/, '.check.mjs');
+    fs.copyFileSync(f, tmp);
     try {
-      execFileSync(process.execPath, ['--check', copy], { stdio: 'pipe' });
+      execFileSync(process.execPath, ['--check', tmp], { stdio: 'pipe' });
     } catch (e) {
-      err(`${f}: ${String(e.stderr || e.message).split('\n').slice(0, 3).join(' ')}`);
+      err(`${rel(f)}: ${String(e.stderr || e.message).split('\n').slice(0, 3).join(' ')}`);
+    } finally {
+      fs.rmSync(tmp, { force: true });
     }
   }
-  fs.rmSync(tmp, { recursive: true, force: true });
+  // JSX cannot be checked by node; the build covers it.
+  if (errors === before) console.log('  ✓ all plain modules parse');
 }
-if (errors === before2) console.log('  ✓ all data modules parse');
+
+// ---- 2. Routes --------------------------------------------------------------
+console.log('\n[2] Routes');
+const appSrc = read(path.join(SRC, 'App.jsx'));
+const routesSrc = read(path.join(SRC, 'lib', 'routes.js'));
+
+const declared = [...appSrc.matchAll(/path="([^"]+)"/g)].map((m) => m[1]);
+const legacyTargets = [...routesSrc.matchAll(/'([\w.-]+\.dc\.html)':\s*'([^']+)'/g)];
+
+// The legacy filenames become redirect routes at runtime, so a link to one is
+// still a link to something the app serves.
+const legacyPaths = legacyTargets.map(([, file]) => `/${file}`);
+const allRoutes = [...declared, ...legacyPaths];
+
+const matchers = allRoutes
+  .filter((p) => p !== '*')
+  .map((p) => new RegExp('^' + p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/:[\w]+/g, '[^/]+') + '$'));
+
+const resolves = (href) => matchers.some((re) => re.test(href));
+{
+  const before = errors;
+  for (const [, file, target] of legacyTargets) {
+    if (!resolves(target)) err(`lib/routes.js: ${file} redirects to ${target}, which is not a route`);
+  }
+  if (errors === before) console.log(`  ✓ ${declared.length} routes declared, every legacy redirect lands on one`);
+}
 
 // ---- 3. Internal links ------------------------------------------------------
 console.log('\n[3] Internal links');
-const before3 = errors;
-const onDisk = new Set(fs.readdirSync(dir));
-const seen = new Map();
-for (const f of files) {
-  const src = fs.readFileSync(path.join(dir, f), 'utf8');
-  for (const m of src.matchAll(/href="([^"{}]+\.dc\.html)(\?[^"]*)?(#[^"]*)?"/g)) {
-    if (!onDisk.has(m[1])) err(`${f} → missing page ${m[1]}`);
-    seen.set(m[1], (seen.get(m[1]) || 0) + 1);
+{
+  const before = errors;
+  const seen = new Map();
+  for (const f of sources) {
+    const src = read(f);
+    // Literal hrefs in markup, and route paths held in the data files.
+    for (const m of src.matchAll(/href="(\/[^"#?]*)/g)) {
+      const href = m[1] === '/' ? '/' : m[1].replace(/\/$/, '');
+      if (href.startsWith('/assets/')) continue;
+      seen.set(href, (seen.get(href) || 0) + 1);
+      if (!resolves(href)) err(`${rel(f)} → ${href} matches no route`);
+    }
+    for (const m of src.matchAll(/'(\/(?:services|blog)\/[a-z0-9-]+)'/g)) {
+      seen.set(m[1], (seen.get(m[1]) || 0) + 1);
+      if (!resolves(m[1])) err(`${rel(f)} → ${m[1]} matches no route`);
+    }
+    // routes.js holds the legacy map, App.jsx mounts the redirects from it, and
+    // ui.jsx documents it. Anywhere else a filename is a leftover.
+    const mentionsLegacyByDesign = ['routes.js', 'App.jsx', 'ui.jsx'].some((n) => f.endsWith(n));
+    if (/\.dc\.html/.test(src) && !mentionsLegacyByDesign) {
+      err(`${rel(f)}: still references a .dc.html page`);
+    }
   }
+  if (errors === before) console.log(`  ✓ every internal link resolves (${seen.size} distinct targets)`);
 }
-// Also the hrefs built in logic (SERVICE_PAGES, footer columns, nav def).
-for (const f of [...files, 'services-data.js']) {
-  const src = fs.readFileSync(path.join(dir, f), 'utf8');
-  for (const m of src.matchAll(/'([A-Z][A-Za-z-]+\.dc\.html)'/g)) {
-    if (!onDisk.has(m[1])) err(`${f} → missing page ${m[1]} (in logic)`);
-    seen.set(m[1], (seen.get(m[1]) || 0) + 1);
-  }
-}
-if (errors === before3) console.log(`  ✓ every internal link resolves (${seen.size} distinct pages linked)`);
 
-// ---- 4. Orphan pages --------------------------------------------------------
+// ---- 4. Reachability --------------------------------------------------------
 console.log('\n[4] Reachability');
-const orphans = files.filter(f =>
-  !seen.has(f) &&
-  !['SiteNav.dc.html', 'SiteFooter.dc.html', 'TeamCard.dc.html', 'ServiceDetail.dc.html'].includes(f)
-);
-if (orphans.length) orphans.forEach(o => err(`${o} is not linked from anywhere`));
-else console.log('  ✓ every page is reachable by a link');
+{
+  const before = errors;
+  const pages = fs.readdirSync(path.join(SRC, 'pages')).map((f) => f.replace(/\.jsx$/, ''));
+  for (const page of pages) {
+    if (!new RegExp(`\\b${page}\\b`).test(appSrc)) err(`src/pages/${page}.jsx is not routed in App.jsx`);
+  }
+  const components = fs.readdirSync(path.join(SRC, 'components')).map((f) => f.replace(/\.jsx$/, ''));
+  for (const c of components) {
+    const used = sources.some((f) => !f.endsWith(`${c}.jsx`) && read(f).includes(`/${c}.jsx`));
+    if (!used) err(`src/components/${c}.jsx is imported by nothing`);
+  }
+  if (errors === before) console.log(`  ✓ ${pages.length} pages routed, ${components.length} components in use`);
+}
 
-// ---- 5. Asset references ----------------------------------------------------
+// ---- 5. Assets --------------------------------------------------------------
 console.log('\n[5] Assets');
-const before5 = errors;
-const assetRefs = new Set();
-for (const f of [...files, ...fs.readdirSync(dir).filter(x => x.endsWith('.js') && x !== 'support.js')]) {
-  const src = fs.readFileSync(path.join(dir, f), 'utf8');
-  for (const m of src.matchAll(/(?:src="|url\('|href="|'|")(assets\/[^"')]+)/g)) assetRefs.add(m[1]);
+{
+  const before = errors;
+  const refs = new Set();
+  for (const f of sources) {
+    for (const m of read(f).matchAll(/(?:src="|url\('|href="|['"`])(\/assets\/[^"')`]+)/g)) {
+      // A path built at runtime (`/assets/trees/${t.img}`) has no single file
+      // to check; the render pass catches those by loading the images.
+      if (!m[1].includes('${')) refs.add(m[1]);
+    }
+  }
+  for (const a of refs) {
+    if (!fs.existsSync(path.join(PUBLIC, a.replace(/^\//, '')))) err(`missing asset ${a}`);
+  }
+  if (errors === before) console.log(`  ✓ all ${refs.size} referenced assets exist in public/`);
 }
-for (const a of assetRefs) {
-  if (!fs.existsSync(path.join(dir, a))) err(`missing asset ${a}`);
-}
-if (errors === before5) console.log(`  ✓ all ${assetRefs.size} referenced assets exist`);
 
-// ---- 6. helmet wiring -------------------------------------------------------
-console.log('\n[6] Page head');
-const before6 = errors;
-const components = ['SiteNav.dc.html', 'SiteFooter.dc.html', 'TeamCard.dc.html', 'ServiceDetail.dc.html'];
-for (const f of files) {
-  const src = fs.readFileSync(path.join(dir, f), 'utf8');
-  if (components.includes(f)) continue;
-  if (!src.includes('site.css')) err(`${f}: site.css not linked`);
-  if (!/<title>/.test(src)) err(`${f}: no <title>`);
-  if (!/name="viewport"/.test(src)) err(`${f}: no viewport meta`);
+// ---- 6. Page head -----------------------------------------------------------
+console.log('\n[6] Page metadata');
+{
+  const before = errors;
+  for (const f of walk(path.join(SRC, 'pages'))) {
+    const src = read(f);
+    // BlogPost sets its head from the article it loads.
+    if (path.basename(f) === 'BlogPost.jsx') continue;
+    if (!/<Seo\b/.test(src)) err(`${rel(f)}: no <Seo> title`);
+  }
+  const shell = read(path.join(ROOT, 'index.html'));
+  if (!/name="viewport"/.test(shell)) err('index.html: no viewport meta');
+  if (!/<title>/.test(shell)) err('index.html: no default title');
+  if (errors === before) console.log('  ✓ every page sets a title; the shell has viewport and defaults');
 }
-if (errors === before6) console.log('  ✓ every page has a title, viewport and the shared stylesheet');
 
 console.log(errors ? `\n${errors} problem(s) found\n` : '\nAll checks passed\n');
 process.exit(errors ? 1 : 0);
