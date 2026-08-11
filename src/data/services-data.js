@@ -12,7 +12,7 @@ export const AUDIENCES = [
 
 export const SERVICES = [
   {
-    key: 'managed-farmland', code: 'S0', brand: null, name: 'Managed Farmland Service',
+    key: 'managed-farmland', code: 'S0', brand: null, name: 'Managed Farmland Services',
     badge: 'Mother Service', category: 'Integrated · S1 → S5 under one contract',
     tagline: 'End-to-end transformation of barren or degraded land into a profitable, biodiverse natural farm — S1 to S5 under one accountable contract.',
     hero: '/assets/banner-managed-farmland.png',
@@ -89,7 +89,7 @@ export const SERVICES = [
   },
 
   {
-    key: 'soil-fertility', code: 'S1', brand: 'BhuPrana™', name: 'Soil Fertility Service',
+    key: 'soil-fertility', code: 'S1', brand: 'BhuPrana™', name: 'Soil Fertility Services',
     badge: 'S1 · BhuPrana™', category: 'Soil regeneration & carbon',
     tagline: 'Rebuild living soil — diagnostics, biochar, enriched compost, microbial inputs and multi-season fertility restoration.',
     hero: '/assets/banner-soil-fertility.png',
@@ -166,7 +166,7 @@ export const SERVICES = [
   },
 
   {
-    key: 'farmland-design', code: 'S2', brand: 'Vasudha™', name: 'Farmland Design Service',
+    key: 'farmland-design', code: 'S2', brand: 'Vasudha™', name: 'Farmland Design Services',
     badge: 'S2 · Vasudha™', category: 'Master-planning & design',
     tagline: 'Design every square foot — master planning, water, crop / tree design, biodiversity and the optional Nakshatra Vanam.',
     hero: '/assets/banner-farmland-design.png',
@@ -243,7 +243,7 @@ export const SERVICES = [
   },
 
   {
-    key: 'farmland-operate', code: 'S3', brand: 'Sanjeevani™', name: 'Farmland Operate Service',
+    key: 'farmland-operate', code: 'S3', brand: 'Sanjeevani™', name: 'Farmland Operate Services',
     badge: 'S3 · Sanjeevani™', category: 'Operations & management',
     tagline: 'Operate and manage the living farm — day-to-day cultivation, supervision, mechanisation and training that keep it thriving.',
     hero: '/assets/banner-farmland-operate.png',

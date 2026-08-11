@@ -15,7 +15,7 @@ class SiteNav extends Component {
       { label: 'Our Team', href: '/our-team' }
     ]},
     { key: 'program', label: 'Our Services', href: '/services', children: [
-      { group: 'Services', label: 'Managed Farmland Service', href: '/services/managed-farmland', audiences: true },
+      { group: 'Services', label: 'Managed Farmland Services', href: '/services/managed-farmland', audiences: true },
       { group: 'Services', label: 'Soil Fertility (BhuPrana™)', href: '/services/soil-fertility', audiences: true },
       { group: 'Services', label: 'Farmland Design (Vasudha™)', href: '/services/farmland-design', audiences: true },
       { group: 'Services', label: 'Farmland Operate (Sanjeevani™)', href: '/services/farmland-operate', audiences: true },

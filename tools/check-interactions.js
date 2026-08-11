@@ -119,10 +119,10 @@ console.log('\nContact form');
   await p.close();
 }
 {
-  const p = await open('/contact?service=Managed%20Farmland%20Service&audience=Corporates%20%26%20PSUs');
+  const p = await open('/contact?service=Managed%20Farmland%20Services&audience=Corporates%20%26%20PSUs');
   const iv = await p.$eval('#gf-interest', (e) => e.value);
   const msg = await p.$eval('#gf-message', (e) => e.value);
-  ok('deep link prefills the interest dropdown', iv === 'Managed Farmland Service', iv);
+  ok('deep link prefills the interest dropdown', iv === 'Managed Farmland Services', iv);
   ok('deep link prefills the message', msg.includes('Corporates'), msg.slice(0, 50));
   await p.close();
 }

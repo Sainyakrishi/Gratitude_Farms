@@ -7,7 +7,7 @@ import SiteFooter from '../components/SiteFooter.jsx';
 export default function ManagedFarmland(props) {
   return (
     <>
-      <Seo title={"Managed Farmland Service — End-to-End Natural Farm | Gratitude Farms"} description={"Managed Farmland Service - full-service natural farmland management by Gratitude Farms."} />
+      <Seo title={"Managed Farmland Services — End-to-End Natural Farm | Gratitude Farms"} description={"Managed Farmland Services - full-service natural farmland management by Gratitude Farms."} />
       <SiteNav active="program" />
       <main style={css("font-family:'Hanken Grotesk',sans-serif;background:#FCF9F4;overflow-x:clip;")}>
         <ServiceDetail serviceKey="managed-farmland" />

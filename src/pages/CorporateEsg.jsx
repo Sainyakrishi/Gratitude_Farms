@@ -129,7 +129,7 @@ export default function CorporateEsg(props) {
                 {"S0"}
               </span>
               <span style={css("font-family:'Source Serif 4',serif;font-size:19px;color:#1A3C34;font-weight:700;")}>
-                {"Managed Farmland Service"}
+                {"Managed Farmland Services"}
               </span>
               <span style={css("color:#414846;font-size:13.5px;line-height:1.6;")}>
                 {"100+ acre programmes with MRV, ESG dashboard and audited annual reporting."}
