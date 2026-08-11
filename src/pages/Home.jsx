@@ -131,8 +131,8 @@ class Home extends Component {
               {"›"}
             </button>
           </section>
-          <section style={css("padding:clamp(29px,5.3vw,64px) clamp(20px,5.5vw,80px) 0;max-width:1440px;margin:0 auto;")}>
-            <A href="https://www.weforum.org/organizations/gratitude-farms/" target="_blank" rel="noopener" style={css("text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;background:#FAFAF9;border:1px solid #e5e2dd;border-radius:20px;padding:32px 40px;margin-bottom:56px;transition:transform 0.25s ease, box-shadow 0.25s ease;")} hoverStyle={css("transform:translateY(-4px);box-shadow:0 20px 48px rgba(26,60,52,0.1);")}>
+          <section style={css("padding:clamp(29px,5.3vw,64px) clamp(20px,5.5vw,80px) clamp(34px,6vw,76px);max-width:1440px;margin:0 auto;")}>
+            <A href="https://www.weforum.org/organizations/gratitude-farms/" target="_blank" rel="noopener" style={css("text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;background:#FAFAF9;border:1px solid #e5e2dd;border-radius:20px;padding:32px 40px;transition:transform 0.25s ease, box-shadow 0.25s ease;")} hoverStyle={css("transform:translateY(-4px);box-shadow:0 20px 48px rgba(26,60,52,0.1);")}>
               <div style={css("display:flex;align-items:center;gap:24px;flex-wrap:wrap;")}>
                 <img src="/assets/logo-badge.png" alt="Gratitude Farms" style={css("width:56px;height:56px;object-fit:contain;flex-shrink:0;")} />
                 <div>
@@ -151,32 +151,6 @@ class Home extends Component {
                 {"Read More →"}
               </span>
             </A>
-            <div className="gf-stat-row" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-bottom:100px;")}>
-              <div style={css("background:rgba(245,242,237,0.6);border:1px solid #e5e2dd;border-radius:20px;padding:40px;text-align:center;")}>
-                <div style={css("font-family:'Source Serif 4',serif;font-size:44px;font-weight:700;color:#1A3C34;margin-bottom:8px;")}>
-                  {"500+"}
-                </div>
-                <div style={css("font-size:14px;font-weight:600;color:#414846;")}>
-                  {"Acres Under Management"}
-                </div>
-              </div>
-              <div style={css("background:rgba(245,242,237,0.6);border:1px solid #e5e2dd;border-radius:20px;padding:40px;text-align:center;")}>
-                <div style={css("font-family:'Source Serif 4',serif;font-size:44px;font-weight:700;color:#1A3C34;margin-bottom:8px;")}>
-                  {"25,000+"}
-                </div>
-                <div style={css("font-size:14px;font-weight:600;color:#414846;")}>
-                  {"Medicinal Trees Planted"}
-                </div>
-              </div>
-              <div style={css("background:rgba(245,242,237,0.6);border:1px solid #e5e2dd;border-radius:20px;padding:40px;text-align:center;")}>
-                <div style={css("font-family:'Source Serif 4',serif;font-size:44px;font-weight:700;color:#1A3C34;margin-bottom:8px;")}>
-                  {"150+"}
-                </div>
-                <div style={css("font-size:14px;font-weight:600;color:#414846;")}>
-                  {"Ex-Servicemen Employed"}
-                </div>
-              </div>
-            </div>
           </section>
           <section className="gf-2col" style={css("max-width:1440px;margin:0 auto;padding:0 clamp(20px,5.5vw,80px) clamp(63px,11.7vw,140px);display:grid;grid-template-columns:5fr 6fr;gap:32px;align-items:center;")}>
             <div>
@@ -385,25 +359,7 @@ class Home extends Component {
                 <p style={css("color:#c5eadf;font-size:16px;line-height:1.7;margin:0 0 32px;")}>
                   {"We train and transition Ex-Servicemen into rural agritech entrepreneurs, applying military discipline to precision farming and sustainable enterprise leadership."}
                 </p>
-                <div style={css("display:grid;grid-template-columns:1fr 1fr;gap:24px;border-top:1px solid rgba(250,250,249,0.15);padding-top:28px;")}>
-                  <div>
-                    <div style={css("font-family:'Source Serif 4',serif;font-size:34px;color:#C5A059;")}>
-                      {"50+"}
-                    </div>
-                    <div style={css("font-size:12.5px;color:rgba(250,250,249,0.7);margin-top:4px;")}>
-                      {"ESM Trained"}
-                    </div>
-                  </div>
-                  <div>
-                    <div style={css("font-family:'Source Serif 4',serif;font-size:34px;color:#e9c176;")}>
-                      {"120"}
-                    </div>
-                    <div style={css("font-size:12.5px;color:rgba(250,250,249,0.7);margin-top:4px;")}>
-                      {"Acres Restored"}
-                    </div>
-                  </div>
-                </div>
-                <div style={css("display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;")}>
+                <div style={css("display:flex;gap:14px;flex-wrap:wrap;")}>
                   <A href="/sainya-krishi" style={css("text-decoration:none;background:#C5A059;color:#1A3C34;font-weight:700;font-size:14px;padding:15px 28px;border-radius:12px;")}>
                     {"Explore Sainya Krishi →"}
                   </A>

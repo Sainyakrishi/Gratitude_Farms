@@ -158,7 +158,7 @@ export default function NakshatraVanam(props) {
             <h2 style={css("font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,32px);color:#FAFAF9;margin:16px 0 40px;")}>
               {"Nature as a Healer"}
             </h2>
-            <div style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;")}>
+            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;")}>
               <div>
                 <h4 style={css("font-family:'Source Serif 4',serif;font-size:17px;color:#e9c176;margin:0 0 10px;")}>
                   {"Mental Peace & Balance"}

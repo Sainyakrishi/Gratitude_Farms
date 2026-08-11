@@ -171,7 +171,7 @@ class ServiceDetail extends Component {
                   {"Segment"}
                 </span>
                 <span style={css("font-size:15px;font-weight:700;color:#1A3C34;")}>
-                  {$v.aud.label}{" · "}{$v.aud.size}
+                  {$v.aud.label}
                 </span>
               </div>
               <div style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;")}>
@@ -230,7 +230,7 @@ class ServiceDetail extends Component {
                   {"How It Works"}
                 </h2>
               </div>
-              <div style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;")}>
+              <div className="gf-swipe gf-bleed-24" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;")}>
                 {($v.svc.methodologyX || []).map((m, mIndex) => (
                   <Fragment key={mIndex}>
                     <div style={css(`display:flex;flex-direction:column;gap:16px;animation:fadeUp 0.5s ease both;animation-delay:${m.delay};`)}>
