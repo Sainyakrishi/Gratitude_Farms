@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # puppeteer backs the check scripts only. Nothing in a deploy drives a
+  # browser, so skip the Chrome download and keep builds fast.
+  PUPPETEER_SKIP_DOWNLOAD = "true"
+
+# The site is a single-page app. A visitor landing directly on /about-us asks
+# Netlify for a file that does not exist, so Netlify has to answer with the app
+# shell and let the router sort it out. vite.config.js also writes dist/404.html
+# for GitHub Pages; Netlify ignores that and uses this rule instead.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
