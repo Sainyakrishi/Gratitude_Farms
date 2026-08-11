@@ -1,0 +1,619 @@
+/* ==========================================================================
+   Gratitude Farms — shared site stylesheet
+   Imported once by src/main.jsx. Inline styles in the page components carry
+   the desktop design; the rules here add the things inline styles cannot
+   express: media queries, pseudo-classes, keyframes and shared components.
+
+   Overrides use !important on purpose — an !important author rule is the only
+   thing that beats an element's inline style, and the desktop look is stored
+   inline. Every !important below is scoped inside a media query or a state.
+   ========================================================================== */
+
+/* ==========================================================================
+   Document
+   Each page used to carry these in its own <helmet>; with one document for the
+   whole site they are declared once.
+   ========================================================================== */
+
+body {
+  margin: 0;
+  background: #FCF9F4;
+}
+
+a { color: #1A3C34; }
+a:hover { color: #C5A059; }
+
+/* The admin console is the one page on a different ground colour. */
+body.gf-admin { background: #F0EDE8; }
+
+/* ==========================================================================
+   Keyframes
+   Two pairs travelled different distances on different pages while each page
+   had its own stylesheet. Sharing one document means sharing one namespace, so
+   the shorter variants are named apart rather than silently merged.
+   ========================================================================== */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUpSm {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideKen {
+  from { transform: scale(1.06); }
+  to { transform: scale(1.16); }
+}
+
+@keyframes slideKenSm {
+  from { transform: scale(1.06); }
+  to { transform: scale(1.14); }
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+@keyframes gradientPan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+:root {
+  /* Measured, not guessed: 52px logo + 2x14px padding + 1px border. The mobile
+     value below matches the 40px logo. Keep these in step with the logoSize
+     values in SiteNav.dc.html — the spacer depends on it. */
+  --gf-nav-h: 81px;
+
+  --gf-green: #1A3C34;
+  --gf-green-deep: #01261F;
+  --gf-gold: #C5A059;
+  --gf-gold-light: #e9c176;
+  --gf-emerald: #2D5A27;
+  --gf-olive: #3C4A3E;
+  --gf-canvas: #FCF9F4;
+  --gf-stone: #FAFAF9;
+  --gf-beige: #F5F2ED;
+  --gf-line: #e5e2dd;
+  --gf-ink: #1c1c19;
+  --gf-ink-soft: #414846;
+  --gf-ink-mute: #717976;
+}
+
+html { scroll-behavior: smooth; }
+
+/* `clip`, not `hidden`. The dc runtime sets `html,body{height:100%}`, and
+   `overflow-x:hidden` on top of that makes body a 844px scroll container —
+   the document stops scrolling, window.scrollY freezes at 0, and everything
+   built on it (the reading-progress bar, the nav shadow, anchor links) dies.
+   `clip` suppresses sideways overflow without creating a scroll container. */
+body {
+  overflow-x: clip;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Anchor targets must clear the fixed navigation bar. */
+[id] { scroll-margin-top: calc(var(--gf-nav-h) + 16px); }
+
+img, video, iframe { max-width: 100%; }
+
+/* Keyboard focus needs to stay visible — several controls sit on dark panels. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--gf-gold);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Navigation
+   The nav is fixed, so a spacer of exactly the same height follows it.
+   Both are driven by --gf-nav-h so they can never drift apart.
+   ========================================================================== */
+
+.gf-nav-spacer { height: var(--gf-nav-h); }
+
+.gf-sticky-under-nav { top: var(--gf-nav-h) !important; }
+
+.gf-nav-scrolled { box-shadow: 0 6px 24px rgba(26, 60, 52, 0.08); }
+
+/* Dropdown panels can exceed the viewport on short screens. */
+.gf-nav-panel { max-height: calc(100vh - var(--gf-nav-h) - 24px); overflow-y: auto; }
+
+.gf-mobile-panel { max-height: calc(100vh - var(--gf-nav-h)); overflow-y: auto; }
+
+@media (max-width: 980px) {
+  :root { --gf-nav-h: 69px; }
+}
+
+/* ==========================================================================
+   Layout — column stacking
+   Grids whose track list is fixed (1fr 1fr, 5fr 6fr, …) cannot collapse on
+   their own. Anything carrying .gf-2col becomes a single column on narrow
+   screens; .gf-4col steps 4 → 2 → 1.
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .gf-2col { grid-template-columns: 1fr !important; }
+  .gf-2col > * { order: 0 !important; }
+  .gf-gap-sm { gap: 28px !important; }
+}
+
+@media (max-width: 900px) {
+  .gf-4col { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* Pairs that hold up at tablet width and only need to break on phones. */
+@media (max-width: 620px) {
+  .gf-2col-sm { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 620px) {
+  .gf-4col { grid-template-columns: 1fr !important; }
+}
+
+/* Footer sitemap: 5 → 3 → 2 → 1 columns. */
+@media (max-width: 1180px) {
+  .gf-foot-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+}
+
+@media (max-width: 760px) {
+  .gf-foot-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+}
+
+@media (max-width: 480px) {
+  .gf-foot-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Media that should lead on mobile even when the desktop order puts it second. */
+@media (max-width: 900px) {
+  .gf-media-first { order: -1 !important; }
+}
+
+/* Anything too wide to shrink scrolls inside its own box rather than the page. */
+.gf-scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ==========================================================================
+   Mobile card rails
+   Below 700px every auto-fit card grid collapses to a single column, and a row
+   of three or four cards becomes a stack the visitor has to scroll past. A
+   .gf-swipe grid turns into a horizontal snap rail instead: one card in focus,
+   the next one peeking past the right edge so the swipe advertises itself.
+
+   The rail bleeds out to both viewport edges with a negative inline margin
+   equal to the padding of the section holding it (--gf-bleed), then puts that
+   padding back on the inside. The first card therefore lines up with the
+   headline above it, and cards run off the edge instead of stopping short of
+   it — the thing that makes a rail read as a rail.
+   ========================================================================== */
+
+/* The site's standard section padding. Sections that use a different value
+   carry .gf-bleed-24 so their rails still line up with their own headings. */
+:root { --gf-bleed: clamp(20px, 5.5vw, 80px); }
+
+.gf-bleed-24 { --gf-bleed: clamp(24px, 6vw, 80px); }
+
+@media (max-width: 700px) {
+  .gf-swipe {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    grid-template-columns: none !important;
+    gap: 14px !important;
+    max-width: none !important;
+
+    margin-inline: calc(-1 * var(--gf-bleed)) !important;
+    padding-inline: var(--gf-bleed);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gf-bleed);
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+
+    /* The peeking card is the affordance. A scrollbar would sit on top of the
+       cards' rounded corners and reads badly on the dark sections. */
+    scrollbar-width: none;
+  }
+
+  .gf-swipe::-webkit-scrollbar { display: none; }
+
+  .gf-swipe > * {
+    /* Percentage while the viewport is narrow, capped so a card never grows
+       into a full-width slab on a large phone or a small tablet. */
+    flex: 0 0 min(var(--gf-card-w, 82%), 360px);
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* A rail whose slides are components rather than plain elements still has to
+     keep an even bottom line. React renders them without a wrapper, so this
+     only matters where one is added deliberately. */
+  .gf-swipe > .sc-host { display: flex; flex-direction: column; }
+  .gf-swipe > .sc-host > * { flex: 1 1 auto; }
+
+  /* Image tiles carry their own headline, so they earn a wider slide. */
+  .gf-swipe-wide > * { flex-basis: min(88%, 420px); }
+}
+
+/* Short tiles — the number-and-label stats — are not worth a rail. Two up is
+   both shorter than a stack and easier to compare than a swipe. */
+@media (max-width: 620px) {
+  .gf-stat-row { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .gf-stat-row > * { padding: 22px 16px !important; }
+
+  /* The figure itself; it is set for a full-width tile and has to come down. */
+  .gf-stat-row > * > :first-child { font-size: clamp(26px, 8vw, 34px) !important; }
+
+  /* An odd tile at the end takes the whole width so the row never ends ragged. */
+  .gf-stat-row > *:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* Catalogue grids stay grids — results are for scanning and filtering, not for
+   swiping past one at a time — but two up rather than one. */
+@media (max-width: 620px) {
+  .gf-grid-2 { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .gf-grid-2 > * { min-width: 0; }
+}
+
+/* ==========================================================================
+   Typography rhythm on small screens
+   ========================================================================== */
+
+@media (max-width: 620px) {
+  .gf-hero-tall { height: auto !important; min-height: 72vh !important; }
+  .gf-stat-lg { font-size: 34px !important; }
+}
+
+/* On a phone the carousel arrows sit on top of the headline, and the slide is
+   swipeable / auto-advancing anyway. The dots stay as the visible control. */
+@media (max-width: 720px) {
+  .gf-carousel-arrow { display: none !important; }
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+.gf-field {
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #c1c8c4;
+  padding: 11px 2px;
+  font-size: 15px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  color: var(--gf-ink);
+  transition: border-color 0.2s ease;
+}
+
+.gf-field:focus { outline: none; border-bottom-color: var(--gf-gold); }
+
+.gf-field-box {
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid #c1c8c4;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14.5px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  color: var(--gf-ink);
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.gf-field-box:focus { outline: none; border-color: var(--gf-gold); }
+
+.gf-field-invalid,
+.gf-field-box.gf-field-invalid { border-color: #ba1a1a !important; }
+
+.gf-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--gf-green);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.gf-error {
+  color: #ba1a1a;
+  font-size: 12.5px;
+  margin: 6px 0 0;
+  display: block;
+}
+
+/* Off-screen honeypot — real people never see it, bots fill it in. */
+.gf-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.gf-btn-primary {
+  background: var(--gf-green);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Hanken Grotesk', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.gf-btn-primary:hover:not(:disabled) {
+  background: var(--gf-gold);
+  color: var(--gf-green);
+  transform: translateY(-2px);
+}
+
+.gf-btn-primary:disabled { opacity: 0.6; cursor: progress; }
+
+/* ==========================================================================
+   Floating contact dock — phone + WhatsApp, present on every page
+   ========================================================================== */
+
+.gf-dock {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gf-dock a {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(26, 60, 52, 0.28);
+  transition: transform 0.2s ease;
+}
+
+.gf-dock a:hover { transform: scale(1.08); color: #fff; }
+
+.gf-dock-wa { background: #25D366; }
+.gf-dock-call { background: var(--gf-green); }
+
+@media (max-width: 620px) {
+  .gf-dock { right: 14px; bottom: 14px; gap: 10px; }
+  .gf-dock a { width: 46px; height: 46px; }
+}
+
+@media print {
+  .gf-dock, .gf-nav-spacer { display: none; }
+}
+
+/* ==========================================================================
+   Cards & tiles used by the catalogue and cross-link strips
+   ========================================================================== */
+
+.gf-card-lift { transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+
+.gf-card-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 44px rgba(26, 60, 52, 0.13);
+  border-color: var(--gf-gold);
+}
+
+.gf-chip {
+  border: 1px solid var(--gf-line);
+  background: var(--gf-beige);
+  color: var(--gf-olive);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Hanken Grotesk', sans-serif;
+  padding: 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gf-chip:hover { border-color: var(--gf-gold); color: var(--gf-green); }
+
+.gf-chip[aria-pressed="true"] {
+  background: var(--gf-green);
+  border-color: var(--gf-green);
+  color: var(--gf-stone);
+}
+
+/* ==========================================================================
+   Admin console
+   The console is a desktop tool, but it still has to be usable on a phone:
+   the sidebar becomes a horizontal strip and wide tables scroll in place.
+   ========================================================================== */
+
+.adm-row { min-width: 720px; }
+
+.adm-row-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+@media (max-width: 900px) {
+  .adm-shell { flex-direction: column !important; }
+
+  .adm-aside {
+    width: 100% !important;
+    height: auto !important;
+    position: static !important;
+    padding: 16px !important;
+  }
+
+  .adm-aside nav {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    padding-bottom: 4px;
+  }
+
+  .adm-aside nav button { white-space: nowrap; flex-shrink: 0; }
+
+  .adm-header {
+    padding: 16px 20px !important;
+    flex-wrap: wrap !important;
+    position: static !important;
+  }
+
+  .adm-body { padding: 24px 20px !important; }
+}
+
+/* ==========================================================================
+   Long-form prose
+   The journal article and the two legal pages render their body from data, so
+   the typography is set here rather than on each element.
+   ========================================================================== */
+
+.article-body p { color: #28322e; font-size: 18px; line-height: 1.8; margin: 0 0 24px; }
+
+.article-body h2 {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(24px, 2.6vw, 32px);
+  color: var(--gf-green);
+  margin: 44px 0 18px;
+  line-height: 1.25;
+}
+
+.article-body ul {
+  margin: 0 0 26px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.article-body li {
+  position: relative;
+  padding-left: 26px;
+  color: #28322e;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.article-body li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 11px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gf-gold);
+}
+
+.legal h2 {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(21px, 2.4vw, 27px);
+  color: var(--gf-green);
+  margin: 44px 0 14px;
+  line-height: 1.3;
+}
+
+.legal p { color: #28322e; font-size: 16px; line-height: 1.8; margin: 0 0 18px; }
+
+.legal ul {
+  margin: 0 0 22px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legal li {
+  position: relative;
+  padding-left: 24px;
+  color: #28322e;
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+.legal li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--gf-gold);
+}
+
+/* ==========================================================================
+   Admin console fields
+   ========================================================================== */
+
+.adm-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #c1c8c4;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  color: var(--gf-ink);
+  background: #fff;
+}
+
+.adm-input:focus { outline: none; border-color: var(--gf-gold); }
+
+/* ==========================================================================
+   Toast
+   ========================================================================== */
+
+.gf-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  background: var(--gf-green);
+  color: var(--gf-stone);
+  padding: 15px 26px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  z-index: 200;
+  max-width: calc(100vw - 32px);
+  text-align: center;
+}
