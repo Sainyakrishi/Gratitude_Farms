@@ -9,12 +9,12 @@ class Contact extends Component {
   state = {
     prefillService: '', prefillAudience: '', openFaq: 0,
     firstName: '', lastName: '', email: '', phone: '', location: '',
-    interestValue: 'Managed Farmland Service', messageValue: '',
+    interestValue: 'Managed Farmland Services', messageValue: '',
     hp: '', errors: {}, formError: '', busy: false, sent: false, sentVia: ''
   };
   cfg = null;
   baseOptions = [
-    'Managed Farmland Service',
+    'Managed Farmland Services',
     'Soil Fertility (BhuPrana™)',
     'Farmland Design (Vasudha™)',
     'Farmland Operate (Sanjeevani™)',

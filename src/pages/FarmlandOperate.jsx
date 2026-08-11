@@ -7,7 +7,7 @@ import SiteFooter from '../components/SiteFooter.jsx';
 export default function FarmlandOperate(props) {
   return (
     <>
-      <Seo title={"Sanjeevani™ Farmland Operate Service — Daily Farm Operations | Gratitude Farms"} description={"Sanjeevani - Farmland Operate Service by Gratitude Farms."} />
+      <Seo title={"Sanjeevani™ Farmland Operate Services — Daily Farm Operations | Gratitude Farms"} description={"Sanjeevani - Farmland Operate Services by Gratitude Farms."} />
       <SiteNav active="program" />
       <main style={css("font-family:'Hanken Grotesk',sans-serif;background:#FCF9F4;overflow-x:clip;")}>
         <ServiceDetail serviceKey="farmland-operate" />

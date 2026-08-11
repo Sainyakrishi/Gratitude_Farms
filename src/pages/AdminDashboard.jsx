@@ -27,10 +27,10 @@ class AdminDashboard extends Component {
       { name: 'GreenLeaf Foods (CSR)', role: 'Corporate ESG Partner', rating: 4, status: 'Pending', quote: 'Verifiable, on-ground impact for our ESG mandate — audit-ready data and real community benefit, not just certificates.' }
     ],
     services: [
-      { name: 'Managed Farmland Service', brand: '', category: 'Service', page: '/services/managed-farmland', status: 'Live', summary: '' },
-      { name: 'Soil Fertility Service', brand: 'BhuPrana™', category: 'Service', page: '/services/soil-fertility', status: 'Live', summary: '' },
-      { name: 'Farmland Design Service', brand: 'Vasudha™', category: 'Service', page: '/services/farmland-design', status: 'Live', summary: '' },
-      { name: 'Farmland Operate Service', brand: 'Sanjeevani™', category: 'Service', page: '/services/farmland-operate', status: 'Live', summary: '' },
+      { name: 'Managed Farmland Services', brand: '', category: 'Service', page: '/services/managed-farmland', status: 'Live', summary: '' },
+      { name: 'Soil Fertility Services', brand: 'BhuPrana™', category: 'Service', page: '/services/soil-fertility', status: 'Live', summary: '' },
+      { name: 'Farmland Design Services', brand: 'Vasudha™', category: 'Service', page: '/services/farmland-design', status: 'Live', summary: '' },
+      { name: 'Farmland Operate Services', brand: 'Sanjeevani™', category: 'Service', page: '/services/farmland-operate', status: 'Live', summary: '' },
       { name: 'Farmland Development Projects', brand: '', category: 'Program', page: '/farmland-development', status: 'Live', summary: '' },
       { name: 'Personal Nakshatra Vanam', brand: '', category: 'Program', page: '/nakshatra-vanam', status: 'Live', summary: '' },
       { name: 'Corporate ESG Projects', brand: '', category: 'Program', page: '/corporate-esg', status: 'Live', summary: '' },
