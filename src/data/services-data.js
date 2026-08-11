@@ -22,7 +22,7 @@ export const SERVICES = [
     methodology: ['Diagnose & design — soil and land baseline, and a custom master plan (S1 + S2)', 'Restore the soil — biochar-enriched compost programme to rebuild soil organic carbon (S1)', 'Develop & plant — infrastructure, water, mechanisation and planting to the design (S3)', 'Operate & manage — day-to-day operations, supervision and training via the AOC (S3 + S4)', 'Monetise & report — market/export linkage, carbon credits and per-plot reporting (S5 + S4)'],
     technology: ['AOC dashboard & per-plot mobile app', 'Drones & IoT sensors', 'Biochar / BEC production', 'Carbon MRV (Puro.earth-type methodology)', 'Farm-management software'],
     timeline: [{ phase: 'Design', duration: '1–2 months' }, { phase: 'Development', duration: '~6 months' }, { phase: 'System stabilises', duration: '~3 years' }, { phase: 'Operations', duration: 'Typically 8 years' }],
-    esg: ['Carbon sequestration', '100–300 trees / acre', 'Water conservation', 'Rural livelihoods — ex-servicemen, women SHGs, youth', 'Healthy, chemical-free produce'],
+    esg: ['Carbon sequestration', 'Water conservation', 'Rural livelihoods — ex-servicemen, women SHGs, youth', 'Healthy, chemical-free produce'],
     support: { title: 'Dedicated Relationship Manager', text: 'A documented change-request process, a defined escalation matrix and scheduled service reviews at a cadence set by your SLA tier.' },
     audiences: {
       individuals: {

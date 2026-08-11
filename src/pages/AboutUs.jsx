@@ -184,41 +184,7 @@ class AboutUs extends Component {
                   <img src="/assets/banner-farmland-operate.png" alt="An ex-serviceman tending a thriving natural farm" style={css("width:100%;height:100%;display:block;object-fit:cover;")} />
                 </div>
               </div>
-              <div className="gf-stat-row" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:56px 0;")}>
-                <div style={css("background:rgba(250,250,249,0.06);border:1px solid rgba(233,193,118,0.25);border-radius:18px;padding:30px;")}>
-                  <div style={css("font-family:'Source Serif 4',serif;font-size:40px;color:#e9c176;line-height:1;")}>
-                    {"60,000+"}
-                  </div>
-                  <div style={css("color:#c5eadf;font-size:13.5px;margin-top:10px;line-height:1.5;")}>
-                    {"Soldiers retire from the Indian Armed Forces every year — a vast pool of disciplined, rural leadership."}
-                  </div>
-                </div>
-                <div style={css("background:rgba(250,250,249,0.06);border:1px solid rgba(233,193,118,0.25);border-radius:18px;padding:30px;")}>
-                  <div style={css("font-family:'Source Serif 4',serif;font-size:40px;color:#e9c176;line-height:1;")}>
-                    {"5,000"}
-                  </div>
-                  <div style={css("color:#c5eadf;font-size:13.5px;margin-top:10px;line-height:1.5;")}>
-                    {"Ex-soldiers & their families we aim to develop as organic farming entrepreneurs over five years."}
-                  </div>
-                </div>
-                <div style={css("background:rgba(250,250,249,0.06);border:1px solid rgba(233,193,118,0.25);border-radius:18px;padding:30px;")}>
-                  <div style={css("font-family:'Source Serif 4',serif;font-size:40px;color:#e9c176;line-height:1;")}>
-                    {"100,000"}
-                  </div>
-                  <div style={css("color:#c5eadf;font-size:13.5px;margin-top:10px;line-height:1.5;")}>
-                    {"ESM, rural women & youth we aim to turn into Natural Farming entrepreneurs in ten years."}
-                  </div>
-                </div>
-                <div style={css("background:rgba(250,250,249,0.06);border:1px solid rgba(233,193,118,0.25);border-radius:18px;padding:30px;")}>
-                  <div style={css("font-family:'Source Serif 4',serif;font-size:40px;color:#e9c176;line-height:1;")}>
-                    {"60"}
-                  </div>
-                  <div style={css("color:#c5eadf;font-size:13.5px;margin-top:10px;line-height:1.5;")}>
-                    {"Residential trainees at a time at our NSDC-aligned training facility near Pondicherry."}
-                  </div>
-                </div>
-              </div>
-              <div style={css("text-align:center;max-width:640px;margin:0 auto 40px;")}>
+              <div style={css("text-align:center;max-width:640px;margin:56px auto 40px;")}>
                 <h3 style={css("font-family:'Source Serif 4',serif;font-size:clamp(22px,2.6vw,28px);color:#FAFAF9;margin:0;")}>
                   {"How We Empower Them"}
                 </h3>

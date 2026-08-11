@@ -145,6 +145,18 @@ textarea:focus-visible {
 /* Dropdown panels can exceed the viewport on short screens. */
 .gf-nav-panel { max-height: calc(100vh - var(--gf-nav-h) - 24px); overflow-y: auto; }
 
+/* The two-column services panel opts out of that scrolling. `overflow-y:auto`
+   makes the computed overflow-x `auto` as well — a scrolling box cannot have
+   one axis visible — so the panel clipped its own second column and grew a
+   pair of scrollbars. Its two columns are short enough to need neither.
+   The width is capped against the viewport so it still fits a small laptop. */
+.gf-nav-panel-wide {
+  max-height: none;
+  overflow: visible;
+  width: min(620px, calc(100vw - 40px));
+  box-sizing: border-box;
+}
+
 .gf-mobile-panel { max-height: calc(100vh - var(--gf-nav-h)); overflow-y: auto; }
 
 @media (max-width: 980px) {

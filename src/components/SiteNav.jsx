@@ -72,11 +72,28 @@ class SiteNav extends Component {
 
     const navItems = this.navDef.map(item => {
       const kids = item.children || [];
+
+      // A menu whose entries carry audiences is laid out as two columns inside
+      // one panel — the entries on the left, the audiences of the highlighted
+      // entry on the right. It used to be a submenu positioned at left:100% of
+      // a panel that sets overflow-y, and a scrolling ancestor cannot let a
+      // child paint outside it: the audiences were clipped and the panel grew
+      // scrollbars. Nothing has to escape the panel now.
+      const hasFlyout = kids.some(c => c.audiences);
+      const firstAudienceHref = hasFlyout ? kids.find(c => c.audiences).href : null;
+      // The right column always has something to show, so the panel is never
+      // half empty on the frame before a service is hovered.
+      const openSubIsValid = kids.some(c => c.audiences && c.href === this.state.openSub);
+      const activeHref = (hasFlyout && !isMobile)
+        ? (openSubIsValid ? this.state.openSub : firstAudienceHref)
+        : null;
+
       let lastGroup = null;
       const children = kids.map(child => {
         const groupLabel = child.group && child.group !== lastGroup ? child.group : '';
         lastGroup = child.group || lastGroup;
         const hasAudiences = !!child.audiences;
+        const isActive = hasAudiences && child.href === activeHref;
         return {
           label: child.label,
           href: child.href,
@@ -85,21 +102,31 @@ class SiteNav extends Component {
           audiences: hasAudiences
             ? this.audienceDefs.map(([k, l]) => ({ label: l, href: `${child.href}?audience=${k}` }))
             : [],
-          isOpen: !isMobile && this.state.openSub === child.href,
-          linkColor: this.state.openSub === child.href ? '#C5A059' : '#1A3C34',
-          linkBg: this.state.openSub === child.href ? '#F5F2ED' : 'transparent',
-          onEnter: () => hasAudiences && !isMobile && this.setState({ openSub: child.href }),
-          onLeave: () => {}
+          linkColor: isActive ? '#C5A059' : '#1A3C34',
+          linkBg: isActive ? '#F5F2ED' : 'transparent',
+          onEnter: () => hasAudiences && !isMobile && this.setState({ openSub: child.href })
         };
       });
 
+      const activeChild = children.find(c => c.hasAudiences && c.href === activeHref) || null;
       const isOpen = this.state.openDropdown === item.key;
       return {
         key: item.key,
         label: item.label,
         href: item.href,
         children,
+        activeChild,
         hasChildren: kids.length > 0,
+        // A two-column panel is centred under its trigger so a wide menu stays
+        // inside the viewport on a small laptop; a single-column one is narrow
+        // enough to hang from the left edge as before.
+        panelWrapStyle: hasFlyout
+          ? "position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;z-index:20;"
+          : "position:absolute;top:100%;left:0;padding-top:14px;z-index:20;",
+        panelClass: hasFlyout ? 'gf-nav-panel gf-nav-panel-wide' : 'gf-nav-panel',
+        panelStyle: hasFlyout
+          ? "background:#FAFAF9;border:1px solid #e5e2dd;border-radius:12px;box-shadow:0 12px 40px rgba(26,60,52,0.14);padding:10px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:8px;align-items:start;"
+          : "background:#FAFAF9;border:1px solid #e5e2dd;border-radius:12px;box-shadow:0 12px 40px rgba(26,60,52,0.14);padding:10px;min-width:300px;display:flex;flex-direction:column;",
         isOpen,
         ariaExpanded: kids.length ? String(isOpen) : undefined,
         mobileIcon: isOpen ? '▲' : '▼',
@@ -166,11 +193,11 @@ class SiteNav extends Component {
                       </A>
                       {(item.isOpen) ? (
                         <>
-                        <div style={css("position:absolute;top:100%;left:0;padding-top:14px;")}>
-                          <div className="gf-nav-panel" style={css("background:#FAFAF9;border:1px solid #e5e2dd;border-radius:12px;box-shadow:0 12px 40px rgba(26,60,52,0.14);padding:10px;min-width:300px;display:flex;flex-direction:column;")}>
-                            {(item.children || []).map((child, childIndex) => (
-                              <Fragment key={childIndex}>
-                                <div style={css("position:relative;")} onMouseEnter={child.onEnter} onMouseLeave={child.onLeave}>
+                        <div style={css(item.panelWrapStyle)}>
+                          <div className={item.panelClass} style={css(item.panelStyle)}>
+                            <div style={css("display:flex;flex-direction:column;min-width:0;")}>
+                              {(item.children || []).map((child, childIndex) => (
+                                <Fragment key={childIndex}>
                                   {(child.groupLabel) ? (
                                     <>
                                     <span style={css("font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#717976;text-transform:uppercase;padding:12px 14px 6px;display:block;")}>
@@ -178,7 +205,7 @@ class SiteNav extends Component {
                                     </span>
                                     </>
                                   ) : null}
-                                  <A href={child.href} onFocus={child.onEnter} style={css(`text-decoration:none;color:${child.linkColor};font-size:13.5px;font-weight:500;padding:11px 14px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:${child.linkBg};`)} hoverStyle={css("background:#F5F2ED;color:#C5A059;")}>
+                                  <A href={child.href} onFocus={child.onEnter} onMouseEnter={child.onEnter} style={css(`text-decoration:none;color:${child.linkColor};font-size:13.5px;font-weight:500;padding:11px 14px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:${child.linkBg};`)} hoverStyle={css("background:#F5F2ED;color:#C5A059;")}>
                                     {child.label}
                                     {(child.hasAudiences) ? (
                                       <>
@@ -188,27 +215,28 @@ class SiteNav extends Component {
                                       </>
                                     ) : null}
                                   </A>
-                                  {(child.isOpen) ? (
-                                    <>
-                                    <div style={css("position:absolute;top:-10px;left:100%;padding-left:8px;z-index:5;")}>
-                                      <div className="gf-nav-panel" style={css("background:#FAFAF9;border:1px solid #e5e2dd;border-radius:12px;box-shadow:0 12px 40px rgba(26,60,52,0.15);padding:10px;min-width:250px;display:flex;flex-direction:column;")}>
-                                        <span style={css("font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#717976;text-transform:uppercase;padding:6px 14px 8px;")}>
-                                          {"By Target Audience"}
-                                        </span>
-                                        {(child.audiences || []).map((aud, audIndex) => (
-                                          <Fragment key={audIndex}>
-                                            <A href={aud.href} style={css("text-decoration:none;color:#1A3C34;font-size:13px;font-weight:500;padding:10px 14px;border-radius:8px;")} hoverStyle={css("background:#F5F2ED;color:#C5A059;")}>
-                                              {aud.label}
-                                            </A>
-                                          </Fragment>
-                                        ))}
-                                      </div>
-                                    </div>
-                                    </>
-                                  ) : null}
-                                </div>
-                              </Fragment>
-                            ))}
+                                </Fragment>
+                              ))}
+                            </div>
+                            {(item.activeChild) ? (
+                              <>
+                              <div style={css("display:flex;flex-direction:column;min-width:0;background:#F5F2ED;border-radius:10px;padding:8px;")}>
+                                <span style={css("font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#717976;text-transform:uppercase;padding:8px 12px;")}>
+                                  {"By Target Audience"}
+                                </span>
+                                <span style={css("font-size:12px;font-weight:700;color:#1A3C34;padding:0 12px 8px;line-height:1.35;")}>
+                                  {item.activeChild.label}
+                                </span>
+                                {(item.activeChild.audiences || []).map((aud, audIndex) => (
+                                  <Fragment key={audIndex}>
+                                    <A href={aud.href} style={css("text-decoration:none;color:#1A3C34;font-size:13px;font-weight:500;padding:9px 12px;border-radius:8px;")} hoverStyle={css("background:#FAFAF9;color:#C5A059;")}>
+                                      {aud.label}
+                                    </A>
+                                  </Fragment>
+                                ))}
+                              </div>
+                              </>
+                            ) : null}
                           </div>
                         </div>
                         </>
