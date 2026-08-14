@@ -85,7 +85,7 @@ class ServiceDetail extends Component {
       enquireHref: base ? `/contact?service=${encodeURIComponent(base.name)}&audience=${encodeURIComponent(audDef.label)}` : '/contact',
       ctaText: base ? `For ${audDef.label}, our team can help you identify the right solution for your land through ${base.name}${base.brand ? ' (' + base.brand + ')' : ''}.` : '',
       brochureHref: '/assets/docs/gratitude-farms-service-specifications.pdf',
-      phoneDial: '+919360903652',
+      phoneDial: '+919150023044',
       toastVisible: this.state.toastVisible,
       scrollPct: this.state.scrollPct,
       onBrochure: () => {
@@ -335,25 +335,17 @@ class ServiceDetail extends Component {
                 </div>
                 <div style={css("background:#1A3C34;border-radius:22px;padding:clamp(32px,4vw,44px);")}>
                   <span style={css("font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#e9c176;text-transform:uppercase;")}>
-                    {"Indicative Pricing · 2026 · ex-GST"}
+                    {"Commercials"}
                   </span>
-                  <div style={css("display:flex;flex-direction:column;gap:16px;margin-top:22px;")}>
-                    {($v.aud.pricing || []).map((p, pIndex) => (
-                      <Fragment key={pIndex}>
-                        <div style={css("display:flex;align-items:flex-start;gap:14px;border-bottom:1px solid rgba(250,250,249,0.12);padding-bottom:16px;")}>
-                          <span style={css("color:#e9c176;font-size:18px;line-height:1.4;flex-shrink:0;")}>
-                            {"₹"}
-                          </span>
-                          <span style={css("color:#FAFAF9;font-size:clamp(16px,1.7vw,19px);line-height:1.45;")}>
-                            {p}
-                          </span>
-                        </div>
-                      </Fragment>
-                    ))}
-                  </div>
-                  <p style={css("color:#83a69c;font-size:13px;margin:20px 0 0;line-height:1.55;")}>
-                    {"Indicative for 2026, exclusive of GST; firmed up per site in a written proposal after survey."}
+                  <p style={css("color:#FAFAF9;font-size:clamp(18px,2vw,22px);line-height:1.5;margin:20px 0 0;font-family:'Source Serif 4',serif;")}>
+                    {"Pricing is quoted per site, on request."}
                   </p>
+                  <p style={css("color:#83a69c;font-size:14.5px;margin:16px 0 26px;line-height:1.6;")}>
+                    {"Every parcel differs in soil, water, access and scale, so we survey first and then put commercials in a written proposal — no standard rate card."}
+                  </p>
+                  <A href="/contact" style={css("text-decoration:none;background:#C5A059;color:#1A3C34;font-weight:700;font-size:14px;padding:14px 28px;border-radius:12px;display:inline-block;")} hoverStyle={css("background:#e9c176;")}>
+                    {"Request a Proposal →"}
+                  </A>
                 </div>
               </div>
             </div>

@@ -151,8 +151,8 @@ class Terms extends Component {
                 {"info@gratitudefarms.co.in"}
               </A>
               {" · Phone "}
-              <A href="tel:+919360903652">
-                {"+91 93609 03652"}
+              <A href="tel:+919150023044">
+                {"+91 91500 23044"}
               </A>
             </p>
             <div style={css("margin-top:48px;padding-top:28px;border-top:1px solid #e5e2dd;display:flex;gap:22px;flex-wrap:wrap;")}>

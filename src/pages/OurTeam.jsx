@@ -20,9 +20,7 @@ class OurTeam extends Component {
       ],
       advisors: [
         { name: 'Dr. Ramesh Mittal', role: 'Director, NIAM Jaipur', photo: '/assets/team/dr-ramesh-mittal.png', bio: 'Guides agricultural marketing strategy and policy alignment.' },
-        { name: 'Kannan Narayanaswamy', role: 'Mentor | Coach', photo: '/assets/team/kannan-narayanaswamy.png', bio: 'Advises on organizational growth and leadership development.' },
-        { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: '/assets/team/mv-ashok.png', bio: 'Brings decades of agribusiness and supply-chain expertise.' },
-        { name: 'Shyam Kaluve', role: 'IT Industry Veteran', photo: '/assets/team/shyam-kaluve.png', bio: 'Advises on precision agriculture technology and data systems.' }
+        { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: '/assets/team/mv-ashok.png', bio: 'Brings decades of agribusiness and supply-chain expertise.' }
       ]
     };
   }

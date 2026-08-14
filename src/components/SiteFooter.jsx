@@ -28,8 +28,8 @@ class SiteFooter extends Component {
 
   renderVals() {
     const c = this.cfg ? this.cfg.CONTACT : {
-      email: 'info@gratitudefarms.co.in', phoneDisplay: '+91 93609 03652',
-      phoneDial: '+919360903652', whatsapp: '919360903652', addressLines: [], social: {}
+      email: 'info@gratitudefarms.co.in', phoneDisplay: '+91 91500 23044',
+      phoneDial: '+919150023044', whatsapp: '919150023044', addressLines: [], social: {}
     };
 
     const columns = [

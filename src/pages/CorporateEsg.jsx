@@ -57,7 +57,7 @@ export default function CorporateEsg(props) {
         <section style={css("background:#1A3C34;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);")}>
           <div className="gf-2col" style={css("max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;")}>
             <div style={css("border-radius:20px;overflow:hidden;")}>
-              <img src="/assets/aerial-farmland.png" alt="Carbon credit farmland managed by Gratitude Farms" style={css("width:100%;display:block;object-fit:cover;")} />
+              <img src="/assets/tree-grove-path.jpeg" alt="Mature tree grove on carbon-credit farmland managed by Gratitude Farms" style={css("width:100%;display:block;object-fit:cover;")} />
             </div>
             <div>
               <span style={css("font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#e9c176;text-transform:uppercase;")}>

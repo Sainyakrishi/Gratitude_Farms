@@ -52,14 +52,14 @@ export default function SainyaKrishi(props) {
                 {"From Uniform to Ownership"}
               </h2>
               <p style={css("color:#414846;font-size:16px;line-height:1.75;margin:0 0 16px;")}>
-                {"Sainya Krishi trains retired and transitioning servicemen in natural precision farming, aquaponics and farm-management technology — equipping them to run their own high-yield agricultural enterprises."}
+                {"Sainya Krishi trains retired and transitioning servicemen in natural precision farming and farm-management technology — equipping them to run their own high-yield agricultural enterprises."}
               </p>
               <p style={css("color:#414846;font-size:16px;line-height:1.75;margin:0;")}>
                 {"Their inherent discipline, leadership, and resilience make them ideal stewards for large-scale ecological restoration projects across India."}
               </p>
             </div>
             <div style={css("border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,0.12);")}>
-              <img src="/assets/greenhouse-walkway.png" alt="Ex-serviceman managed greenhouse cultivation" style={css("width:100%;display:block;object-fit:cover;")} />
+              <img src="/assets/farm-land-preparation.png" alt="Land being prepared by tractor ahead of planting" style={css("width:100%;display:block;object-fit:cover;")} />
             </div>
           </div>
         </section>

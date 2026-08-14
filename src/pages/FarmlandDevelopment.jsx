@@ -3,7 +3,32 @@ import { css } from '../lib/css.js';
 import SiteNav from '../components/SiteNav.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
 
+const STAGES = [
+  {
+    img: '/assets/contour-survey.jpg',
+    alt: 'Contour survey overlaid on an aerial photograph of the parcel',
+    step: 'Stage 01',
+    title: 'Survey the Contours',
+    body: 'The land is mapped to its levels before anything is moved, so water and planting follow the ground rather than fight it.'
+  },
+  {
+    img: '/assets/land-earthworks.jpg',
+    alt: 'Excavator cutting a swale into red earth across the parcel',
+    step: 'Stage 02',
+    title: 'Shape and Prepare',
+    body: 'Swales, bunds and ponds are cut to the survey, then top-soil is built up with biochar and compost.'
+  },
+  {
+    img: '/assets/farm-lush-growth.jpg',
+    alt: 'Dense green crop growth covering the same land after establishment',
+    step: 'Stage 03',
+    title: 'Plant and Establish',
+    body: 'Multi-layer planting goes in and thickens season on season, until the ground is fully covered and self-shading.'
+  }
+];
+
 export default function FarmlandDevelopment(props) {
+  const $v = { stages: STAGES };
   return (
     <>
       <Seo title={"Farmland Development Projects — Barren Land to Living Farm | Gratitude Farms"} description={"Farmland Development Projects - turnkey natural farming ecosystem development by Gratitude Farms."} />
@@ -45,7 +70,7 @@ export default function FarmlandDevelopment(props) {
         <section style={css("background:#1A3C34;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);")}>
           <div className="gf-2col" style={css("max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;")}>
             <div style={css("border-radius:20px;overflow:hidden;order:2;")}>
-              <img src="/assets/aquaponics-collage.png" alt="Water conservation and aquaponics systems" style={css("width:100%;display:block;object-fit:cover;")} />
+              <img src="/assets/farm-ponds-aerial.png" alt="Aerial view of a developed farm with rainwater harvesting ponds set into the layout" style={css("width:100%;display:block;object-fit:cover;")} />
             </div>
             <div style={css("order:1;")}>
               <span style={css("font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#e9c176;text-transform:uppercase;")}>
@@ -149,8 +174,37 @@ export default function FarmlandDevelopment(props) {
               {"Start a Project"}
             </A>
             <A href="/services/managed-farmland" style={css("text-decoration:none;background:transparent;border:1px solid #3C4A3E;color:#1A3C34;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
-              {"See Pricing & Timelines"}
+              {"See Commercials & Timelines"}
             </A>
+          </div>
+        </section>
+        <section style={css("max-width:1440px;margin:0 auto;padding:0 clamp(20px,5.5vw,80px) clamp(54px,10vw,120px);")}>
+          <span style={css("font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#2D5A27;text-transform:uppercase;")}>
+            {"On the Ground"}
+          </span>
+          <h2 style={css("font-family:'Source Serif 4',serif;font-size:clamp(22px,2.8vw,30px);color:#1A3C34;margin:16px 0 12px;")}>
+            {"From Barren to Biodiverse"}
+          </h2>
+          <p style={css("color:#414846;font-size:16px;line-height:1.75;max-width:620px;margin:0 0 36px;")}>
+            {"The same parcel, at three points in the process — surveyed to its contours, shaped to hold water, then planted out and left to thicken."}
+          </p>
+          <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;")}>
+            {($v.stages || []).map((stage, stageIndex) => (
+              <div key={stageIndex} style={css("background:#FAFAF9;border:1px solid #e5e2dd;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;")}>
+                <img src={stage.img} alt={stage.alt} style={css("width:100%;height:220px;object-fit:cover;display:block;")} />
+                <div style={css("padding:22px 24px;")}>
+                  <div style={css("font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#C5A059;text-transform:uppercase;margin-bottom:8px;")}>
+                    {stage.step}
+                  </div>
+                  <h3 style={css("font-family:'Source Serif 4',serif;font-size:19px;color:#1A3C34;margin:0 0 8px;")}>
+                    {stage.title}
+                  </h3>
+                  <p style={css("color:#414846;font-size:14px;line-height:1.6;margin:0;")}>
+                    {stage.body}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
         <section style={css("max-width:1440px;margin:0 auto;padding:0 clamp(20px,5.5vw,80px) clamp(63px,11.7vw,140px);")}>

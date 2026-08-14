@@ -3,9 +3,9 @@
 
 export const CONTACT = {
   email: 'info@gratitudefarms.co.in',
-  phoneDisplay: '+91 93609 03652',
-  phoneDial: '+919360903652',
-  whatsapp: '919360903652',
+  phoneDisplay: '+91 91500 23044',
+  phoneDial: '+919150023044',
+  whatsapp: '919150023044',
   addressLines: ['No. 70, Auroville Main Road', 'Kottakuppam, Pondicherry – 605104', 'India'],
   social: {
     facebook: 'https://www.facebook.com/gratitudefarmsindia/',

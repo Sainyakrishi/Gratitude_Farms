@@ -35,9 +35,7 @@ class AboutUs extends Component {
       ],
       advisors: [
         { name: 'Dr. Ramesh Mittal', role: 'Director, NIAM Jaipur', photo: '/assets/team/dr-ramesh-mittal.png' },
-        { name: 'Kannan Narayanaswamy', role: 'Mentor | Coach', photo: '/assets/team/kannan-narayanaswamy.png' },
-        { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: '/assets/team/mv-ashok.png' },
-        { name: 'Shyam Kaluve', role: 'IT Industry Veteran', photo: '/assets/team/shyam-kaluve.png' }
+        { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: '/assets/team/mv-ashok.png' }
       ],
       focusStates: ['Tamil Nadu', 'Telangana', 'Karnataka'],
       empowermentSteps: [
@@ -97,6 +95,11 @@ class AboutUs extends Component {
               {"Cultivating discipline, harvesting hope. We are a collective of Ex-Servicemen and Agritech pioneers dedicated to transforming barren lands into thriving ecosystems."}
             </p>
           </section>
+          <section style={css("background:#1A3C34;padding:clamp(36px,5.5vw,64px) clamp(20px,5.5vw,80px);")}>
+            <div style={css("max-width:1100px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);")}>
+              <img src="/assets/global-triggers.jpg" alt="Global Triggers — climate change, conservation, biodiversity and regenerative farming" style={css("width:100%;height:auto;display:block;")} />
+            </div>
+          </section>
           <section className="gf-2col" style={css("max-width:1440px;margin:0 auto;padding:clamp(27px,5.0vw,60px) clamp(20px,5.5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;")}>
             <div>
               <h2 style={css("font-family:'Source Serif 4',serif;font-size:clamp(26px,3.2vw,36px);color:#2D5A27;margin:0 0 22px;")}>
@@ -110,7 +113,7 @@ class AboutUs extends Component {
               </p>
             </div>
             <div style={css("border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,0.12);")}>
-              <img src="/assets/greenhouse-walkway.png" alt="Farmland development greenhouse cultivation" style={css("width:100%;display:block;object-fit:cover;")} />
+              <img src="/assets/farm-lush-growth.jpg" alt="Dense natural-farming growth across a Gratitude Farms field" style={css("width:100%;display:block;object-fit:cover;")} />
             </div>
           </section>
           <section style={css("position:relative;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);margin-top:40px;overflow:hidden;")}>

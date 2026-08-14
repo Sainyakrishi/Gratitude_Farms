@@ -153,8 +153,8 @@ class PrivacyPolicy extends Component {
                 {"info@gratitudefarms.co.in"}
               </A>
               {" · Phone "}
-              <A href="tel:+919360903652">
-                {"+91 93609 03652"}
+              <A href="tel:+919150023044">
+                {"+91 91500 23044"}
               </A>
               <br />
               {"\n    Gratitude Farms Private Limited, No. 70, Auroville Main Road, Kottakuppam, Pondicherry – 605104, India."}
