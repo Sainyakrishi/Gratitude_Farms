@@ -115,8 +115,13 @@ export default function NakshatraVanam(props) {
                 {"A Nakshatra Vanam is planted in concentric rings — a shelter belt of tall trees on the outside, fruit and medicinal species through the middle rings, and beds, ponds and a living space at the centre. Nothing is placed at random: each ring earns its position from the sunlight it needs, the shade it casts and the water it holds."}
               </p>
             </div>
-            <div style={css("border-radius:20px;overflow:hidden;")}>
-              <img src="/assets/nakshatra-vanam-plan.jpg" alt="Plan drawing of a Nakshatra Vanam showing concentric rings of trees, planting beds and ponds around a central living space" style={css("width:100%;display:block;")} />
+            <div style={css("display:flex;flex-direction:column;gap:16px;")}>
+              <div style={css("border-radius:20px;overflow:hidden;")}>
+                <img src="/assets/nakshatra-vanam-plan.jpg" alt="Plan drawing of a Nakshatra Vanam showing concentric rings of trees, planting beds and ponds around a central living space" style={css("width:100%;display:block;")} />
+              </div>
+              <div style={css("border-radius:16px;overflow:hidden;")}>
+                <img src="/assets/nakshatra-vanam-orchard.jpg" alt="Aerial view of an established orchard planted in long parallel rows" style={css("width:100%;height:180px;object-fit:cover;display:block;")} />
+              </div>
             </div>
           </div>
         </section>

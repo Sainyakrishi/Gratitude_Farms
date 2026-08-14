@@ -64,7 +64,7 @@ export default function FarmlandDevelopment(props) {
             </p>
           </div>
           <div style={css("border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,0.12);")}>
-            <img src="/assets/greenhouse-walkway.png" alt="Greenhouse cultivation walkway on a developed farm" style={css("width:100%;display:block;object-fit:cover;")} />
+            <img src="/assets/polyhouse-greens.jpg" alt="Rows of leafy greens growing under shade netting in a Gratitude Farms polyhouse" style={css("width:100%;display:block;object-fit:cover;")} />
           </div>
         </section>
         <section style={css("background:#1A3C34;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);")}>
