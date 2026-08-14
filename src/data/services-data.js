@@ -34,7 +34,6 @@ export const SERVICES = [
         sla: 'Platinum — weekly / resident supervision, same-day response, real-time dashboard, dedicated RM',
         edition: 'Enterprise / Premier · Design-Build-Operate',
         model: 'Fixed-price development + managed-service subscription and/or revenue-share',
-        pricing: ['Development (one-time): ₹5–10 L / acre', 'Annual managed fee: ₹45,000–85,000 / acre / yr or 18–25% revenue-share', 'Design: ₹20,000–35,000 / acre', 'Nakshatra Vanam: ₹50,000–1,50,000', 'Bundle discount 10–15% vs à-la-carte'],
         addons: ['Nakshatra Vanam', 'Carbon-credit monetisation', 'Organic certification', 'Agri-tourism / wellness retreat', 'Eco-stay design', 'Drone surveys']
       },
       corporates: {
@@ -46,7 +45,6 @@ export const SERVICES = [
         sla: 'Platinum + steering committee; SLA-linked outcome payments',
         edition: 'Enterprise · BOOT / outcome-based managed service',
         model: 'SLA-linked; optional GF co-investment; CSR / ESG-funded',
-        pricing: ['Development: ₹2–5 L / acre', 'Managed service: ₹30,000–60,000 / acre / yr or outcome-based', 'AOC ESG platform: ₹8–25 L / yr', 'Carbon-credit revenue share (GF 20–30%)', 'Indicative 100-acre programme: ₹3–6 Cr over 3 years'],
         addons: ['Verified carbon credits', 'Biodiversity certification', 'Employee CSR engagement visits', '"Restored-land" branded produce', 'Agro-forestry timber']
       },
       fpos: {
@@ -58,7 +56,6 @@ export const SERVICES = [
         sla: 'Gold (cluster-level) with a shared resident agronomist',
         edition: 'Enterprise (Cluster) · blended finance',
         model: 'NABARD / CSR / grants + revenue-share + membership',
-        pricing: ['GF facilitation fee: ₹8,000–20,000 / acre + 5–10% revenue-share', 'BEC: ₹15,000–20,000 / tonne (bulk)', 'Membership / aggregation: ₹50,000–2,00,000 / FPO / yr', 'Training: grant / CSR-funded'],
         addons: ['Export facilitation', 'Organic / GI certification', 'Warehousing', 'Micro-processing units', 'Carbon aggregation']
       },
       small: {
@@ -70,7 +67,6 @@ export const SERVICES = [
         sla: 'Gold — fortnightly visits, monthly reporting',
         edition: 'Professional · Design-Build-Operate',
         model: 'Fixed-price development + managed-service subscription',
-        pricing: ['Development: ₹3–7 L / acre', 'Managed fee: ₹35,000–60,000 / acre / yr or 15–20% revenue-share', 'Design: ₹15,000–30,000 / acre', 'NABARD / bank EMI options'],
         addons: ['Agri-tourism', 'Carbon credits', 'Certification', 'Drone survey', 'Farm-stay']
       },
       marginal: {
@@ -82,7 +78,6 @@ export const SERVICES = [
         sla: 'Silver — monthly group visit, app support',
         edition: 'Essential · group / FPO-aggregated',
         model: 'Blended finance; low fixed fee + commission on sales',
-        pricing: ['Entry package: ₹40,000–1,20,000 / acre (modular, group-delivered)', 'BEC: ₹18,000–25,000 / tonne', 'AOC app: ₹3,000–6,000 / plot / yr', 'Market linkage: 8–12% commission', 'CSR / subsidy reduces net cost'],
         addons: ['Agri-tourism co-op', 'Carbon aggregation', 'FPO certification', 'Micro-processing']
       }
     }
@@ -111,7 +106,6 @@ export const SERVICES = [
         sla: 'Platinum / Gold — fortnightly monitoring, detailed reporting',
         edition: 'Premier · per-acre remediation + BEC sales',
         model: 'Per-acre remediation service fee + BEC product sales',
-        pricing: ['Soil diagnostics: ₹10,000–15,000 / site', 'Remediation: ₹35,000–45,000 / acre / yr', 'BEC: ₹18,000–25,000 / tonne', 'Carbon-credit revenue share (GF 20–30%)'],
         addons: ['Carbon-credit monetisation', 'Organic certification', 'Micro-nutrient customisation']
       },
       corporates: {
@@ -123,7 +117,6 @@ export const SERVICES = [
         sla: 'Platinum + steering committee',
         edition: 'Enterprise · managed service or turnkey unit',
         model: 'Remediation managed service or turnkey unit (licence + platform fee); outcome / carbon-linked',
-        pricing: ['Remediation: ₹25,000–40,000 / acre / yr', 'Turnkey biochar-BEC unit: ₹1.5–3.5 Cr + AOC / tech licence (4% royalty + platform fee)', 'Carbon-credit revenue share (GF 20–30%)'],
         addons: ['Verified carbon credits', 'Biodiversity MRV', 'Biomass-supply-chain setup', 'Wood-vinegar co-products']
       },
       fpos: {
@@ -135,7 +128,6 @@ export const SERVICES = [
         sla: 'Gold (cluster)',
         edition: 'Enterprise (Cluster) · blended finance',
         model: 'Blended finance + bulk BEC sales + carbon share',
-        pricing: ['BEC (bulk): ₹15,000–20,000 / tonne', 'GF facilitation: ₹8,000–15,000 / acre', 'Shared unit via blended finance', 'Training grant / CSR-funded'],
         addons: ['Shared unit ownership', 'Export-grade BEC', 'GI / organic certification']
       },
       small: {
@@ -147,7 +139,6 @@ export const SERVICES = [
         sla: 'Gold (monthly)',
         edition: 'Professional · per-acre remediation + BEC',
         model: 'Per-acre remediation + BEC sales',
-        pricing: ['Soil test: ₹5,000–10,000 / site', 'Remediation: ₹30,000–40,000 / acre / yr', 'BEC: ₹18,000–25,000 / tonne', 'EMI options'],
         addons: ['Carbon aggregation', 'Certification']
       },
       marginal: {
@@ -159,7 +150,6 @@ export const SERVICES = [
         sla: 'Silver (monthly group)',
         edition: 'Essential · group / FPO-aggregated',
         model: 'Group / FPO-aggregated; blended finance',
-        pricing: ['Soil test: ₹1,500–3,000 / plot', 'BEC: ₹18,000–25,000 / tonne (group)', 'CSR / subsidy reduces net cost'],
         addons: ['Cluster carbon aggregation', 'Certification via FPO']
       }
     }
@@ -188,7 +178,6 @@ export const SERVICES = [
         sla: 'Premier — dedicated design consultant',
         edition: 'Premier · design-only or design + build',
         model: 'Fixed design fee; optional progression to development (S3)',
-        pricing: ['Design: ₹20,000–35,000 / acre', '3D visualisation package (optional)', 'Nakshatra Vanam: ₹50,000–1,50,000'],
         addons: ['Nakshatra Vanam', '3D visualisation', 'Vastu-aligned water routing', 'Eco-stay / retreat design']
       },
       corporates: {
@@ -200,7 +189,6 @@ export const SERVICES = [
         sla: 'Enterprise — steering-committee reviews',
         edition: 'Enterprise · design (optionally design + build)',
         model: 'Programme-based design fee; optional development mandate',
-        pricing: ['Design: ₹12,000–25,000 / acre (scale-dependent)', 'GIS / drone survey add-on', 'Programme-priced per parcel'],
         addons: ['Drone survey', 'Biodiversity plan', 'Carbon-ready design']
       },
       fpos: {
@@ -212,7 +200,6 @@ export const SERVICES = [
         sla: 'Gold (cluster)',
         edition: 'Enterprise (Cluster) · blended finance',
         model: 'Blended-finance funded template design',
-        pricing: ['Template design: ₹8,000–15,000 / acre', 'Blended-finance / grant funded', 'Bulk cluster rates'],
         addons: ['Export-crop planning', 'Warehousing layout']
       },
       small: {
@@ -224,7 +211,6 @@ export const SERVICES = [
         sla: 'Gold',
         edition: 'Professional · design or design + build',
         model: 'Fixed design fee; EMI options',
-        pricing: ['Design: ₹15,000–30,000 / acre', 'EMI options'],
         addons: ['3D visualisation', 'Farm-stay layout']
       },
       marginal: {
@@ -236,7 +222,6 @@ export const SERVICES = [
         sla: 'Silver (group)',
         edition: 'Essential · group-aggregated',
         model: 'Group-aggregated; CSR / subsidy supported',
-        pricing: ['Template design: ₹3,000–8,000 / plot (group)', 'CSR / subsidy reduces net cost'],
         addons: ['Cluster template', 'FPO planting plan']
       }
     }
@@ -265,7 +250,6 @@ export const SERVICES = [
         sla: 'Platinum — weekly / resident supervision',
         edition: 'Premier · managed-operations subscription',
         model: 'Managed-service subscription and/or revenue-share',
-        pricing: ['Managed-farm fee: ₹45,000–85,000 / acre / yr or 18–25% revenue-share'],
         addons: ['Agri-tourism', 'Carbon credits', 'Organic certification']
       },
       corporates: {
@@ -277,7 +261,6 @@ export const SERVICES = [
         sla: 'Platinum + steering committee',
         edition: 'Enterprise · outcome-based managed service',
         model: 'SLA / outcome-based; CSR / ESG-funded',
-        pricing: ['Managed service: ₹30,000–60,000 / acre / yr or outcome-based', 'AOC platform: ₹8–25 L / yr'],
         addons: ['Verified carbon credits', 'Employee CSR visits', 'Branded produce']
       },
       fpos: {
@@ -289,7 +272,6 @@ export const SERVICES = [
         sla: 'Gold (cluster) with a shared agronomist',
         edition: 'Enterprise (Cluster) · blended finance',
         model: 'Facilitation fee + revenue-share + membership',
-        pricing: ['GF facilitation: ₹8,000–20,000 / acre + 5–10% revenue-share', 'Membership: ₹50,000–2,00,000 / FPO / yr'],
         addons: ['Warehousing', 'Micro-processing', 'Export facilitation']
       },
       small: {
@@ -301,7 +283,6 @@ export const SERVICES = [
         sla: 'Gold — fortnightly visits',
         edition: 'Professional · managed operations',
         model: 'Managed-service subscription',
-        pricing: ['Managed fee: ₹35,000–60,000 / acre / yr or 15–20% revenue-share', 'EMI options'],
         addons: ['Agri-tourism', 'Carbon credits', 'Farm-stay']
       },
       marginal: {
@@ -313,7 +294,6 @@ export const SERVICES = [
         sla: 'Silver — monthly group visit',
         edition: 'Essential · group-aggregated',
         model: 'Low fixed fee + commission on sales',
-        pricing: ['Low fixed fee + 8–12% sales commission', 'CSR / subsidy reduces net cost'],
         addons: ['Carbon aggregation', 'Co-op agri-tourism']
       }
     }

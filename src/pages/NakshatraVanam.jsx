@@ -10,7 +10,7 @@ export default function NakshatraVanam(props) {
       <SiteNav active="program" />
       <main style={css("font-family:'Hanken Grotesk',sans-serif;background:#FCF9F4;overflow-x:clip;")}>
         <section style={css("position:relative;height:60vh;min-height:440px;display:flex;align-items:flex-end;overflow:hidden;")}>
-          <img src="/assets/aquaponics-collage.png" alt="Nakshatra Vanam biodiverse plantation" style={css("position:absolute;inset:0;width:100%;height:100%;object-fit:cover;")} />
+          <img src="/assets/nakshatra-vanam-aerial.png" alt="Aerial view of a Nakshatra Vanam grove laid out in concentric planting rings" style={css("position:absolute;inset:0;width:100%;height:100%;object-fit:cover;")} />
           <div style={css("position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,60,52,0.92),rgba(26,60,52,0.3));")} />
           <div style={css("position:relative;z-index:2;max-width:1440px;margin:0 auto;padding:0 clamp(20px,5.5vw,80px) clamp(29px,5.3vw,64px);width:100%;")}>
             <span style={css("font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#e9c176;text-transform:uppercase;")}>
@@ -53,7 +53,7 @@ export default function NakshatraVanam(props) {
             </p>
           </div>
           <div style={css("border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,0.12);")}>
-            <img src="/assets/greenhouse-walkway.png" alt="Nakshatra Vanam plantation walkway" style={css("width:100%;display:block;object-fit:cover;")} />
+            <img src="/assets/food-forest-walkway.png" alt="Shaded walkway winding through a Nakshatra Vanam planting" style={css("width:100%;display:block;object-fit:cover;")} />
           </div>
         </section>
         <section style={css("background:#F0EDE8;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);")}>
@@ -102,6 +102,24 @@ export default function NakshatraVanam(props) {
             </div>
           </div>
         </section>
+        <section style={css("background:#FAFAF9;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);")}>
+          <div className="gf-2col" style={css("max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center;")}>
+            <div>
+              <span style={css("font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#2D5A27;text-transform:uppercase;")}>
+                {"The Layout"}
+              </span>
+              <h2 style={css("font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,32px);color:#1A3C34;margin:16px 0 20px;")}>
+                {"Every Square Foot Is Designed"}
+              </h2>
+              <p style={css("color:#414846;font-size:16px;line-height:1.8;margin:0;")}>
+                {"A Nakshatra Vanam is planted in concentric rings — a shelter belt of tall trees on the outside, fruit and medicinal species through the middle rings, and beds, ponds and a living space at the centre. Nothing is placed at random: each ring earns its position from the sunlight it needs, the shade it casts and the water it holds."}
+              </p>
+            </div>
+            <div style={css("border-radius:20px;overflow:hidden;")}>
+              <img src="/assets/nakshatra-vanam-plan.jpg" alt="Plan drawing of a Nakshatra Vanam showing concentric rings of trees, planting beds and ponds around a central living space" style={css("width:100%;display:block;")} />
+            </div>
+          </div>
+        </section>
         <section className="gf-2col" style={css("max-width:1440px;margin:0 auto;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;")}>
           <div>
             <span style={css("font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#2D5A27;text-transform:uppercase;")}>
@@ -147,7 +165,7 @@ export default function NakshatraVanam(props) {
             </ul>
           </div>
           <div style={css("border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,0.12);")}>
-            <img src="/assets/aerial-farmland.png" alt="Aerial view of a biodiverse plantation" style={css("width:100%;display:block;object-fit:cover;")} />
+            <img src="/assets/retreat-hut-grove.png" alt="Dense multi-layered tree canopy shading the ground below" style={css("width:100%;display:block;object-fit:cover;")} />
           </div>
         </section>
         <section style={css("background:#1A3C34;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);")}>
@@ -196,7 +214,7 @@ export default function NakshatraVanam(props) {
         </section>
         <section className="gf-2col" style={css("max-width:1440px;margin:0 auto;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;")}>
           <div style={css("border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,0.12);order:2;")}>
-            <img src="/assets/papaya-farm-video-still.png" alt="Gratitude Farms field cultivation" style={css("width:100%;display:block;object-fit:cover;")} />
+            <img src="/assets/living-unit-hut.png" alt="A natural hut built in earth, wood and thatch with a shaded verandah" style={css("width:100%;display:block;object-fit:cover;")} />
           </div>
           <div style={css("order:1;")}>
             <span style={css("font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#2D5A27;text-transform:uppercase;")}>

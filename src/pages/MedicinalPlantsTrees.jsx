@@ -82,7 +82,7 @@ class MedicinalPlantsTrees extends Component {
               </div>
             </div>
             <div style={css("border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,0.12);")}>
-              <img src="/assets/papaya-farm-video-still.png" alt="Medicinal and produce plantation" style={css("width:100%;display:block;object-fit:cover;")} />
+              <img src="/assets/marigold-bloom.jpeg" alt="Marigold in full bloom on a Gratitude Farms plantation" style={css("width:100%;display:block;object-fit:cover;")} />
             </div>
           </section>
           <section style={css("background:#F0EDE8;padding:clamp(45px,8.3vw,100px) clamp(20px,5.5vw,80px);")}>

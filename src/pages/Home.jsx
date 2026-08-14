@@ -131,6 +131,11 @@ class Home extends Component {
               {"›"}
             </button>
           </section>
+          <section style={css("background:#1A3C34;padding:clamp(36px,5.5vw,64px) clamp(20px,5.5vw,80px);")}>
+            <div style={css("max-width:1100px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);")}>
+              <img src="/assets/global-triggers.jpg" alt="Global Triggers — climate change, conservation, biodiversity and regenerative farming" style={css("width:100%;height:auto;display:block;")} />
+            </div>
+          </section>
           <section style={css("padding:clamp(29px,5.3vw,64px) clamp(20px,5.5vw,80px) clamp(34px,6vw,76px);max-width:1440px;margin:0 auto;")}>
             <A href="https://www.weforum.org/organizations/gratitude-farms/" target="_blank" rel="noopener" style={css("text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;background:#FAFAF9;border:1px solid #e5e2dd;border-radius:20px;padding:32px 40px;transition:transform 0.25s ease, box-shadow 0.25s ease;")} hoverStyle={css("transform:translateY(-4px);box-shadow:0 20px 48px rgba(26,60,52,0.1);")}>
               <div style={css("display:flex;align-items:center;gap:24px;flex-wrap:wrap;")}>
@@ -168,7 +173,7 @@ class Home extends Component {
               </A>
             </div>
             <div style={css("border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(26,60,52,0.12);aspect-ratio:4/3;")}>
-              <img src="/assets/greenhouse-walkway.png" alt="Gratitude Farms greenhouse cultivation walkway" style={css("width:100%;height:100%;object-fit:cover;")} />
+              <img src="/assets/marigold-field.jpeg" alt="Marigold in bloom across a Gratitude Farms field" style={css("width:100%;height:100%;object-fit:cover;")} />
             </div>
           </section>
           <section style={css("background:#FAFAF9;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);")}>
@@ -296,7 +301,7 @@ class Home extends Component {
                 </div>
               </A>
               <A href="/nakshatra-vanam" style={css("position:relative;border-radius:24px;overflow:hidden;text-decoration:none;height:420px;display:block;")}>
-                <img src="/assets/aquaponics-collage.png" alt="Nakshatra Vanam aquaponics project" style={css("position:absolute;inset:0;width:100%;height:100%;object-fit:cover;")} />
+                <img src="/assets/nakshatra-vanam-aerial.png" alt="Nakshatra Vanam grove laid out in concentric planting rings" style={css("position:absolute;inset:0;width:100%;height:100%;object-fit:cover;")} />
                 <div style={css("position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,60,52,0.92),rgba(26,60,52,0.1) 60%);")} />
                 <div style={css("position:absolute;inset:0;padding:32px;display:flex;flex-direction:column;justify-content:flex-end;")}>
                   <span style={css("font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#e9c176;text-transform:uppercase;margin-bottom:10px;")}>
@@ -324,6 +329,9 @@ class Home extends Component {
               <A href="/corporate-esg" style={css("position:relative;border-radius:24px;overflow:hidden;text-decoration:none;height:260px;display:block;")}>
                 <img src="/assets/banner-circular-economy.png" alt="Corporate ESG restoration programme" style={css("position:absolute;inset:0;width:100%;height:100%;object-fit:cover;")} />
                 <div style={css("position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,60,52,0.92),rgba(26,60,52,0.1) 60%);")} />
+                <span style={css("position:absolute;top:20px;left:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#1A3C34;background:#e9c176;border-radius:999px;padding:6px 13px;font-weight:700;")}>
+                  {"Launching Shortly"}
+                </span>
                 <div style={css("position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;")}>
                   <span style={css("font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#e9c176;text-transform:uppercase;margin-bottom:8px;")}>
                     {"Enterprise"}
@@ -336,6 +344,9 @@ class Home extends Component {
               <A href="/medicinal-plants-trees" style={css("position:relative;border-radius:24px;overflow:hidden;text-decoration:none;height:260px;display:block;")}>
                 <img src="/assets/trees/arjuna-tree.jpg" alt="Medicinal trees cultivated by Gratitude Farms" style={css("position:absolute;inset:0;width:100%;height:100%;object-fit:cover;")} />
                 <div style={css("position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,60,52,0.92),rgba(26,60,52,0.1) 60%);")} />
+                <span style={css("position:absolute;top:20px;left:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#1A3C34;background:#e9c176;border-radius:999px;padding:6px 13px;font-weight:700;")}>
+                  {"Launching Shortly"}
+                </span>
                 <div style={css("position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;")}>
                   <span style={css("font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#e9c176;text-transform:uppercase;margin-bottom:8px;")}>
                     {"Catalogue"}

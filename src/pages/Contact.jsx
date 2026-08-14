@@ -95,7 +95,7 @@ class Contact extends Component {
       .then(via => this.setState({ busy: false, sent: true, sentVia: via }))
       .catch(() => this.setState({
         busy: false,
-        formError: 'We could not send that just now. Please email info@gratitudefarms.co.in or call +91 93609 03652.'
+        formError: 'We could not send that just now. Please email info@gratitudefarms.co.in or call +91 91500 23044.'
       }));
   }
 
@@ -121,9 +121,11 @@ class Contact extends Component {
       ? [s.prefillService, ...this.baseOptions]
       : this.baseOptions;
 
-    const wa = this.cfg ? this.cfg.CONTACT.whatsapp : '919360903652';
+    const wa = this.cfg ? this.cfg.CONTACT.whatsapp : '919150023044';
 
     return {
+      phoneDial: this.cfg ? this.cfg.CONTACT.phoneDial : '+919150023044',
+      phoneDisplay: this.cfg ? this.cfg.CONTACT.phoneDisplay : '+91 91500 23044',
       prefillService: s.prefillService,
       prefillAudience: s.prefillAudience,
       interestOptions: options,
@@ -209,8 +211,8 @@ class Contact extends Component {
                 <div style={css("font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#2D5A27;text-transform:uppercase;margin-bottom:8px;")}>
                   {"Phone"}
                 </div>
-                <A href="tel:+919360903652" style={css("text-decoration:none;color:#1A3C34;font-size:19px;font-weight:700;")}>
-                  {"+91 93609 03652"}
+                <A href={`tel:${$v.phoneDial}`} style={css("text-decoration:none;color:#1A3C34;font-size:19px;font-weight:700;")}>
+                  {$v.phoneDisplay}
                 </A>
               </div>
               <div>
@@ -241,7 +243,7 @@ class Contact extends Component {
                 </div>
               </div>
               <div style={css("border-radius:16px;overflow:hidden;margin-top:8px;")}>
-                <img src="/assets/greenhouse-walkway.png" alt="Gratitude Farms cultivation site" style={css("width:100%;display:block;object-fit:cover;")} />
+                <img src="/assets/retreat-hut-pathway.png" alt="Visualisation of a Gratitude Farms one-acre plot with planted beds and a natural hut" style={css("width:100%;display:block;object-fit:cover;")} />
               </div>
             </div>
             <div style={css("background:#FAFAF9;border:1px solid #e5e2dd;border-radius:20px;padding:clamp(24px,4vw,44px);")}>
