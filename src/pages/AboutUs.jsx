@@ -5,6 +5,21 @@ import SiteNav from '../components/SiteNav.jsx';
 import TeamCard from '../components/TeamCard.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
 
+const STEP_ICON_PATHS = {
+  screen: 'M10.5 3a7.5 7.5 0 1 0 4.9 13.2l4.2 4.2M10.5 3a7.5 7.5 0 0 1 4.9 13.2M7.5 10.2l2.2 2.2 4-4.3',
+  certify: 'M12 3l2.6 1.9 3.2-.1.9 3 2.6 1.8-1 3 1 3-2.6 1.8-.9 3-3.2-.1L12 21l-2.6-1.7-3.2.1-.9-3L2.7 14.6l1-3-1-3 2.6-1.8.9-3 3.2.1L12 3z M8.8 12.2l2.2 2.2 4.2-4.4',
+  farm: 'M12 21v-7m0 0c0-3.3 2.5-6 5.8-6 0 3.3-2.5 6-5.8 6zm0 0C12 10.7 9.5 8 6.2 8c0 3.3 2.5 6 5.8 6zM4.5 21h15',
+  buyback: 'M4 8h11.5a4 4 0 0 1 0 8H9m-5-8l3.2-3.2M4 8l3.2 3.2M9 16l2.6 2.6M9 16l2.6-2.6'
+};
+
+function StepIcon({ name }) {
+  return (
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#8a6a2a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+      <path d={STEP_ICON_PATHS[name]} />
+    </svg>
+  );
+}
+
 class AboutUs extends Component {
 
   renderVals() {
@@ -23,6 +38,40 @@ class AboutUs extends Component {
         { name: 'Kannan Narayanaswamy', role: 'Mentor | Coach', photo: '/assets/team/kannan-narayanaswamy.png' },
         { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: '/assets/team/mv-ashok.png' },
         { name: 'Shyam Kaluve', role: 'IT Industry Veteran', photo: '/assets/team/shyam-kaluve.png' }
+      ],
+      focusStates: ['Tamil Nadu', 'Telangana', 'Karnataka'],
+      empowermentSteps: [
+        {
+          step: 'STEP 01',
+          icon: 'screen',
+          title: 'Screen and Select',
+          lead: 'We work with AWPO and ESM organizations to identify motivated ex-servicemen.',
+          points: []
+        },
+        {
+          step: 'STEP 02',
+          icon: 'certify',
+          title: 'Train and Certify',
+          lead: 'Currently being done internally.',
+          points: ['Planned NSDC aligned along with university certification.']
+        },
+        {
+          step: 'STEP 03',
+          icon: 'farm',
+          title: 'Help Establish Farming',
+          lead: 'Help them establish farming in their small farmlands with our multi-cropping model.',
+          points: [
+            'With three to five medicinal plants and fruit trees per acre.',
+            'Yield: 15 to 18 tons per acre.'
+          ]
+        },
+        {
+          step: 'STEP 04',
+          icon: 'buyback',
+          title: 'Buy Back Produce',
+          lead: 'Gratitude Farm buys back the entire produce.',
+          points: ['Ensuring that the ESM farmers get good revenue, good yield, and revenue per acre numbers.']
+        }
       ]
     };
   }
@@ -190,50 +239,58 @@ class AboutUs extends Component {
                 </h3>
               </div>
               <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;")}>
-                <div style={css("background:#FAFAF9;border-radius:18px;padding:30px;")}>
-                  <div style={css("font-family:'JetBrains Mono',monospace;font-size:12px;color:#C5A059;margin-bottom:12px;")}>
-                    {"STEP 01"}
+                {($v.empowermentSteps || []).map((step, stepIndex) => (
+                  <div key={stepIndex} style={css("background:#FAFAF9;border-radius:18px;padding:30px;")}>
+                    <div style={css("width:42px;height:42px;border-radius:12px;background:#f3e6cd;display:flex;align-items:center;justify-content:center;margin-bottom:16px;")}>
+                      <StepIcon name={step.icon} />
+                    </div>
+                    <div style={css("font-family:'JetBrains Mono',monospace;font-size:12px;color:#C5A059;margin-bottom:12px;")}>
+                      {step.step}
+                    </div>
+                    <h4 style={css("font-family:'Source Serif 4',serif;font-size:18px;color:#1A3C34;margin:0 0 8px;")}>
+                      {step.title}
+                    </h4>
+                    <p style={css("color:#414846;font-size:14px;line-height:1.6;margin:0;")}>
+                      {step.lead}
+                    </p>
+                    {step.points.length > 0 && (
+                      <ul style={css("margin:10px 0 0;padding:0 0 0 18px;color:#C5A059;")}>
+                        {step.points.map((point, pointIndex) => (
+                          <li key={pointIndex} style={css("margin-top:6px;")}>
+                            <span style={css("color:#414846;font-size:14px;line-height:1.6;")}>
+                              {point}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
-                  <h4 style={css("font-family:'Source Serif 4',serif;font-size:18px;color:#1A3C34;margin:0 0 8px;")}>
-                    {"Screen & Select"}
-                  </h4>
-                  <p style={css("color:#414846;font-size:14px;line-height:1.6;margin:0;")}>
-                    {"We identify motivated ex-servicemen and secure farmland on lease for organic cultivation."}
-                  </p>
+                ))}
+              </div>
+              <div style={css("margin-top:28px;background:rgba(250,250,249,0.06);border:1px solid rgba(197,160,89,0.4);border-left:4px solid #C5A059;border-radius:16px;padding:clamp(24px,3.2vw,32px);")}>
+                <span style={css("font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;color:#e9c176;text-transform:uppercase;")}>
+                  {"Our Partnership"}
+                </span>
+                <p style={css("color:#FAFAF9;font-size:clamp(16px,1.9vw,18.5px);line-height:1.65;margin:12px 0 0;")}>
+                  {"We have signed an "}
+                  <strong style={css("color:#e9c176;")}>
+                    {"MOU with the Army Welfare Placement Organization (AWPO)"}
+                  </strong>
+                  {" for screening and selection of ESM and running joint projects."}
+                </p>
+                <div style={css("display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:20px;")}>
+                  <span style={css("color:#c5eadf;font-size:14.5px;")}>
+                    {"Currently focusing on"}
+                  </span>
+                  {($v.focusStates || []).map((state, stateIndex) => (
+                    <span key={stateIndex} style={css("font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#f3e6cd;background:rgba(197,160,89,0.18);border:1px solid rgba(197,160,89,0.4);border-radius:999px;padding:6px 14px;")}>
+                      {state}
+                    </span>
+                  ))}
                 </div>
-                <div style={css("background:#FAFAF9;border-radius:18px;padding:30px;")}>
-                  <div style={css("font-family:'JetBrains Mono',monospace;font-size:12px;color:#C5A059;margin-bottom:12px;")}>
-                    {"STEP 02"}
-                  </div>
-                  <h4 style={css("font-family:'Source Serif 4',serif;font-size:18px;color:#1A3C34;margin:0 0 8px;")}>
-                    {"Train & Certify"}
-                  </h4>
-                  <p style={css("color:#414846;font-size:14px;line-height:1.6;margin:0;")}>
-                    {"Residential training aligned to NSDC National Occupational Standards, with university-backed certification."}
-                  </p>
-                </div>
-                <div style={css("background:#FAFAF9;border-radius:18px;padding:30px;")}>
-                  <div style={css("font-family:'JetBrains Mono',monospace;font-size:12px;color:#C5A059;margin-bottom:12px;")}>
-                    {"STEP 03"}
-                  </div>
-                  <h4 style={css("font-family:'Source Serif 4',serif;font-size:18px;color:#1A3C34;margin:0 0 8px;")}>
-                    {"Establish Their Farm"}
-                  </h4>
-                  <p style={css("color:#414846;font-size:14px;line-height:1.6;margin:0;")}>
-                    {"Our Food Forest model — 20-25 crops per acre — yields 15-18 tons per acre per year with built-in resilience."}
-                  </p>
-                </div>
-                <div style={css("background:#FAFAF9;border-radius:18px;padding:30px;")}>
-                  <div style={css("font-family:'JetBrains Mono',monospace;font-size:12px;color:#C5A059;margin-bottom:12px;")}>
-                    {"STEP 04"}
-                  </div>
-                  <h4 style={css("font-family:'Source Serif 4',serif;font-size:18px;color:#1A3C34;margin:0 0 8px;")}>
-                    {"Market via Sainya Krishi"}
-                  </h4>
-                  <p style={css("color:#414846;font-size:14px;line-height:1.6;margin:0;")}>
-                    {"Direct-to-consumer sales with farm-to-fork traceability under our brand — “We are your Family Farmers”."}
-                  </p>
-                </div>
+                <p style={css("color:#c5eadf;font-size:14.5px;line-height:1.6;margin:14px 0 0;")}>
+                  {"Over time, we will be working across India."}
+                </p>
               </div>
               <div style={css("text-align:center;margin-top:48px;")}>
                 <A href="/sainya-krishi" style={css("text-decoration:none;background:#C5A059;color:#1A3C34;font-weight:700;font-size:14px;padding:16px 34px;border-radius:12px;display:inline-block;")} hoverStyle={css("background:#e9c176;")}>
