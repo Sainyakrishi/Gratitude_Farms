@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+# This repo is now the canonical home for the site. The original upstream was
+# deleted, which detached this fork and left the custom domain unclaimed.
+
 on:
   push:
     branches: [main]
