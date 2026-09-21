@@ -36,7 +36,7 @@
  *       c.pbkdf2Sync(process.env.PW,s,600000,32,'sha256').toString('base64'))"
  */
 const OWNER = {
-  name: 'Krushna',
+  name: 'Admin',
   email: 'admin@sainyakrishi.com',
   role: 'Admin',
   salt: 'sSTUUb7om+qzzRRqsbenYQ==',
