@@ -25,6 +25,10 @@ export const CONTACT = {
 // While it is null the forms stay fully usable: they validate, then hand the
 // completed enquiry to the visitor's mail client, pre-addressed and pre-filled.
 // Nothing is silently dropped either way.
+//
+// The site's Content-Security-Policy (vite.config.js) only lets the browser
+// post to this site and to formspree.io. Any other endpoint has to be added to
+// `connect-src` there too, or submissions will be blocked.
 // ---------------------------------------------------------------------------
 
 export const FORM_ENDPOINT = null;

@@ -79,14 +79,14 @@ export function Hov({ as: Tag = 'div', style, hoverStyle, onMouseEnter, onMouseL
 }
 
 /**
- * Per-page `<title>` and description.
+ * Per-page `<title>`, description and, optionally, robots directive.
  *
  * The app renders on the client, so this is what a visitor sees in the tab and
  * what a crawler that executes JavaScript reads. Link previews and crawlers
  * that do not run JavaScript still get the defaults from `index.html` — the
  * same limitation the site had before the port.
  */
-export function Seo({ title, description }) {
+export function Seo({ title, description, robots }) {
   useEffect(() => {
     if (title) document.title = title;
     if (description) {
@@ -99,6 +99,17 @@ export function Seo({ title, description }) {
       tag.setAttribute('content', description);
     }
   }, [title, description]);
+
+  // Only the admin pages set this. It is removed on the way out, or the next
+  // public page the visitor opens would inherit "noindex".
+  useEffect(() => {
+    if (!robots) return undefined;
+    const tag = document.createElement('meta');
+    tag.setAttribute('name', 'robots');
+    tag.setAttribute('content', robots);
+    document.head.appendChild(tag);
+    return () => tag.remove();
+  }, [robots]);
 
   return null;
 }

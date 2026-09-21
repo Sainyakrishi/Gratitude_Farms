@@ -19,6 +19,7 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('');
   const [reveal, setReveal] = useState(false);
   const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
 
   // `body.gf-admin` is the console's background. Setting it here means the
   // colour reaches the overscroll area too, not just this page's box.
@@ -34,17 +35,22 @@ export default function AdminLogin() {
   // Someone already through has no reason to see the door again.
   if (isSignedIn()) return <Navigate to={from} replace />;
 
-  function onSubmit(event) {
+  // Checking a password takes a deliberate fraction of a second (that cost is
+  // what makes guessing slow), so the button holds still until it resolves.
+  async function onSubmit(event) {
     event.preventDefault();
+    if (busy) return;
 
-    if (signIn(email, password)) {
+    setBusy(true);
+    const result = await signIn(email, password);
+    setBusy(false);
+
+    if (result.ok) {
       navigate(from, { replace: true });
       return;
     }
 
-    // One message for both fields: saying which half was wrong tells an
-    // outsider which half to keep guessing at.
-    setError('That email and password do not match an account.');
+    setError(result.error);
     setPassword('');
   }
 
@@ -53,6 +59,7 @@ export default function AdminLogin() {
       <Seo
         title="Admin Login | Gratitude Farms"
         description="Sign in to the Gratitude Farms admin console."
+        robots="noindex, nofollow"
       />
       <main style={css("font-family:'Hanken Grotesk',sans-serif;min-height:100vh;background:#F0EDE8;display:flex;align-items:center;justify-content:center;padding:clamp(36px,8vw,72px) 20px;box-sizing:border-box;")}>
         <div style={css("width:100%;max-width:432px;")}>
@@ -134,10 +141,12 @@ export default function AdminLogin() {
             <Hov
               as="button"
               type="submit"
-              style={css("width:100%;margin-top:26px;background:#1A3C34;color:#fff;border:none;border-radius:12px;padding:15px 20px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;")}
+              disabled={busy}
+              aria-busy={busy || undefined}
+              style={css("width:100%;margin-top:26px;background:#1A3C34;color:#fff;border:none;border-radius:12px;padding:15px 20px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Hanken Grotesk',sans-serif;" + (busy ? "opacity:0.7;cursor:progress;" : ""))}
               hoverStyle={css("background:#C5A059;color:#1A3C34;")}
             >
-              Sign in to console
+              {busy ? 'Signing in…' : 'Sign in to console'}
             </Hov>
 
             <p style={css("color:#8b938f;font-size:12.5px;line-height:1.6;margin:18px 0 0;text-align:center;")}>
