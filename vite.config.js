@@ -22,8 +22,49 @@ function spaFallback() {
   };
 }
 
+/**
+ * GitHub Pages cannot send response headers, so the Content-Security-Policy
+ * travels as a <meta> tag in the built page. It limits scripts to this site's
+ * own files — an injected <script> or a script from another origin will not
+ * run — and names the only third parties the site uses: Google Fonts, the
+ * YouTube embed on Home and the Google Maps embed on Contact.
+ *
+ * It is added at build time only: the dev server injects inline scripts for
+ * hot reloading, which this policy would block.
+ *
+ * If you add a third party — a form endpoint, analytics, another embed — add
+ * its origin here, or the browser will silently refuse it.
+ */
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data: blob:",
+  "frame-src https://www.youtube-nocookie.com https://www.youtube.com https://maps.google.com https://www.google.com",
+  "connect-src 'self' https://formspree.io",
+  "form-action 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  'upgrade-insecure-requests'
+].join('; ');
+
+function contentSecurityPolicy() {
+  return {
+    name: 'gf-csp',
+    apply: 'build',
+    transformIndexHtml(html) {
+      return html.replace(
+        '<meta charset="utf-8">',
+        `<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="${CSP}">`
+      );
+    }
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), spaFallback()],
+  plugins: [react(), spaFallback(), contentSecurityPolicy()],
   server: { port: 8899 },
   preview: { port: 8899 },
   build: { outDir: 'dist', assetsDir: 'build' }

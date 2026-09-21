@@ -37,7 +37,7 @@ const ROUTES = [
 // src/lib/admin-auth.js writes.
 const SIGNED_IN = new Set(['/admin']);
 const SESSION_KEY = 'gf-admin-session';
-const SESSION_VALUE = 'krushna@sainyakrishi.com';
+const SESSION_VALUE = JSON.stringify({ email: 'admin@sainyakrishi.com', exp: Date.now() + 60 * 60 * 1000 });
 
 // A page under this many characters of text has almost certainly failed to
 // render. The login page is a short form and is genuinely this small.

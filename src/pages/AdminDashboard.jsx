@@ -226,10 +226,11 @@ class AdminDashboard extends Component {
    * duplicate address, too short a password, the last admin — straight to the
    * toast, and re-read the list on success.
    */
-  saveMember(idx) {
+  async saveMember(idx) {
     const form = this.state.form;
     const existing = idx === -1 ? null : this.state.team[idx];
-    const result = existing ? updateUser(existing.email, form) : addUser(form);
+    // Storing a password hashes it first, which takes a moment.
+    const result = await (existing ? updateUser(existing.email, form) : addUser(form));
 
     if (!result.ok) { this.showToast(result.error); return; }
 
@@ -450,7 +451,7 @@ class AdminDashboard extends Component {
     const $v = this.renderVals();
     return (
       <>
-      <Seo title={"Admin Console — Gratitude Farms"} description={"Gratitude Farms — Admin Console"} />
+      <Seo title={"Admin Console — Gratitude Farms"} description={"Gratitude Farms — Admin Console"} robots="noindex, nofollow" />
         <div className="adm-shell" style={css("font-family:'Hanken Grotesk',sans-serif;display:flex;min-height:100vh;background:#F0EDE8;")}>
           <aside className="adm-aside" style={css("width:250px;flex-shrink:0;background:#1A3C34;color:#FAFAF9;display:flex;flex-direction:column;padding:24px 16px;position:sticky;top:0;height:100vh;box-sizing:border-box;")}>
             <A href="/" style={css("display:flex;align-items:center;gap:10px;text-decoration:none;padding:0 10px 24px;border-bottom:1px solid rgba(250,250,249,0.12);margin-bottom:20px;")}>
