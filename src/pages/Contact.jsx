@@ -91,7 +91,7 @@ class Contact extends Component {
       'Land location': s.location.trim(),
       Audience: s.prefillAudience,
       Message: s.messageValue.trim()
-    })
+    }, 'enquiry')
       .then(via => this.setState({ busy: false, sent: true, sentVia: via }))
       .catch(() => this.setState({
         busy: false,

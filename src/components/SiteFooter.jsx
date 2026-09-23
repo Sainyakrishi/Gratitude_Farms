@@ -21,7 +21,7 @@ class SiteFooter extends Component {
     }
     this.setState({ subError: '' });
     this.cfg
-      .submitEnquiry('Newsletter subscription — Gratitude Farms', { Email: email, Source: 'Website footer' })
+      .submitEnquiry('Newsletter subscription — Gratitude Farms', { Email: email, Source: 'Website footer' }, 'newsletter')
       .then(() => this.setState({ subscribed: true }))
       .catch(() => this.setState({ subError: 'Could not subscribe right now — please email us instead.' }));
   }
