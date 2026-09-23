@@ -36,7 +36,7 @@ export const CONTACT = {
 // there too, or submissions are blocked before they leave the page.
 // ---------------------------------------------------------------------------
 
-export const FORM_ENDPOINT = null;
+export const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyLFnhw0hEdAer_xAMMYBO1rt8sfr5_awYvlpynakO36O1htFguvJkuQaKhrbDZxpk-lg/exec';
 export const FORM_TOKEN = 'm8VddUf2YM5YPPNaubhyD52m';
 
 export function mailtoLink(subject, fields) {
