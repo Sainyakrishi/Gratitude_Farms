@@ -53,6 +53,7 @@ const COLUMNS = {
 // deployed this script, so deploy it signed in as info@sainyakrishi.com for
 // notifications to come from that address.
 const NOTIFY = [
+  'info@sainyakrishi.com',
   'sandeep@sainyakrishi.com',
   'srihari@sainyakrishi.com',
   'vpsharma@sainyakrishi.com',
