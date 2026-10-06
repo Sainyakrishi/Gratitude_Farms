@@ -48,10 +48,17 @@ const COLUMNS = {
   newsletter: ['Received', 'Email', 'Source', 'Subject']
 };
 
-// Leave as '' to switch the notification email off. The email is sent from
-// whichever Google account deployed this script, so deploy it signed in as
-// info@sainyakrishi.com for notifications to come from that address.
-const NOTIFY = 'info@sainyakrishi.com';
+// Everyone who gets an email for each submission. Leave the list empty to
+// switch notifications off. The email is sent from whichever Google account
+// deployed this script, so deploy it signed in as info@sainyakrishi.com for
+// notifications to come from that address.
+const NOTIFY = [
+  'sandeep@sainyakrishi.com',
+  'srihari@sainyakrishi.com',
+  'vpsharma@sainyakrishi.com',
+  'krushna@sainyakrishi.com',
+  'nishad@sainyakrishi.com'
+];
 
 // A single submission cannot be larger than this, per field and in total.
 const MAX_FIELD = 5000;
@@ -127,11 +134,11 @@ function append(form, fields) {
 }
 
 function notify(form, fields) {
-  if (!NOTIFY) return;
+  if (!NOTIFY.length) return;
   try {
     const lines = Object.keys(fields).map(function (k) { return k + ': ' + fields[k]; });
     MailApp.sendEmail({
-      to: NOTIFY,
+      to: NOTIFY.join(','),
       subject: fields.Subject || (form === 'newsletter' ? 'New newsletter signup' : 'New website enquiry'),
       body: lines.join('\n') + '\n\n— sent by the website form',
       replyTo: fields.Email || undefined
