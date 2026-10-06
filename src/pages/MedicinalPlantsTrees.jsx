@@ -72,7 +72,7 @@ class MedicinalPlantsTrees extends Component {
               <p style={css("color:#414846;font-size:16.5px;line-height:1.75;margin:0 0 32px;")}>
                 {"Cultivated using Vriksh Ayurveda principles by Ex-Servicemen. Meticulously grown medicinal plants, offering unparalleled purity and potency for wellness and longevity."}
               </p>
-              <div style={css("display:flex;gap:16px;flex-wrap:wrap;")}>
+              <div className="gf-cta-row" style={css("display:flex;gap:16px;flex-wrap:wrap;")}>
                 <A href="/vriksh-ayurveda" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:15px 28px;border-radius:12px;")}>
                   {"About Vriksh Ayurveda"}
                 </A>
@@ -221,7 +221,7 @@ class MedicinalPlantsTrees extends Component {
             <p style={css("color:#414846;font-size:16.5px;line-height:1.7;max-width:600px;margin:0 auto 36px;")}>
               {"Join our network of buyers securing high-yield, purely organic medicinal plants — or plant these species on your own land with our Farmland Design service."}
             </p>
-            <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
+            <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
               <A href="/contact?service=Medicinal%20Plants%20%26%20Produce" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
                 {"Request Information"}
               </A>

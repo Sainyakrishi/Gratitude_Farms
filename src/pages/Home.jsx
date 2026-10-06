@@ -105,7 +105,7 @@ class Home extends Component {
                     <p style={css("font-size:clamp(16px,2vw,21px);line-height:1.55;color:#e5e2dd;max-width:640px;margin:24px 0 40px;text-wrap:balance;")}>
                       {b.tagline}
                     </p>
-                    <div style={css("display:flex;gap:16px;flex-wrap:wrap;justify-content:center;")}>
+                    <div className="gf-cta-row" style={css("display:flex;gap:16px;flex-wrap:wrap;justify-content:center;")}>
                       <A href={b.href} style={css("text-decoration:none;background:#C5A059;color:#1A3C34;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
                         {"Explore "}{b.name}{" →"}
                       </A>
@@ -370,7 +370,7 @@ class Home extends Component {
                 <p style={css("color:#c5eadf;font-size:16px;line-height:1.7;margin:0 0 32px;")}>
                   {"We train and transition Ex-Servicemen into rural agritech entrepreneurs, applying military discipline to precision farming and sustainable enterprise leadership."}
                 </p>
-                <div style={css("display:flex;gap:14px;flex-wrap:wrap;")}>
+                <div className="gf-cta-row" style={css("display:flex;gap:14px;flex-wrap:wrap;")}>
                   <A href="/sainya-krishi" style={css("text-decoration:none;background:#C5A059;color:#1A3C34;font-weight:700;font-size:14px;padding:15px 28px;border-radius:12px;")}>
                     {"Explore Sainya Krishi →"}
                   </A>
@@ -430,7 +430,7 @@ class Home extends Component {
             <p style={css("color:#414846;font-size:16.5px;line-height:1.7;max-width:640px;margin:0 auto 36px;")}>
               {"Whether you are an investor seeking sustainable ESG opportunities, a landowner seeking restoration, or a partner in our vision — we welcome you to the Gratitude family."}
             </p>
-            <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
+            <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
               <A href="/contact" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
                 {"Partner With Us"}
               </A>

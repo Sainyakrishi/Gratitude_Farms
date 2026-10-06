@@ -259,7 +259,7 @@ class Contact extends Component {
                   <p style={css("color:#414846;font-size:15.5px;line-height:1.7;margin:0 auto;max-width:420px;")}>
                     {$v.sentBody}
                   </p>
-                  <div style={css("display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;")}>
+                  <div className="gf-cta-row" style={css("display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;")}>
                     <A href={$v.whatsappHref} target="_blank" rel="noopener noreferrer" style={css("text-decoration:none;background:#25D366;color:#fff;font-weight:700;font-size:14px;padding:15px 26px;border-radius:12px;")}>
                       {"Chat on WhatsApp"}
                     </A>

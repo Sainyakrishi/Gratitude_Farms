@@ -26,7 +26,7 @@ export default function SainyaKrishi(props) {
         </section>
         <section style={css("max-width:1440px;margin:0 auto;padding:clamp(54px,10.0vw,120px) clamp(20px,5.5vw,80px);display:grid;grid-template-columns:repeat(2,1fr);gap:24px;")}>
           <div>
-            <div style={css("font-family:'Source Serif 4',serif;font-size:52px;color:#C5A059;")}>
+            <div className="gf-stat-lg" style={css("font-family:'Source Serif 4',serif;font-size:52px;color:#C5A059;")}>
               {"50+"}
             </div>
             <div style={css("font-size:14px;color:#414846;margin-top:8px;")}>
@@ -34,7 +34,7 @@ export default function SainyaKrishi(props) {
             </div>
           </div>
           <div>
-            <div style={css("font-family:'Source Serif 4',serif;font-size:52px;color:#2D5A27;")}>
+            <div className="gf-stat-lg" style={css("font-family:'Source Serif 4',serif;font-size:52px;color:#2D5A27;")}>
               {"120"}
             </div>
             <div style={css("font-size:14px;color:#414846;margin-top:8px;")}>
@@ -75,7 +75,7 @@ export default function SainyaKrishi(props) {
           <p style={css("color:#414846;font-size:16.5px;line-height:1.7;max-width:600px;margin:0 auto 36px;")}>
             {"Join the Sainya Krishi program and build your own natural farming enterprise."}
           </p>
-          <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
+          <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
             <A href="/contact?service=Sainya%20Krishi%20(I'm%20an%20Ex-Serviceman)" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
               {"Apply Now"}
             </A>

@@ -111,7 +111,7 @@ class ServiceDetail extends Component {
             <div style={css("position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 clamp(24px,6vw,80px) 84px;width:100%;box-sizing:border-box;animation:fadeUp 0.9s cubic-bezier(.16,1,.3,1) both;")}>
               <div style={css("display:flex;align-items:center;gap:12px;margin-bottom:22px;")}>
                 <span style={css("width:9px;height:9px;border-radius:999px;background:#C5A059;animation:pulseDot 1.6s ease-in-out infinite;")} />
-                <span style={css("font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#e9c176;text-transform:uppercase;")}>
+                <span className="gf-hero-kicker" style={css("font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.14em;color:#e9c176;text-transform:uppercase;")}>
                   {$v.svc.code}{" · "}{$v.svc.category}
                 </span>
               </div>
@@ -130,7 +130,7 @@ class ServiceDetail extends Component {
               <p style={css("color:#eef0ec;font-size:clamp(19px,2.2vw,26px);line-height:1.5;max-width:760px;margin:26px 0 40px;text-wrap:balance;")}>
                 {$v.svc.tagline}
               </p>
-              <div style={css("display:flex;gap:16px;flex-wrap:wrap;")}>
+              <div className="gf-cta-row" style={css("display:flex;gap:16px;flex-wrap:wrap;")}>
                 <A href={$v.enquireHref} style={css("text-decoration:none;background:#C5A059;color:#1A3C34;font-weight:700;font-size:16px;padding:18px 38px;border-radius:14px;transition:transform 0.2s ease, box-shadow 0.2s ease;")} hoverStyle={css("transform:translateY(-3px);box-shadow:0 14px 32px rgba(197,160,89,0.4);")}>
                   {"Enquire Now"}
                 </A>
@@ -159,7 +159,7 @@ class ServiceDetail extends Component {
               <span style={css("font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:0.1em;color:#C5A059;text-transform:uppercase;")}>
                 {"The Overview"}
               </span>
-              <p style={css("font-family:'Source Serif 4',serif;font-size:clamp(24px,3.4vw,38px);line-height:1.4;color:#1A3C34;margin:24px 0 0;text-wrap:pretty;")}>
+              <p className="gf-lead" style={css("font-family:'Source Serif 4',serif;font-size:clamp(24px,3.4vw,38px);line-height:1.4;color:#1A3C34;margin:24px 0 0;text-wrap:pretty;")}>
                 {$v.svc.overview}
               </p>
             </div>
@@ -437,7 +437,7 @@ class ServiceDetail extends Component {
               <p style={css("color:#83a69c;font-size:15px;margin:0 auto 36px;max-width:520px;")}>
                 {"Want detailed pricing, timelines and implementation guidance? Download the brochure or connect with our specialists."}
               </p>
-              <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;")}>
+              <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;")}>
                 <A href={$v.enquireHref} style={css("text-decoration:none;background:#C5A059;color:#1A3C34;font-weight:700;font-size:17px;padding:19px 40px;border-radius:14px;transition:transform 0.2s ease,box-shadow 0.2s ease;")} hoverStyle={css("transform:translateY(-3px);box-shadow:0 16px 36px rgba(197,160,89,0.45);")}>
                   {"Enquire Now"}
                 </A>

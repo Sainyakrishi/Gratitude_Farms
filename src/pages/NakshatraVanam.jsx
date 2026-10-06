@@ -266,7 +266,7 @@ export default function NakshatraVanam(props) {
           <p style={css("color:#414846;font-size:16.5px;line-height:1.75;max-width:640px;margin:0 auto 20px;")}>
             {"In as little as 3 to 5 years, your Nakshatra Vanam will grow into a flourishing personal forest — a living sanctuary and an eco-friendly legacy that benefits future generations. The cost to create this micro-forest is less than 5-10% of the price of an average urban home."}
           </p>
-          <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:16px;")}>
+          <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:16px;")}>
             <A href="/contact?service=Personal%20Nakshatra%20Vanam" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
               {"Create Your Nakshatra Vanam"}
             </A>

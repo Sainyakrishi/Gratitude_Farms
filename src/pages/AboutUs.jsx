@@ -359,7 +359,7 @@ class AboutUs extends Component {
             <p style={css("color:#414846;font-size:16.5px;line-height:1.7;max-width:640px;margin:0 auto 36px;")}>
               {"Whether you are an investor, a landowner seeking restoration, or a partner in our vision — we welcome you to the Gratitude family."}
             </p>
-            <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
+            <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
               <A href="/contact" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
                 {"Partner With Us"}
               </A>

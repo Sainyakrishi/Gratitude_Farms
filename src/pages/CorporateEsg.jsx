@@ -110,7 +110,7 @@ export default function CorporateEsg(props) {
           <p style={css("color:#414846;font-size:16.5px;line-height:1.7;max-width:600px;margin:0 auto 36px;")}>
             {"Talk to our team about a tailored corporate sustainability partnership."}
           </p>
-          <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
+          <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
             <A href="/contact?service=Corporate%20ESG%20Partnership&audience=Corporates%20%26%20PSUs" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
               {"Talk to Our Team"}
             </A>

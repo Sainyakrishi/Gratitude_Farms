@@ -72,7 +72,7 @@ export default function VrikshAyurveda(props) {
           <p style={css("color:#414846;font-size:16.5px;line-height:1.7;max-width:600px;margin:0 auto 36px;")}>
             {"See the species we raise under these principles, or apply them to your own land."}
           </p>
-          <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
+          <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
             <A href="/medicinal-plants-trees#catalogue" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
               {"Browse the Species Catalogue"}
             </A>

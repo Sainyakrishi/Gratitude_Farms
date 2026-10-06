@@ -278,6 +278,26 @@ textarea:focus-visible {
   .gf-swipe-wide > * { flex-basis: min(88%, 420px); }
 }
 
+/* Slides size by flex-basis, which counts the content box by default — so a
+   card with 36px of inline padding came out 72px wider than its basis, filled
+   the screen and hid the peeking card that makes the rail read as a rail. */
+@media (max-width: 700px) {
+  .gf-swipe > * { box-sizing: border-box; }
+}
+
+/* Tablet portrait. An auto-fit card grid lands on two columns here, so a row of
+   three cards left the third alone under the first. Pin the grid to two
+   columns, and centre an odd last card under the pair instead. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .gf-swipe:not(.gf-2col) { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+  .gf-swipe:not(.gf-2col) > :last-child:nth-child(odd):not(:first-child) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 12px);
+  }
+}
+
 /* Short tiles — the number-and-label stats — are not worth a rail. Two up is
    both shorter than a stack and easier to compare than a swipe. */
 @media (max-width: 620px) {
@@ -305,6 +325,42 @@ textarea:focus-visible {
 @media (max-width: 620px) {
   .gf-hero-tall { height: auto !important; min-height: 72vh !important; }
   .gf-stat-lg { font-size: 34px !important; }
+}
+
+/* Rows of call-to-action buttons. Wrapped onto a phone they stacked at their
+   own text widths, two ragged pills of different lengths; full-width buttons
+   of one size are easier to hit and line up with the text above. */
+@media (max-width: 620px) {
+  .gf-cta-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    width: 100%;
+  }
+
+  .gf-cta-row > * {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* The service pages' hero kicker is set wide for a desktop line; on a phone
+     the tracking alone pushed it onto three lines. */
+  .gf-hero-kicker { font-size: 12px !important; letter-spacing: 0.08em !important; line-height: 1.5; }
+
+  /* The service overview is a display-size paragraph; at 24px a phone ran it to
+     fourteen lines of large serif. */
+  .gf-lead { font-size: 20px !important; line-height: 1.5 !important; }
+
+  .gf-label { font-size: 12px; }
+}
+
+/* Mono badges and kickers set at 10–10.5px for desktop are below a readable
+   size on a handheld screen. Matched on the inline value they carry, since that
+   is where the size lives; 11px keeps the small-caps look. */
+@media (max-width: 900px) {
+  [style*="font-size: 10px"],
+  [style*="font-size: 10.5px"] { font-size: 11px !important; }
 }
 
 /* On a phone the carousel arrows sit on top of the headline, and the slide is

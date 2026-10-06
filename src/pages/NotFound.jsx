@@ -23,7 +23,7 @@ export default function NotFound() {
             The page you asked for has been moved or never existed. The land, the trees
             and the rest of the site are all still here.
           </p>
-          <div style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
+          <div className="gf-cta-row" style={css("display:flex;gap:16px;justify-content:center;flex-wrap:wrap;")}>
             <A href="/" style={css("text-decoration:none;background:#1A3C34;color:#fff;font-weight:700;font-size:14px;padding:16px 32px;border-radius:12px;")}>
               Back to Home
             </A>
