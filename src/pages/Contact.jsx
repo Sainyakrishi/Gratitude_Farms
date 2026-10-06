@@ -95,7 +95,7 @@ class Contact extends Component {
       .then(via => this.setState({ busy: false, sent: true, sentVia: via }))
       .catch(() => this.setState({
         busy: false,
-        formError: 'We could not send that just now. Please email info@gratitudefarms.co.in or call +91 91500 23044.'
+        formError: 'We could not send that just now. Please email info@sainyakrishi.com or call +91 91500 23044.'
       }));
   }
 
@@ -149,7 +149,7 @@ class Contact extends Component {
       sent: s.sent,
       sentTitle: s.sentVia === 'mailto' ? 'Almost there' : 'Thank you — enquiry received',
       sentBody: s.sentVia === 'mailto'
-        ? 'Your email app should have opened with the enquiry filled in. Press send there and we will get back to you within two working days. If nothing opened, email us at info@gratitudefarms.co.in.'
+        ? 'Your email app should have opened with the enquiry filled in. Press send there and we will get back to you within two working days. If nothing opened, email us at info@sainyakrishi.com.'
         : 'A member of our team will review your enquiry and get back to you within two working days.',
       whatsappHref: `https://wa.me/${wa}?text=${encodeURIComponent('Hello Gratitude Farms, I have just submitted an enquiry through your website.')}`,
       onSubmit: (e) => this.submit(e),
@@ -219,8 +219,8 @@ class Contact extends Component {
                 <div style={css("font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#2D5A27;text-transform:uppercase;margin-bottom:8px;")}>
                   {"Email"}
                 </div>
-                <A href="mailto:info@gratitudefarms.co.in" style={css("text-decoration:none;color:#1A3C34;font-size:19px;font-weight:700;")}>
-                  {"info@gratitudefarms.co.in"}
+                <A href="mailto:info@sainyakrishi.com" style={css("text-decoration:none;color:#1A3C34;font-size:19px;font-weight:700;")}>
+                  {"info@sainyakrishi.com"}
                 </A>
               </div>
               <div>

@@ -147,8 +147,8 @@ class Terms extends Component {
             </h2>
             <p>
               {"Email "}
-              <A href="mailto:info@gratitudefarms.co.in">
-                {"info@gratitudefarms.co.in"}
+              <A href="mailto:info@sainyakrishi.com">
+                {"info@sainyakrishi.com"}
               </A>
               {" · Phone "}
               <A href="tel:+919150023044">

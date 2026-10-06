@@ -2,7 +2,7 @@
 // Imported by src/pages/Contact.jsx and src/components/SiteFooter.jsx.
 
 export const CONTACT = {
-  email: 'info@gratitudefarms.co.in',
+  email: 'info@sainyakrishi.com',
   phoneDisplay: '+91 91500 23044',
   phoneDial: '+919150023044',
   whatsapp: '919150023044',

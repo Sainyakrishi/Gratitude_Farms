@@ -48,8 +48,10 @@ const COLUMNS = {
   newsletter: ['Received', 'Email', 'Source', 'Subject']
 };
 
-// Leave as '' to switch the notification email off.
-const NOTIFY = 'info@gratitudefarms.co.in';
+// Leave as '' to switch the notification email off. The email is sent from
+// whichever Google account deployed this script, so deploy it signed in as
+// info@sainyakrishi.com for notifications to come from that address.
+const NOTIFY = 'info@sainyakrishi.com';
 
 // A single submission cannot be larger than this, per field and in total.
 const MAX_FIELD = 5000;

@@ -107,7 +107,7 @@ export default function AdminLogin() {
               autoFocus
               required
               aria-invalid={error ? 'true' : undefined}
-              placeholder="you@gratitudefarms.co.in"
+              placeholder="you@sainyakrishi.com"
               style={css("padding:13px 14px;font-size:15px;")}
             />
 

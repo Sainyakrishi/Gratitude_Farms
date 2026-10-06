@@ -70,7 +70,7 @@ class AdminDashboard extends Component {
     ],
     settings: {
       siteName: 'Gratitude Farms', tagline: 'Cultivating Discipline, Harvesting Hope',
-      supportEmail: 'info@gratitudefarms.co.in', phone: '+91 91500 23044',
+      supportEmail: 'info@sainyakrishi.com', phone: '+91 91500 23044',
       address: 'No.70, Auroville Main Road, Kottakuppam, Pondicherry – 605104',
       facebook: 'https://www.facebook.com/gratitudefarmsindia/', instagram: 'https://www.instagram.com/gratitude_farms/',
       linkedin: 'https://www.linkedin.com/company/gratitudefarmsindia', youtube: 'https://www.youtube.com/channel/UC61AuTlj_15ZXKLPCQF-F2w',

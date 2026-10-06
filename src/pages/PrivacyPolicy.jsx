@@ -119,8 +119,8 @@ class PrivacyPolicy extends Component {
             </ul>
             <p>
               {"To exercise any of these, write to "}
-              <A href="mailto:info@gratitudefarms.co.in">
-                {"info@gratitudefarms.co.in"}
+              <A href="mailto:info@sainyakrishi.com">
+                {"info@sainyakrishi.com"}
               </A>
               {". We will respond within 30 days."}
             </p>
@@ -149,8 +149,8 @@ class PrivacyPolicy extends Component {
               {"Questions about this policy, or about how we handle your information:"}
               <br />
               {"\n    Email "}
-              <A href="mailto:info@gratitudefarms.co.in">
-                {"info@gratitudefarms.co.in"}
+              <A href="mailto:info@sainyakrishi.com">
+                {"info@sainyakrishi.com"}
               </A>
               {" · Phone "}
               <A href="tel:+919150023044">
