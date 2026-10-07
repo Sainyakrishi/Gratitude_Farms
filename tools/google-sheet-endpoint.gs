@@ -10,29 +10,25 @@
  * ── Installing it ──────────────────────────────────────────────────────────
  *  1. Open the sheet → Extensions → Apps Script.
  *  2. Delete whatever is in Code.gs and paste this file in its place.
- *  3. Change TOKEN below to match FORM_TOKEN in src/data/site-config.js.
- *  4. Deploy → New deployment → type "Web app".
+ *  3. Deploy → New deployment → type "Web app".
  *       Execute as:        Me
  *       Who has access:    Anyone                 ← must be "Anyone", not
  *                                                   "Anyone with a Google
  *                                                   account", or visitors get
  *                                                   a sign-in page.
- *  5. Authorise it when Google asks. The "unverified app" warning is expected
+ *  4. Authorise it when Google asks. The "unverified app" warning is expected
  *     for your own script: Advanced → Go to (project name).
- *  6. Copy the /exec URL it gives you into FORM_ENDPOINT in site-config.js.
+ *  5. Copy the /exec URL it gives you into FORM_ENDPOINT in site-config.js.
  *
  * Re-deploy after any edit — "Deploy → Manage deployments → edit → Version:
  * New version". Saving alone does not update the live URL.
  *
  * ── What this can and cannot protect ───────────────────────────────────────
- * TOKEN travels inside the website's JavaScript, which anyone can read, so it
- * stops stray traffic and casual bots, not a determined person. The real
- * guards are that this script only ever appends to a sheet, caps what it will
- * store, and can do nothing else with your account.
+ * There is deliberately no shared token. Anything the website sends lives in
+ * its public JavaScript, so a token would stop nobody and secret scanners flag
+ * it as a leaked credential. The guards are the hidden honeypot field, the size
+ * caps below, and that this script can only append rows and send the alert.
  */
-
-// Must match FORM_TOKEN in src/data/site-config.js.
-const TOKEN = 'REPLACE_WITH_THE_TOKEN_FROM_SITE_CONFIG';
 
 // Each form lands on its own tab. A tab that does not exist yet is created on
 // first use, so the sheet needs no setting up by hand.
@@ -68,8 +64,6 @@ const MAX_TOTAL = 20000;
 function doPost(request) {
   try {
     const body = JSON.parse(request.postData.contents);
-
-    if (body.token !== TOKEN) return reply({ ok: false, error: 'bad token' });
 
     const form = TABS[body.form] ? body.form : 'enquiry';
     const fields = body.fields && typeof body.fields === 'object' ? body.fields : {};

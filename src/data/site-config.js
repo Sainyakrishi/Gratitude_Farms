@@ -22,9 +22,8 @@ export const CONTACT = {
 // which appends a row and emails a copy. The script itself is checked in at
 // tools/google-sheet-endpoint.gs, with its install steps at the top.
 //
-// FORM_TOKEN is not a secret — it ships inside this bundle like everything
-// else here. It exists so the endpoint can ignore stray traffic, and it must
-// match TOKEN in the script.
+// Nothing secret goes in this file: it ships inside the public bundle. The
+// endpoint needs no token for that reason — see the note in the script.
 //
 // While FORM_ENDPOINT is null the forms stay fully usable: they validate, then
 // hand the completed enquiry to the visitor's mail client, pre-addressed and
@@ -37,7 +36,6 @@ export const CONTACT = {
 // ---------------------------------------------------------------------------
 
 export const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwMUWgkRN_wLW2wdtQz4vZSyfDZpmW_87OERH_Bc9OSqDFG9-zcZMr6Dbc7r8QY4jfJ/exec';
-export const FORM_TOKEN = '***REMOVED***';
 
 export function mailtoLink(subject, fields) {
   const body = Object.entries(fields)
@@ -65,7 +63,7 @@ export async function submitEnquiry(subject, fields, form = 'enquiry') {
       const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ token: FORM_TOKEN, form, subject, fields }),
+        body: JSON.stringify({ form, subject, fields }),
         redirect: 'follow'
       });
 
