@@ -4,6 +4,7 @@ import { css } from '../lib/css.js';
 import SiteNav from '../components/SiteNav.jsx';
 import TeamCard from '../components/TeamCard.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
+import { directors, leadership, advisors } from '../data/team-data.js';
 
 const STEP_ICON_PATHS = {
   screen: 'M10.5 3a7.5 7.5 0 1 0 4.9 13.2l4.2 4.2M10.5 3a7.5 7.5 0 0 1 4.9 13.2M7.5 10.2l2.2 2.2 4-4.3',
@@ -24,19 +25,9 @@ class AboutUs extends Component {
 
   renderVals() {
     return {
-      directors: [
-        { name: 'Major VP Sharma (Retd)', role: 'Co-Founder & CEO', photo: '/assets/team/major-vp-sharma.png' },
-        { name: 'Ayushi Sharma', role: 'Co-Founder & Director', photo: '/assets/team/ayushi-sharma.png' }
-      ],
-      leadership: [
-        { name: 'Abhilash', role: 'Co-Founder & CEO, Operations', photo: '/assets/team/placeholder-avatar.svg' },
-        { name: 'Shoba Srinivas', role: 'Manager, HR & Projects', photo: '/assets/team/shoba-srinivas.png' },
-        { name: 'Raja Ganesh', role: 'Manager, HR & Projects', photo: '/assets/team/raja-ganesh.jpg' }
-      ],
-      advisors: [
-        { name: 'Dr. Ramesh Mittal', role: 'Director, NIAM Jaipur', photo: '/assets/team/dr-ramesh-mittal.png' },
-        { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: '/assets/team/mv-ashok.png' }
-      ],
+      directors: directors.map(({ bio, ...person }) => person),
+      leadership: leadership.map(({ bio, ...person }) => person),
+      advisors: advisors.map(({ bio, ...person }) => person),
       focusStates: ['Tamil Nadu', 'Telangana', 'Karnataka'],
       empowermentSteps: [
         {
@@ -311,7 +302,7 @@ class AboutUs extends Component {
                 {"Board of Directors"}
               </h2>
             </div>
-            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:700px;margin:48px auto 0;")}>
+            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));justify-content:center;gap:24px;margin:48px auto 0;")}>
               {($v.directors || []).map((person, personIndex) => (
                 <Fragment key={personIndex}>
                   <TeamCard person={person} />
@@ -325,7 +316,7 @@ class AboutUs extends Component {
                 {"Leadership Team"}
               </h2>
             </div>
-            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;")}>
+            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));justify-content:center;gap:24px;")}>
               {($v.leadership || []).map((person, personIndex) => (
                 <Fragment key={personIndex}>
                   <TeamCard person={person} />
@@ -339,7 +330,7 @@ class AboutUs extends Component {
                 {"Board of Advisors"}
               </h2>
             </div>
-            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;")}>
+            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));justify-content:center;gap:24px;")}>
               {($v.advisors || []).map((person, personIndex) => (
                 <Fragment key={personIndex}>
                   <TeamCard person={person} />

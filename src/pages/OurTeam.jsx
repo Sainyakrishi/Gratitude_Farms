@@ -4,24 +4,15 @@ import { css } from '../lib/css.js';
 import SiteNav from '../components/SiteNav.jsx';
 import TeamCard from '../components/TeamCard.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
+import { directors, leadership, advisors } from '../data/team-data.js';
 
 class OurTeam extends Component {
 
   renderVals() {
     return {
-      directors: [
-        { name: 'Major VP Sharma (Retd)', role: 'Co-Founder & CEO', photo: '/assets/team/major-vp-sharma.png', bio: 'Veteran Army officer bringing strategic discipline to natural precision farming.' },
-        { name: 'Ayushi Sharma', role: 'Co-Founder & Director', photo: '/assets/team/ayushi-sharma.png', bio: 'Leads brand, partnerships and the Nakshatra Vanam heritage program.' }
-      ],
-      leadership: [
-        { name: 'Abhilash', role: 'Co-Founder & CEO, Operations', photo: '/assets/team/placeholder-avatar.svg', bio: 'Oversees farm operations and technology deployment across sites.' },
-        { name: 'Shoba Srinivas', role: 'Manager, HR & Projects', photo: '/assets/team/shoba-srinivas.png', bio: 'Coordinates ex-servicemen onboarding and project delivery.' },
-        { name: 'Raja Ganesh', role: 'Manager, HR & Projects', photo: '/assets/team/raja-ganesh.jpg', bio: 'Manages field teams and community entrepreneurship programs.' }
-      ],
-      advisors: [
-        { name: 'Dr. Ramesh Mittal', role: 'Director, NIAM Jaipur', photo: '/assets/team/dr-ramesh-mittal.png', bio: 'Guides agricultural marketing strategy and policy alignment.' },
-        { name: 'Prof. M. V. Ashok', role: 'Agribusiness Professional', photo: '/assets/team/mv-ashok.png', bio: 'Brings decades of agribusiness and supply-chain expertise.' }
-      ]
+      directors,
+      leadership,
+      advisors
     };
   }
 
@@ -47,7 +38,7 @@ class OurTeam extends Component {
             <h2 style={css("font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,32px);color:#1A3C34;margin:0 0 40px;text-align:center;")}>
               {"Board of Directors"}
             </h2>
-            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:700px;margin:0 auto;")}>
+            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));justify-content:center;gap:24px;margin:0 auto;")}>
               {($v.directors || []).map((person, personIndex) => (
                 <Fragment key={personIndex}>
                   <TeamCard person={person} />
@@ -59,7 +50,7 @@ class OurTeam extends Component {
             <h2 style={css("font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,32px);color:#1A3C34;margin:0 0 40px;text-align:center;")}>
               {"Leadership Team"}
             </h2>
-            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;")}>
+            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));justify-content:center;gap:24px;")}>
               {($v.leadership || []).map((person, personIndex) => (
                 <Fragment key={personIndex}>
                   <TeamCard person={person} />
@@ -71,7 +62,7 @@ class OurTeam extends Component {
             <h2 style={css("font-family:'Source Serif 4',serif;font-size:clamp(24px,3vw,32px);color:#1A3C34;margin:0 0 40px;text-align:center;")}>
               {"Board of Advisors"}
             </h2>
-            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;")}>
+            <div className="gf-swipe" style={css("display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));justify-content:center;gap:24px;")}>
               {($v.advisors || []).map((person, personIndex) => (
                 <Fragment key={personIndex}>
                   <TeamCard person={person} />
