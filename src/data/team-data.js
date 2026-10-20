@@ -4,8 +4,7 @@ const AVATAR = '/assets/team/placeholder-avatar.svg';
 
 export const directors = [
   { name: 'Major VP Sharma (Retd)', role: 'Co-Founder & CEO', photo: '/assets/team/major-vp-sharma.png', bio: 'Co-founder of Gramonnati Trust. Sixteen years in the Indian Army and sixteen in global technology leadership. Leads farmland development that rebuilds barren land with biochar and enriched compost, and trains ex-servicemen, rural women and youth as grassroots farm entrepreneurs.' },
-  { name: 'Ayushi Sharma', role: 'Director', photo: '/assets/team/ayushi-sharma.png', bio: 'Director of Gratitude Farms and Trustee of Gramonnati Trust. Building an Agri Operation Centre that monitors farm activity, and overseeing on-farm solar drying. MINES ParisTech Master’s in Energy Strategies; formerly at SunMoksha Power.' },
-  { name: 'Syed Asaad Jawaid', role: 'Director, Oman & GCC', photo: AVATAR, bio: 'Business consultant and corporate trainer with 20+ years across Oman, the GCC, the UK and India. Leads Sainya Krishi’s GCC market entry and expansion through Turbat Al Rawad LLC, and is Director of Inaya International LLC, Oman.' }
+  { name: 'Ayushi Sharma', role: 'Director', photo: '/assets/team/ayushi-sharma.png', bio: 'Director of Gratitude Farms and Trustee of Gramonnati Trust. Building an Agri Operation Centre that monitors farm activity, and overseeing on-farm solar drying. MINES ParisTech Master’s in Energy Strategies; formerly at SunMoksha Power.' }
 ];
 
 export const leadership = [
@@ -21,6 +20,7 @@ export const leadership = [
 
 export const advisors = [
   { name: 'Dr. N. Sai Bhaskar Reddy', role: 'Senior Consultant & Advisor', photo: AVATAR, bio: 'A pioneer of biochar in India with 20+ years across 18+ states, Afghanistan and Indonesia. Founder of Biochar Academy and Founder President of the Progressive Biochar Society.' },
+  { name: 'Shyam Kaluve', role: 'Advisor', photo: '/assets/team/shyam-kaluve.png', linkedin: 'https://www.linkedin.com/in/shyamkaluve/', bio: 'Technology professional, innovator, angel investor, mentor and social entrepreneur with a long career in the networking industry. Now focused on adopting technology for the masses and sharing knowledge for a more equitable, sustainable world.' },
   { name: 'Brig. Athul Sharma (Retd)', role: 'Advisor', photo: '/assets/team/brig-athul-sharma.jpg', bio: 'Retired Army Brigadier with 35 years in defence ICT, cyber security and project management. Involved with Gramonnati since inception; now handles international business across domains.' },
   { name: 'Shrihari Allangala', role: 'Investment Banking & Strategic Advisory', photo: '/assets/team/shrihari-allangala.jpg', bio: 'Postgraduate in Finance with 40+ years in M&A, cross-border investment, structured debt and private credit, including 15+ years in the UAE. Has guided start-ups and SMEs from capital raising to exit.' },
   { name: 'Nitin Murali', role: 'Finance & Business Development', photo: '/assets/team/nitin-murali.jpg', bio: 'Founder of N3R Genesis, exporting from India to Mauritius, Seychelles and Reunion. Former head of the International Desk at FINCORP, Oman. Master’s in Finance, RMIT University.' },

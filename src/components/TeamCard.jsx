@@ -21,6 +21,11 @@ export default function TeamCard(props) {
             </p>
             </>
           ) : null}
+          {(props.person.linkedin) ? (
+            <a href={props.person.linkedin} target="_blank" rel="noopener noreferrer" aria-label={props.person.name + ' on LinkedIn'} style={css("margin-top:10px;font-size:13px;font-weight:700;color:#1A3C34;text-decoration:none;border-bottom:1px solid #C5A059;align-self:flex-start;")}>
+              {"LinkedIn ↗"}
+            </a>
+          ) : null}
         </div>
       </div>
     </>
